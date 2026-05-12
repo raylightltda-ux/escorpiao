@@ -24,9 +24,9 @@ jobs:
           pip install requests beautifulsoup4
       
       - name: 🔍 Buscar notícias
-        run: |
-          python scripts/buscar_noticias.py
-      
+        working-directory: ${{ github.workspace }}
+        run: python scripts/buscar_noticias.py
+        
       - name: 📤 Commit
         run: |
           git config --local user.email "action@github.com"
