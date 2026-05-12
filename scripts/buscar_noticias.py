@@ -184,10 +184,20 @@ class BuscadorNoticias:
                 root = ET.fromstring(response.content)
 
                 for item in root.findall(".//item")[:25]:
+
                     titulo = item.findtext("title", "").strip()
                     link = item.findtext("link", "").strip()
                     pub_date = item.findtext("pubDate", "").strip()
                     descricao = self.limpar_html(item.findtext("description", ""))
+
+                    try:
+                        dt_publicacao = parsedate_to_datetime(pub_date)
+
+                        if dt_publicacao.year < 2026:
+                            continue
+
+                    except:
+                        continue
 
                     if not titulo or not link:
                         continue
