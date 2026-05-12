@@ -24,7 +24,8 @@ jobs:
           pip install requests beautifulsoup4
       
       - name: 🔍 Buscar notícias
-        run: python scripts/buscar_noticias.py
+        run: |
+          python scripts/buscar_noticias.py
       
       - name: 📤 Commit
         run: |
