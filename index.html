@@ -95,7 +95,7 @@
 
         async function carregarNoticias() {
             try {
-                const response = await fetch('noticias.json');
+                const response = await fetch('noticias.json?v=' + Date.now());
                 if (!response.ok) throw new Error('Arquivo não encontrado');
                 
                 allNoticias = await response.json();
