@@ -308,7 +308,77 @@ async function carregarNoticias(){
         document.getElementById('lastUpdate').innerText =
             '📅 ' + new Date().toLocaleString('pt-BR');
 
-        renderizarEstados();
+        function renderizarEstados(){
+
+    const estados = {};
+
+    noticias.forEach(n=>{
+
+        const uf = n.estado || 'Nacional';
+
+        if(!estados[uf]){
+
+            estados[uf] = {
+                total:0,
+                grave:0,
+                moderada:0,
+                leve:0
+            };
+        }
+
+        estados[uf].total++;
+
+        if(n.gravidade === 'grave'){
+            estados[uf].grave++;
+        }
+
+        if(n.gravidade === 'moderada'){
+            estados[uf].moderada++;
+        }
+
+        if(n.gravidade === 'leve'){
+            estados[uf].leve++;
+        }
+    });
+
+    let html = '';
+
+    Object.entries(estados)
+    .sort((a,b)=>b[1].total-a[1].total)
+    .forEach(([uf,dados])=>{
+
+        html += `
+            <div class="card">
+
+                <div class="card-title">
+                    ${uf}
+                </div>
+
+                <div class="card-number">
+                    ${dados.total}
+                </div>
+
+                <div style="
+                    margin-top:10px;
+                    font-size:.8rem;
+                    color:#cbd5e1;
+                    display:flex;
+                    justify-content:center;
+                    gap:10px;
+                ">
+
+                    <span>🔴 ${dados.grave}</span>
+                    <span>🟡 ${dados.moderada}</span>
+                    <span>🟢 ${dados.leve}</span>
+
+                </div>
+
+            </div>
+        `;
+    });
+
+    document.getElementById('cardsEstados').innerHTML = html;
+}
 
         popularEstados();
 
