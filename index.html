@@ -513,10 +513,15 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
         }
 
         function gerarExemplos() {
+            return gerarExemplosCompleto();
+        }
+
+        function gerarExemplosCompleto() {
             return [
+                // São Paulo - 15 notícias
                 {
-                    titulo: "Aumento de 20% em casos de escorpião em São Paulo",
-                    descricao: "Zona leste da capital registra pico",
+                    titulo: "Aumento de 25% em casos de escorpião em São Paulo",
+                    descricao: "Zona leste da capital registra pico em notificações de picadas",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "12/05/2026",
@@ -525,14 +530,264 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     fonte: "Secretaria de Saúde SP"
                 },
                 {
-                    titulo: "Escorpiões-amarelos em Belo Horizonte",
-                    descricao: "Bairro da Pampulha registra 3 casos",
+                    titulo: "Escorpiões-amarelos invadem condomínios em Tatuapé",
+                    descricao: "3 casos confirmados em edifício residencial",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "11/05/2026",
+                    tipo: "incidente",
+                    gravidade: "leve",
+                    fonte: "G1 São Paulo"
+                },
+                {
+                    titulo: "Hospital da USP recebe 5 pacientes em 24h com picada",
+                    descricao: "Unidade de emergência registra pico de atendimentos",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "10/05/2026",
+                    tipo: "caso",
+                    gravidade: "moderada",
+                    fonte: "Hospital das Clínicas USP"
+                },
+                {
+                    titulo: "Dedetização intensiva começará na zona leste de SP",
+                    descricao: "Prefeitura anuncia operação em 200 imóveis",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "09/05/2026",
+                    tipo: "acao",
+                    gravidade: "moderada",
+                    fonte: "Prefeitura de São Paulo"
+                },
+                {
+                    titulo: "Criança de 8 anos é picada por escorpião em Itaquera",
+                    descricao: "Menor encaminhada para hospital com suspeita de envenenamento",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "08/05/2026",
+                    tipo: "incidente",
+                    gravidade: "grave",
+                    fonte: "Samu SP"
+                },
+                {
+                    titulo: "Pesquisa da Unesp mapeia aumento de 30% em escorpiões",
+                    descricao: "Estudo aponta urbanização de espécies peçonhentas",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "07/05/2026",
+                    tipo: "estudo",
+                    gravidade: "moderada",
+                    fonte: "Universidade Estadual Paulista"
+                },
+                {
+                    titulo: "Vigilância em Saúde registra 150 casos em abril/2026",
+                    descricao: "Número é 40% maior que média mensal",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "06/05/2026",
+                    tipo: "alerta",
+                    gravidade: "moderada",
+                    fonte: "Vigilância em Saúde SP"
+                },
+                {
+                    titulo: "Prédio inteiro evacuado após invasão de escorpiões",
+                    descricao: "30 famílias saem de edifício em Santo Amaro",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "05/05/2026",
+                    tipo: "incidente",
+                    gravidade: "grave",
+                    fonte: "Corpo de Bombeiros SP"
+                },
+                {
+                    titulo: "Escorpiões-amarelos adaptam-se mais rápido em ambiente urbano",
+                    descricao: "Pesquisa mostra alteração comportamental em 2026",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "04/05/2026",
+                    tipo: "estudo",
+                    gravidade: "moderada",
+                    fonte: "Instituto Butantã"
+                },
+                {
+                    titulo: "Programa de combate a escorpiões é ampliado em SP",
+                    descricao: "Investimento de R$ 5 milhões em ações preventivas",
+                    cidade: "São Paulo",
+                    estado: "SP",
+                    data: "03/05/2026",
+                    tipo: "acao",
+                    gravidade: "leve",
+                    fonte: "Governo do Estado de SP"
+                },
+                {
+                    titulo: "Belo Horizonte registra maior número de acidentes em 2026",
+                    descricao: "Bairro da Pampulha concentra 40% dos casos",
+                    cidade: "Belo Horizonte",
+                    estado: "MG",
+                    data: "12/05/2026",
+                    tipo: "alerta",
+                    gravidade: "moderada",
+                    fonte: "Vigilância em Saúde MG"
+                },
+                {
+                    titulo: "3 pessoas são picadas em condomínio de BH",
+                    descricao: "Moradores recebem orientação de prevenção",
                     cidade: "Belo Horizonte",
                     estado: "MG",
                     data: "11/05/2026",
                     tipo: "incidente",
                     gravidade: "leve",
-                    fonte: "Vigilância em Saúde MG"
+                    fonte: "Corpo de Bombeiros MG"
+                },
+                {
+                    titulo: "Escorpiões-marrons aumentam em região sudoeste de MG",
+                    descricao: "Pesquisa da UFMG monitora população",
+                    cidade: "Divinópolis",
+                    estado: "MG",
+                    data: "10/05/2026",
+                    tipo: "estudo",
+                    gravidade: "moderada",
+                    fonte: "Universidade Federal de Minas Gerais"
+                },
+                {
+                    titulo: "Campanha de prevenção é lançada em Montes Claros",
+                    descricao: "Orientações sobre eliminação de abrigos de escorpiões",
+                    cidade: "Montes Claros",
+                    estado: "MG",
+                    data: "09/05/2026",
+                    tipo: "acao",
+                    gravidade: "leve",
+                    fonte: "Secretaria de Saúde Montes Claros"
+                },
+                {
+                    titulo: "Adolescente é hospitalizado após picada em Uberlândia",
+                    descricao: "Caso grave requer administração de soro",
+                    cidade: "Uberlândia",
+                    estado: "MG",
+                    data: "08/05/2026",
+                    tipo: "caso",
+                    gravidade: "grave",
+                    fonte: "Hospital de Clínicas Uberlândia"
+                },
+                {
+                    titulo: "Salvador registra alerta amarelo para escorpiões",
+                    descricao: "Secretaria de Saúde alerta população",
+                    cidade: "Salvador",
+                    estado: "BA",
+                    data: "12/05/2026",
+                    tipo: "alerta",
+                    gravidade: "moderada",
+                    fonte: "Secretaria de Saúde Bahia"
+                },
+                {
+                    titulo: "Espécie rara de escorpião descoberta em Cruz das Almas",
+                    descricao: "Pesquisadores da UFRB fazem descoberta importante",
+                    cidade: "Cruz das Almas",
+                    estado: "BA",
+                    data: "10/05/2026",
+                    tipo: "estudo",
+                    gravidade: "leve",
+                    fonte: "Universidade Federal do Recôncavo Bahiano"
+                },
+                {
+                    titulo: "Operação de dedetização em Feira de Santana",
+                    descricao: "Prefeitura executa ação em 100 pontos da cidade",
+                    cidade: "Feira de Santana",
+                    estado: "BA",
+                    data: "09/05/2026",
+                    tipo: "acao",
+                    gravidade: "leve",
+                    fonte: "Prefeitura de Feira de Santana"
+                },
+                {
+                    titulo: "Casos de escorpião aumentam em bairros populares de Salvador",
+                    descricao: "Análise mostra concentração em áreas com saneamento precário",
+                    cidade: "Salvador",
+                    estado: "BA",
+                    data: "08/05/2026",
+                    tipo: "alerta",
+                    gravidade: "moderada",
+                    fonte: "Instituto de Saúde Pública Bahia"
+                },
+                {
+                    titulo: "Rio de Janeiro vive pico de acidentes com escorpiões",
+                    descricao: "Número de notificações cresce 35% em abril",
+                    cidade: "Rio de Janeiro",
+                    estado: "RJ",
+                    data: "12/05/2026",
+                    tipo: "alerta",
+                    gravidade: "grave",
+                    fonte: "Secretaria Municipal de Saúde RJ"
+                },
+                {
+                    titulo: "Hospital municipal trata 10 casos em uma semana",
+                    descricao: "Unidade de emergência ativa protocolo especial",
+                    cidade: "Rio de Janeiro",
+                    estado: "RJ",
+                    data: "11/05/2026",
+                    tipo: "caso",
+                    gravidade: "grave",
+                    fonte: "Hospital Municipal Rio de Janeiro"
+                },
+                {
+                    titulo: "Criança é picada em parque infantil de Niterói",
+                    descricao: "Incidente reacende debate sobre segurança em espaços públicos",
+                    cidade: "Niterói",
+                    estado: "RJ",
+                    data: "09/05/2026",
+                    tipo: "incidente",
+                    gravidade: "moderada",
+                    fonte: "Defesa Civil Niterói"
+                },
+                {
+                    titulo: "Curitiba registra 8 atendimentos por picada em 24h",
+                    descricao: "Recorde mensal é atingido em maio",
+                    cidade: "Curitiba",
+                    estado: "PR",
+                    data: "12/05/2026",
+                    tipo: "caso",
+                    gravidade: "moderada",
+                    fonte: "Hospital de Urgências Curitiba"
+                },
+                {
+                    titulo: "Dedetização preventiva em escolas de Curitiba",
+                    descricao: "Prefeitura reforça ações em ambiente escolar",
+                    cidade: "Curitiba",
+                    estado: "PR",
+                    data: "10/05/2026",
+                    tipo: "acao",
+                    gravidade: "leve",
+                    fonte: "Prefeitura de Curitiba"
+                },
+                {
+                    titulo: "Londrina enfrenta invasão de escorpiões em área residencial",
+                    descricao: "Bairro inteiro em alerta para presença de aracnídeos",
+                    cidade: "Londrina",
+                    estado: "PR",
+                    data: "08/05/2026",
+                    tipo: "incidente",
+                    gravidade: "moderada",
+                    fonte: "Vigilância Sanitária Londrina"
+                },
+                {
+                    titulo: "Brasília intensifica campanhas contra escorpiões",
+                    descricao: "Secretaria de Saúde distribui material educativo",
+                    cidade: "Brasília",
+                    estado: "DF",
+                    data: "11/05/2026",
+                    tipo: "acao",
+                    gravidade: "leve",
+                    fonte: "Secretaria de Saúde DF"
+                },
+                {
+                    titulo: "Condomínio da Asa Sul sofre invasão de escorpiões",
+                    descricao: "50 imóveis recebem dedetização emergencial",
+                    cidade: "Brasília",
+                    estado: "DF",
+                    data: "09/05/2026",
+                    tipo: "incidente",
+                    gravidade: "moderada",
+                    fonte: "Corpo de Bombeiros DF"
                 }
             ];
         }
