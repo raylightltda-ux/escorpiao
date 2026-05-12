@@ -3,119 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>🦂 Monitor Escorpiões Brasil</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
     background:linear-gradient(135deg,#081226,#0f172a);
     color:#e2e8f0;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     min-height:100vh;
-    padding:20px;
+    padding:16px;
 }
 
-.container{
-    max-width:1200px;
-    margin:0 auto;
-}
+.container{max-width:1200px;margin:0 auto}
 
-.header{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.header h1{
-    font-size:2rem;
-    margin-bottom:15px;
-}
+.header{text-align:center;margin-bottom:18px}
+.header h1{font-size:1.8rem;margin-bottom:12px}
 
 .info-box{
     background:#132347;
     border:1px solid rgba(96,165,250,.25);
-    border-radius:12px;
-    padding:16px;
-    margin-bottom:15px;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:10px;
 }
 
-.info-box strong{
-    color:#60a5fa;
-}
+.info-box strong{color:#60a5fa}
 
 .schedule-info{
     background:rgba(16,185,129,.12);
     border:1px solid rgba(16,185,129,.35);
     color:#86efac;
-    border-radius:10px;
-    padding:12px;
-    margin-bottom:25px;
+    border-radius:8px;
+    padding:9px;
+    font-size:.85rem;
+    margin-bottom:18px;
 }
 
 .cards-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-    gap:12px;
-    margin-bottom:25px;
+    grid-template-columns:repeat(auto-fill,minmax(115px,1fr));
+    gap:10px;
+    margin-bottom:18px;
 }
 
 .card{
     background:#0f1d3a;
-    border:1px solid rgba(148,163,184,.15);
-    border-radius:12px;
-    padding:18px;
+    border:1px solid rgba(148,163,184,.18);
+    border-radius:10px;
+    padding:10px 8px;
     text-align:center;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    border-color:#3b82f6;
 }
 
 .card-title{
-    font-size:1.3rem;
+    font-size:1rem;
     color:#60a5fa;
-    margin-bottom:10px;
     font-weight:bold;
+    margin-bottom:4px;
 }
 
 .card-number{
-    font-size:2rem;
+    font-size:1.45rem;
     font-weight:bold;
     color:#fbbf24;
+    line-height:1.2;
+}
+
+.card-gravity{
+    margin-top:6px;
+    font-size:.72rem;
+    color:#cbd5e1;
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    white-space:nowrap;
 }
 
 .filters{
     background:#0f1d3a;
-    border-radius:12px;
-    padding:18px;
-    margin-bottom:25px;
+    border-radius:10px;
+    padding:14px;
+    margin-bottom:18px;
     border:1px solid rgba(148,163,184,.15);
 }
 
 .filters-grid{
     display:grid;
     grid-template-columns:2fr 1fr 1fr auto;
-    gap:12px;
+    gap:10px;
 }
 
 input,select{
     width:100%;
-    padding:12px;
+    padding:10px;
     border:none;
     border-radius:8px;
     background:#132347;
     color:white;
-    font-size:.95rem;
+    font-size:.9rem;
 }
 
 button{
     border:none;
     border-radius:8px;
-    padding:12px 16px;
+    padding:10px 14px;
     font-weight:bold;
     cursor:pointer;
-    transition:.2s;
 }
 
 .btn-clear{
@@ -123,106 +124,93 @@ button{
     color:white;
 }
 
-.btn-clear:hover{
-    opacity:.9;
+.news-title-section{
+    font-size:1.2rem;
+    margin-bottom:12px;
 }
 
 .news-list{
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:12px;
 }
 
 .news-card{
     background:#0f1d3a;
     border-left:5px solid #f59e0b;
-    border-radius:12px;
-    padding:18px;
+    border-radius:10px;
+    padding:15px;
 }
+
+.news-card.grave{border-left-color:#ef4444}
+.news-card.moderada{border-left-color:#f59e0b}
+.news-card.leve{border-left-color:#10b981}
 
 .news-header{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    gap:15px;
-    margin-bottom:10px;
+    gap:12px;
+    margin-bottom:8px;
 }
 
 .news-title{
     color:#60a5fa;
-    font-size:1.05rem;
+    font-size:1rem;
     font-weight:bold;
-    line-height:1.4;
+    line-height:1.35;
 }
 
 .badge{
-    padding:5px 10px;
-    border-radius:8px;
-    font-size:.75rem;
+    padding:4px 9px;
+    border-radius:7px;
+    font-size:.72rem;
     font-weight:bold;
     white-space:nowrap;
 }
 
-.leve{
-    background:#10b981;
-    color:black;
-}
-
-.moderada{
-    background:#f59e0b;
-    color:black;
-}
-
-.grave{
-    background:#ef4444;
-    color:white;
-}
+.badge.leve{background:#10b981;color:black}
+.badge.moderada{background:#f59e0b;color:black}
+.badge.grave{background:#ef4444;color:white}
 
 .news-description{
     color:#cbd5e1;
-    margin-bottom:12px;
-    line-height:1.5;
+    margin-bottom:10px;
+    line-height:1.45;
+    font-size:.9rem;
 }
 
 .news-details{
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
-    font-size:.85rem;
+    gap:12px;
+    font-size:.82rem;
     color:#94a3b8;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
 .news-link{
     display:inline-block;
     background:#2563eb;
     color:white;
-    padding:10px 14px;
-    border-radius:8px;
+    padding:8px 12px;
+    border-radius:7px;
     text-decoration:none;
     font-weight:bold;
-}
-
-.news-link:hover{
-    background:#1d4ed8;
+    font-size:.85rem;
 }
 
 .loading{
     text-align:center;
-    padding:40px;
+    padding:35px;
     color:#94a3b8;
 }
 
 @media(max-width:768px){
-
-    .filters-grid{
-        grid-template-columns:1fr;
-    }
-
-    .news-header{
-        flex-direction:column;
-    }
-
+    .filters-grid{grid-template-columns:1fr}
+    .cards-grid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr))}
+    .card-gravity{font-size:.68rem;gap:4px}
+    .news-header{flex-direction:column}
 }
 </style>
 </head>
@@ -235,30 +223,20 @@ button{
         <h1>🦂 Monitor Escorpiões Brasil</h1>
 
         <div class="info-box">
-            <div>
-                <strong>📊 Total de notícias:</strong>
-                <span id="totalNoticias">Carregando...</span>
-            </div>
-
-            <div id="lastUpdate" style="margin-top:8px;font-size:.85rem;color:#94a3b8;"></div>
+            <div><strong>📊 Total de notícias:</strong> <span id="totalNoticias">Carregando...</span></div>
+            <div id="lastUpdate" style="margin-top:6px;font-size:.82rem;color:#94a3b8;"></div>
         </div>
 
         <div class="schedule-info">
-            ✅ Atualiza automaticamente às 08:30 e 16:30 (Horário Brasília)
+            ✅ Atualiza automaticamente às 08:30 e 16:30
         </div>
     </div>
 
     <div id="cardsEstados" class="cards-grid"></div>
 
     <div class="filters">
-
         <div class="filters-grid">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="🔎 Buscar cidade, estado, título ou palavra-chave..."
-            >
+            <input id="searchInput" type="text" placeholder="🔎 Buscar cidade, estado, título ou palavra-chave...">
 
             <select id="estadoFilter">
                 <option value="all">🗺️ Todos os estados</option>
@@ -271,53 +249,57 @@ button{
                 <option value="grave">Grave</option>
             </select>
 
-            <button class="btn-clear" onclick="limparFiltros()">
-                Limpar
-            </button>
-
+            <button class="btn-clear" onclick="limparFiltros()">Limpar</button>
         </div>
-
     </div>
 
+    <h2 class="news-title-section">
+        📰 Notícias encontradas: <span id="totalFiltradas">0</span>
+    </h2>
+
     <div id="conteudoNoticias" class="news-list">
-
-        <div class="loading">
-            Carregando notícias...
-        </div>
-
+        <div class="loading">Carregando notícias...</div>
     </div>
 
 </div>
 
 <script>
-
 let noticias = [];
 
 async function carregarNoticias(){
-
     try{
+        const response = await fetch('noticias.json?v=' + Date.now());
 
-        const response = await fetch(
-            'noticias.json?v=' + Date.now()
-        );
+        if(!response.ok){
+            throw new Error('Arquivo noticias.json não encontrado');
+        }
 
         noticias = await response.json();
 
         document.getElementById('totalNoticias').innerText = noticias.length;
-
         document.getElementById('lastUpdate').innerText =
-            '📅 ' + new Date().toLocaleString('pt-BR');
+            '📅 Atualizado em tela: ' + new Date().toLocaleString('pt-BR');
 
-        function renderizarEstados(){
+        renderizarEstados();
+        popularEstados();
+        renderizarNoticias();
 
+    }catch(e){
+        console.error(e);
+        document.getElementById('totalNoticias').innerText = '0';
+        document.getElementById('conteudoNoticias').innerHTML =
+            '<div class="loading">❌ Erro ao carregar notícias. Verifique o noticias.json.</div>';
+    }
+}
+
+function renderizarEstados(){
     const estados = {};
 
     noticias.forEach(n=>{
-
         const uf = n.estado || 'Nacional';
+        const gravidade = n.gravidade || 'moderada';
 
         if(!estados[uf]){
-
             estados[uf] = {
                 total:0,
                 grave:0,
@@ -328,242 +310,106 @@ async function carregarNoticias(){
 
         estados[uf].total++;
 
-        if(n.gravidade === 'grave'){
-            estados[uf].grave++;
-        }
-
-        if(n.gravidade === 'moderada'){
-            estados[uf].moderada++;
-        }
-
-        if(n.gravidade === 'leve'){
-            estados[uf].leve++;
-        }
+        if(gravidade === 'grave') estados[uf].grave++;
+        else if(gravidade === 'leve') estados[uf].leve++;
+        else estados[uf].moderada++;
     });
 
     let html = '';
 
     Object.entries(estados)
-    .sort((a,b)=>b[1].total-a[1].total)
-    .forEach(([uf,dados])=>{
-
-        html += `
-            <div class="card">
-
-                <div class="card-title">
-                    ${uf}
+        .sort((a,b)=>b[1].total - a[1].total)
+        .forEach(([uf,dados])=>{
+            html += `
+                <div class="card" onclick="filtrarPorEstado('${uf}')">
+                    <div class="card-title">${uf}</div>
+                    <div class="card-number">${dados.total}</div>
+                    <div class="card-gravity">
+                        <span>🔴 ${dados.grave}</span>
+                        <span>🟡 ${dados.moderada}</span>
+                        <span>🟢 ${dados.leve}</span>
+                    </div>
                 </div>
-
-                <div class="card-number">
-                    ${dados.total}
-                </div>
-
-                <div style="
-                    margin-top:10px;
-                    font-size:.8rem;
-                    color:#cbd5e1;
-                    display:flex;
-                    justify-content:center;
-                    gap:10px;
-                ">
-
-                    <span>🔴 ${dados.grave}</span>
-                    <span>🟡 ${dados.moderada}</span>
-                    <span>🟢 ${dados.leve}</span>
-
-                </div>
-
-            </div>
-        `;
-    });
-
-    document.getElementById('cardsEstados').innerHTML = html;
-}
-
-        popularEstados();
-
-        renderizarNoticias();
-
-    }catch(e){
-
-        console.error(e);
-
-        document.getElementById('conteudoNoticias').innerHTML = `
-            <div class="loading">
-                ❌ Erro ao carregar notícias
-            </div>
-        `;
-    }
-}
-
-function renderizarEstados(){
-
-    const estados = {};
-
-    noticias.forEach(n=>{
-
-        const uf = n.estado || 'Nacional';
-
-        if(!estados[uf]){
-            estados[uf] = 0;
-        }
-
-        estados[uf]++;
-    });
-
-    let html = '';
-
-    Object.entries(estados)
-    .sort((a,b)=>b[1]-a[1])
-    .forEach(([uf,total])=>{
-
-        html += `
-            <div class="card">
-                <div class="card-title">${uf}</div>
-                <div class="card-number">${total}</div>
-            </div>
-        `;
-    });
+            `;
+        });
 
     document.getElementById('cardsEstados').innerHTML = html;
 }
 
 function popularEstados(){
-
     const select = document.getElementById('estadoFilter');
+    select.innerHTML = '<option value="all">🗺️ Todos os estados</option>';
 
-    const estados = [
-        ...new Set(
-            noticias.map(n=>n.estado || 'Nacional')
-        )
-    ].sort();
+    const estados = [...new Set(noticias.map(n=>n.estado || 'Nacional'))].sort();
 
     estados.forEach(uf=>{
-
         const option = document.createElement('option');
-
         option.value = uf;
-
         option.textContent = uf;
-
         select.appendChild(option);
     });
 }
 
 function renderizarNoticias(){
-
-    const busca = document
-        .getElementById('searchInput')
-        .value
-        .toLowerCase();
-
-    const estado = document
-        .getElementById('estadoFilter')
-        .value;
-
-    const gravidade = document
-        .getElementById('gravidadeFilter')
-        .value;
+    const busca = document.getElementById('searchInput').value.toLowerCase().trim();
+    const estado = document.getElementById('estadoFilter').value;
+    const gravidade = document.getElementById('gravidadeFilter').value;
 
     let filtradas = noticias.filter(n=>{
-
         const texto = `
-            ${n.titulo}
-            ${n.descricao}
-            ${n.estado}
-            ${n.cidade}
+            ${n.titulo || ''}
+            ${n.descricao || ''}
+            ${n.estado || ''}
+            ${n.cidade || ''}
+            ${n.fonte || ''}
         `.toLowerCase();
 
-        const matchBusca =
-            texto.includes(busca);
+        const matchBusca = busca === '' || texto.includes(busca);
+        const matchEstado = estado === 'all' || (n.estado || 'Nacional') === estado;
+        const matchGravidade = gravidade === 'all' || (n.gravidade || 'moderada') === gravidade;
 
-        const matchEstado =
-            estado === 'all' ||
-            n.estado === estado;
-
-        const matchGravidade =
-            gravidade === 'all' ||
-            n.gravidade === gravidade;
-
-        return matchBusca &&
-               matchEstado &&
-               matchGravidade;
-
+        return matchBusca && matchEstado && matchGravidade;
     });
 
     filtradas.sort((a,b)=>{
-
-        const da = new Date(
-            a.data.split('/').reverse().join('-')
-        );
-
-        const db = new Date(
-            b.data.split('/').reverse().join('-')
-        );
-
+        const da = converterData(a.data);
+        const db = converterData(b.data);
         return db - da;
     });
 
+    document.getElementById('totalFiltradas').innerText = filtradas.length;
+
     if(filtradas.length === 0){
-
-        document.getElementById('conteudoNoticias').innerHTML = `
-            <div class="loading">
-                Nenhuma notícia encontrada.
-            </div>
-        `;
-
+        document.getElementById('conteudoNoticias').innerHTML =
+            '<div class="loading">Nenhuma notícia encontrada com os filtros atuais.</div>';
         return;
     }
 
     let html = '';
 
     filtradas.forEach(n=>{
+        const gravidade = n.gravidade || 'moderada';
 
         html += `
-            <div class="news-card">
-
+            <div class="news-card ${gravidade}">
                 <div class="news-header">
-
-                    <div class="news-title">
-                        ${n.titulo}
-                    </div>
-
-                    <div class="badge ${n.gravidade}">
-                        ${n.gravidade.toUpperCase()}
-                    </div>
-
+                    <div class="news-title">${n.titulo || 'Sem título'}</div>
+                    <div class="badge ${gravidade}">${gravidade.toUpperCase()}</div>
                 </div>
 
                 <div class="news-description">
-                    ${n.descricao || ''}
+                    ${n.descricao || n.titulo || ''}
                 </div>
 
                 <div class="news-details">
-
-                    <span>
-                        📍 ${n.cidade || 'Não identificada'}
-                        -
-                        ${n.estado || 'Nacional'}
-                    </span>
-
-                    <span>
-                        📅 ${n.data}
-                    </span>
-
-                    <span>
-                        📰 ${n.fonte}
-                    </span>
-
+                    <span>📍 ${n.cidade || 'Não identificada'} - ${n.estado || 'Nacional'}</span>
+                    <span>📅 ${n.data || 'Sem data'}</span>
+                    <span>📰 ${n.fonte || 'Fonte não identificada'}</span>
                 </div>
 
-                <a
-                    href="${n.link}"
-                    target="_blank"
-                    class="news-link"
-                >
+                <a href="${n.link || '#'}" target="_blank" class="news-link">
                     🔗 Leia a notícia
                 </a>
-
             </div>
         `;
     });
@@ -571,31 +417,37 @@ function renderizarNoticias(){
     document.getElementById('conteudoNoticias').innerHTML = html;
 }
 
+function converterData(data){
+    if(!data || !data.includes('/')){
+        return new Date(0);
+    }
+
+    const partes = data.split('/');
+
+    return new Date(`${partes[2]}-${partes[1]}-${partes[0]}`);
+}
+
 function limparFiltros(){
-
     document.getElementById('searchInput').value = '';
-
     document.getElementById('estadoFilter').value = 'all';
-
     document.getElementById('gravidadeFilter').value = 'all';
-
     renderizarNoticias();
 }
 
-document
-.getElementById('searchInput')
-.addEventListener('input',renderizarNoticias);
+function filtrarPorEstado(uf){
+    document.getElementById('estadoFilter').value = uf;
+    renderizarNoticias();
+    window.scrollTo({
+        top: document.querySelector('.filters').offsetTop - 10,
+        behavior: 'smooth'
+    });
+}
 
-document
-.getElementById('estadoFilter')
-.addEventListener('change',renderizarNoticias);
-
-document
-.getElementById('gravidadeFilter')
-.addEventListener('change',renderizarNoticias);
+document.getElementById('searchInput').addEventListener('input',renderizarNoticias);
+document.getElementById('estadoFilter').addEventListener('change',renderizarNoticias);
+document.getElementById('gravidadeFilter').addEventListener('change',renderizarNoticias);
 
 carregarNoticias();
-
 </script>
 
 </body>
