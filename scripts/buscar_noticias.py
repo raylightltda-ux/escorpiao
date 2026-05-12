@@ -15,64 +15,42 @@ class BuscadorNoticias:
     def __init__(self):
         self.noticias = []
 
-        self.termos_base = [
-            "escorpião",
-            "escorpiões",
-            "escorpionismo",
-            "acidente escorpiônico",
-            "picada de escorpião",
-            "criança picada escorpião",
-            "morte escorpião",
-            "soro antiescorpiônico",
-            "escorpião amarelo",
-            "Tityus serrulatus",
-            "infestação de escorpiões",
-            "animais peçonhentos escorpião",
-            "vigilância escorpião",
-            "prefeitura escorpião",
-            "surto de escorpiões"
+        self.termos = [
+            '"picada de escorpião"',
+            '"acidente escorpiônico"',
+            '"escorpionismo"',
+            '"soro antiescorpiônico"',
+            '"infestação de escorpiões"',
+            '"escorpião amarelo" prefeitura',
+            '"escorpião" "vigilância sanitária"',
+            '"escorpião" "criança picada"',
+            '"escorpião" "morte"',
+            '"escorpiões" "prefeitura"'
         ]
 
         self.estados = {
-            "AC": "Acre",
-            "AL": "Alagoas",
-            "AP": "Amapá",
-            "AM": "Amazonas",
-            "BA": "Bahia",
-            "CE": "Ceará",
-            "DF": "Distrito Federal",
-            "ES": "Espírito Santo",
-            "GO": "Goiás",
-            "MA": "Maranhão",
-            "MT": "Mato Grosso",
-            "MS": "Mato Grosso do Sul",
-            "MG": "Minas Gerais",
-            "PA": "Pará",
-            "PB": "Paraíba",
-            "PR": "Paraná",
-            "PE": "Pernambuco",
-            "PI": "Piauí",
-            "RJ": "Rio de Janeiro",
-            "RN": "Rio Grande do Norte",
-            "RS": "Rio Grande do Sul",
-            "RO": "Rondônia",
-            "RR": "Roraima",
-            "SC": "Santa Catarina",
-            "SP": "São Paulo",
-            "SE": "Sergipe",
+            "AC": "Acre", "AL": "Alagoas", "AP": "Amapá", "AM": "Amazonas",
+            "BA": "Bahia", "CE": "Ceará", "DF": "Distrito Federal",
+            "ES": "Espírito Santo", "GO": "Goiás", "MA": "Maranhão",
+            "MT": "Mato Grosso", "MS": "Mato Grosso do Sul",
+            "MG": "Minas Gerais", "PA": "Pará", "PB": "Paraíba",
+            "PR": "Paraná", "PE": "Pernambuco", "PI": "Piauí",
+            "RJ": "Rio de Janeiro", "RN": "Rio Grande do Norte",
+            "RS": "Rio Grande do Sul", "RO": "Rondônia", "RR": "Roraima",
+            "SC": "Santa Catarina", "SP": "São Paulo", "SE": "Sergipe",
             "TO": "Tocantins"
         }
 
         self.cidades_referencia = {
             "SP": ["São Paulo", "Campinas", "Ribeirão Preto", "Sorocaba", "Bauru", "Marília", "Presidente Prudente", "Araçatuba", "São José do Rio Preto", "Piracicaba", "Limeira"],
             "PR": ["Curitiba", "Londrina", "Maringá", "Cascavel", "Foz do Iguaçu", "Ponta Grossa", "Toledo", "Assis Chateaubriand"],
-            "MG": ["Belo Horizonte", "Uberlândia", "Uberaba", "Montes Claros", "Juiz de Fora", "Divinópolis", "Governador Valadares"],
+            "MG": ["Belo Horizonte", "Uberlândia", "Uberaba", "Montes Claros", "Juiz de Fora", "Divinópolis"],
             "RJ": ["Rio de Janeiro", "Niterói", "Duque de Caxias", "Nova Iguaçu", "Campos dos Goytacazes"],
-            "BA": ["Salvador", "Feira de Santana", "Vitória da Conquista", "Juazeiro", "Ilhéus"],
+            "BA": ["Salvador", "Feira de Santana", "Vitória da Conquista", "Juazeiro"],
             "GO": ["Goiânia", "Anápolis", "Rio Verde", "Aparecida de Goiânia"],
-            "MT": ["Cuiabá", "Rondonópolis", "Sinop", "Várzea Grande"],
+            "MT": ["Cuiabá", "Rondonópolis", "Sinop"],
             "MS": ["Campo Grande", "Dourados", "Três Lagoas"],
-            "SC": ["Florianópolis", "Joinville", "Blumenau", "Chapecó", "Criciúma"],
+            "SC": ["Florianópolis", "Joinville", "Blumenau", "Chapecó"],
             "RS": ["Porto Alegre", "Caxias do Sul", "Pelotas", "Santa Maria"],
             "PE": ["Recife", "Caruaru", "Petrolina"],
             "CE": ["Fortaleza", "Juazeiro do Norte", "Sobral"],
@@ -84,19 +62,6 @@ class BuscadorNoticias:
             "ES": ["Vitória", "Vila Velha", "Serra", "Cariacica"],
             "DF": ["Brasília"]
         }
-
-        self.fontes_site = [
-            "site:g1.globo.com escorpião",
-            "site:gov.br escorpião",
-            "site:agenciabrasil.ebc.com.br escorpião",
-            "site:uol.com.br escorpião",
-            "site:terra.com.br escorpião",
-            "site:metropoles.com escorpião",
-            "site:cnnbrasil.com.br escorpião",
-            "site:prefeitura escorpião",
-            "site:saude escorpião",
-            "site:vigilancia escorpião"
-        ]
 
     def carregar_existentes(self):
         if os.path.exists("noticias.json"):
@@ -117,51 +82,83 @@ class BuscadorNoticias:
         texto = texto.replace("&quot;", '"')
         return texto.strip()
 
+    def normalizar_titulo(self, titulo):
+        titulo = titulo.lower()
+        titulo = re.sub(r"\s+", " ", titulo)
+        titulo = re.sub(r" - .*?$", "", titulo)
+        titulo = re.sub(r" \| .*?$", "", titulo)
+        return titulo.strip()
+
     def gerar_id(self, titulo, link):
-        base = (titulo + link).lower()
+        base = self.normalizar_titulo(titulo)
         base = re.sub(r"[^a-z0-9áéíóúãõâêôç]", "", base)
-        return base[:160]
+        return base[:140]
+
+    def converter_data(self, pub_date):
+        try:
+            dt = parsedate_to_datetime(pub_date)
+
+            if dt.year < 2026:
+                return None
+
+            return dt.strftime("%d/%m/%Y")
+        except:
+            return None
 
     def noticia_valida(self, titulo, descricao):
         texto = f"{titulo} {descricao}".lower()
 
         bloqueios = [
             "horóscopo", "horoscopo", "signo", "zodíaco", "zodiaco",
-            "astrologia", "previsão do dia", "previsao do dia",
-            "escorpião do signo", "signo de escorpião"
+            "astrologia", "tarô", "taro", "previsão do dia", "previsao do dia",
+            "escorpião do signo", "signo de escorpião", "novela", "cinema",
+            "filme", "série", "serie", "marvel", "personagem", "trailer",
+            "streaming", "netflix", "prime video", "disney", "hbo",
+            "música", "musica", "show", "celebridade", "famosos"
         ]
 
         if any(b in texto for b in bloqueios):
             return False
 
-        termos_validos = [
-            "escorpião", "escorpiões", "escorpiao", "escorpioes",
-            "escorpionismo", "acidente escorpiônico", "acidente escorpionico",
-            "picada", "soro antiescorpiônico", "soro antiescorpionico",
-            "tityus serrulatus", "animal peçonhento", "animais peçonhentos"
+        termos_fortes = [
+            "picada de escorpião",
+            "picada por escorpião",
+            "acidente escorpiônico",
+            "acidente escorpionico",
+            "escorpionismo",
+            "soro antiescorpiônico",
+            "soro antiescorpionico",
+            "infestação de escorpiões",
+            "infestacao de escorpioes",
+            "escorpião amarelo",
+            "escorpiao amarelo",
+            "vigilância sanitária",
+            "vigilancia sanitaria",
+            "animais peçonhentos",
+            "animal peçonhento"
         ]
 
-        return any(t in texto for t in termos_validos)
+        if any(t in texto for t in termos_fortes):
+            return True
+
+        tem_escorpiao = any(t in texto for t in ["escorpião", "escorpiões", "escorpiao", "escorpioes"])
+
+        contexto_saude = [
+            "picada", "morte", "morreu", "óbito", "obito", "hospital",
+            "soro", "prefeitura", "vigilância", "vigilancia", "saúde",
+            "saude", "criança", "crianca", "bebê", "bebe", "infestação",
+            "infestacao", "captura", "controle", "prevenção", "prevencao"
+        ]
+
+        return tem_escorpiao and any(c in texto for c in contexto_saude)
 
     def detectar_gravidade(self, texto):
         t = texto.lower()
 
-        graves = [
-            "morte", "morre", "morreu", "óbito", "obito",
-            "uti", "estado grave", "fatal", "criança morre",
-            "bebê morre", "bebe morre"
-        ]
-
-        moderadas = [
-            "picada", "acidente", "soro", "hospital",
-            "atendimento", "infestação", "infestacao",
-            "vigilância", "vigilancia", "prefeitura"
-        ]
-
-        if any(p in t for p in graves):
+        if any(p in t for p in ["morte", "morre", "morreu", "óbito", "obito", "uti", "estado grave", "fatal"]):
             return "grave"
 
-        if any(p in t for p in moderadas):
+        if any(p in t for p in ["picada", "acidente", "soro", "hospital", "atendimento", "infestação", "infestacao"]):
             return "moderada"
 
         return "leve"
@@ -170,9 +167,7 @@ class BuscadorNoticias:
         t = f" {texto.lower()} "
 
         for uf, nome in self.estados.items():
-            nome_lower = nome.lower()
-
-            if nome_lower in t:
+            if nome.lower() in t:
                 return uf
 
             if f" {uf.lower()} " in t or f"-{uf.lower()}" in t or f"/{uf.lower()}" in t:
@@ -216,56 +211,10 @@ class BuscadorNoticias:
 
         return "Não identificada"
 
-    def converter_data(self, pub_date):
-        try:
-            dt = parsedate_to_datetime(pub_date)
-
-            if dt.year < 2026:
-                return None
-
-            return dt.strftime("%d/%m/%Y")
-
-        except:
-            return None
-
-    def gerar_consultas(self):
-        consultas = []
-
-        for termo in self.termos_base:
-            consultas.append(termo)
-
-        for termo in [
-            "escorpião",
-            "picada de escorpião",
-            "acidente escorpiônico",
-            "escorpionismo",
-            "infestação de escorpiões"
-        ]:
-            for uf, nome in self.estados.items():
-                consultas.append(f"{termo} {nome}")
-                consultas.append(f"{termo} {uf}")
-
-        for fonte in self.fontes_site:
-            consultas.append(fonte)
-
-        consultas_unicas = []
-        vistos = set()
-
-        for c in consultas:
-            chave = c.lower().strip()
-            if chave not in vistos:
-                consultas_unicas.append(c)
-                vistos.add(chave)
-
-        return consultas_unicas
-
     def buscar_google_rss(self):
-        print("🔍 Buscando Google News RSS ampliado...")
+        print("🔍 Buscando Google News RSS filtrado...")
 
-        consultas = self.gerar_consultas()
-
-        for termo in consultas:
-
+        for termo in self.termos:
             try:
                 url = (
                     "https://news.google.com/rss/search?"
@@ -278,7 +227,6 @@ class BuscadorNoticias:
                 root = ET.fromstring(response.content)
 
                 for item in root.findall(".//item")[:20]:
-
                     titulo = item.findtext("title", "").strip()
                     link = item.findtext("link", "").strip()
                     pub_date = item.findtext("pubDate", "").strip()
@@ -315,8 +263,7 @@ class BuscadorNoticias:
                     }
 
                     self.noticias.append(noticia)
-
-                    print(f"✅ {data} | {estado} | {cidade} | {titulo[:70]}")
+                    print(f"✅ {data} | {estado} | {cidade} | {titulo[:80]}")
 
             except Exception as e:
                 print(f"❌ Erro no termo '{termo}': {e}")
@@ -327,8 +274,7 @@ class BuscadorNoticias:
         ids_existentes = set()
 
         for n in existentes:
-            if "id" not in n:
-                n["id"] = self.gerar_id(n.get("titulo", ""), n.get("link", ""))
+            n["id"] = self.gerar_id(n.get("titulo", ""), n.get("link", ""))
             ids_existentes.add(n["id"])
 
         novas = 0
@@ -355,7 +301,7 @@ class BuscadorNoticias:
 
     def executar(self):
         print("=" * 70)
-        print("🦂 MONITOR DE ESCORPIÕES - BUSCA AMPLIADA")
+        print("🦂 MONITOR DE ESCORPIÕES - BUSCA FILTRADA")
         print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         print("=" * 70)
 
