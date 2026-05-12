@@ -52,73 +52,187 @@ class BuscadorNoticias:
         }
 
         self.cidade_estado = {
-            # SP
-            "são paulo": "SP", "sao paulo": "SP", "campinas": "SP", "ribeirão preto": "SP",
-            "ribeirao preto": "SP", "sorocaba": "SP", "bauru": "SP", "marília": "SP",
-            "marilia": "SP", "presidente prudente": "SP", "araçatuba": "SP", "aracatuba": "SP",
-            "são josé do rio preto": "SP", "sao jose do rio preto": "SP", "piracicaba": "SP",
-            "limeira": "SP", "jundiaí": "SP", "jundiai": "SP", "franca": "SP",
-            "araraquara": "SP", "barretos": "SP", "botucatu": "SP", "assis": "SP",
-            "ourinhos": "SP", "itapetininga": "SP", "americana": "SP", "sumaré": "SP",
-            "sumare": "SP", "hortolândia": "SP", "hortolandia": "SP",
+            # SÃO PAULO
+            "são paulo": "SP", "sao paulo": "SP",
+            "campinas": "SP",
+            "ribeirão preto": "SP", "ribeirao preto": "SP",
+            "sorocaba": "SP",
+            "bauru": "SP",
+            "marília": "SP", "marilia": "SP",
+            "presidente prudente": "SP",
+            "araçatuba": "SP", "aracatuba": "SP",
+            "são josé do rio preto": "SP", "sao jose do rio preto": "SP",
+            "piracicaba": "SP",
+            "limeira": "SP",
+            "jundiaí": "SP", "jundiai": "SP",
+            "franca": "SP",
+            "araraquara": "SP",
+            "barretos": "SP",
+            "botucatu": "SP",
+            "assis": "SP",
+            "ourinhos": "SP",
+            "itapetininga": "SP",
+            "americana": "SP",
+            "sumaré": "SP", "sumare": "SP",
+            "hortolândia": "SP", "hortolandia": "SP",
+            "mogi das cruzes": "SP",
+            "osasco": "SP",
+            "santos": "SP",
+            "guarulhos": "SP",
+            "são bernardo do campo": "SP", "sao bernardo do campo": "SP",
+            "santo andré": "SP", "santo andre": "SP",
+            "diadema": "SP",
+            "taubaté": "SP", "taubate": "SP",
+            "jacareí": "SP", "jacarei": "SP",
+            "caraguatatuba": "SP",
+            "ubatuba": "SP",
+            "itanhaém": "SP", "itanhaem": "SP",
 
-            # PR
-            "curitiba": "PR", "londrina": "PR", "maringá": "PR", "maringa": "PR",
-            "cascavel": "PR", "foz do iguaçu": "PR", "foz do iguacu": "PR",
-            "ponta grossa": "PR", "toledo": "PR", "assis chateaubriand": "PR",
-            "umuarama": "PR", "guarapuava": "PR", "paranavaí": "PR", "paranavai": "PR",
+            # PARANÁ
+            "curitiba": "PR",
+            "londrina": "PR",
+            "maringá": "PR", "maringa": "PR",
+            "cascavel": "PR",
+            "foz do iguaçu": "PR", "foz do iguacu": "PR",
+            "ponta grossa": "PR",
+            "toledo": "PR",
+            "assis chateaubriand": "PR",
+            "umuarama": "PR",
+            "guarapuava": "PR",
+            "paranavaí": "PR", "paranavai": "PR",
             "campo mourão": "PR", "campo mourao": "PR",
+            "ibiporã": "PR", "ibipora": "PR",
+            "cambé": "PR", "cambe": "PR",
+            "arapongas": "PR",
+            "rolândia": "PR", "rolandia": "PR",
+            "apucarana": "PR",
+            "cornélio procópio": "PR", "cornelio procopio": "PR",
+            "jacarezinho": "PR",
+            "bandeirantes": "PR",
+            "ivaiporã": "PR", "ivaipora": "PR",
+            "medianeira": "PR",
+            "marechal cândido rondon": "PR", "marechal candido rondon": "PR",
+            "palotina": "PR",
+            "guaíra": "PR", "guaira": "PR",
+            "francisco beltrão": "PR", "francisco beltrao": "PR",
+            "pato branco": "PR",
+            "cianorte": "PR",
+            "paranaguá": "PR", "paranagua": "PR",
 
-            # MG
-            "belo horizonte": "MG", "uberlândia": "MG", "uberlandia": "MG",
-            "uberaba": "MG", "montes claros": "MG", "juiz de fora": "MG",
-            "divinópolis": "MG", "divinopolis": "MG", "governador valadares": "MG",
-            "pouso alegre": "MG", "patos de minas": "MG", "teófilo otoni": "MG",
-            "teofilo otoni": "MG",
+            # MINAS GERAIS
+            "belo horizonte": "MG",
+            "uberlândia": "MG", "uberlandia": "MG",
+            "uberaba": "MG",
+            "montes claros": "MG",
+            "juiz de fora": "MG",
+            "divinópolis": "MG", "divinopolis": "MG",
+            "governador valadares": "MG",
+            "pouso alegre": "MG",
+            "patos de minas": "MG",
+            "teófilo otoni": "MG", "teofilo otoni": "MG",
+            "contagem": "MG",
+            "betim": "MG",
+            "ipatinga": "MG",
+            "sete lagoas": "MG",
+            "varginha": "MG",
+            "poços de caldas": "MG", "pocos de caldas": "MG",
 
-            # RJ
-            "rio de janeiro": "RJ", "niterói": "RJ", "niteroi": "RJ",
-            "duque de caxias": "RJ", "nova iguaçu": "RJ", "nova iguacu": "RJ",
-            "campos dos goytacazes": "RJ", "volta redonda": "RJ", "petrópolis": "RJ",
-            "petropolis": "RJ",
+            # GOIÁS
+            "goiânia": "GO", "goiania": "GO",
+            "anápolis": "GO", "anapolis": "GO",
+            "rio verde": "GO",
+            "aparecida de goiânia": "GO", "aparecida de goiania": "GO",
+            "luziânia": "GO", "luziania": "GO",
+            "jataí": "GO", "jatai": "GO",
 
-            # BA
-            "salvador": "BA", "feira de santana": "BA", "vitória da conquista": "BA",
-            "vitoria da conquista": "BA", "juazeiro": "BA", "ilhéus": "BA", "ilheus": "BA",
-            "itabuna": "BA", "barreiras": "BA",
+            # MATO GROSSO
+            "cuiabá": "MT", "cuiaba": "MT",
+            "rondonópolis": "MT", "rondonopolis": "MT",
+            "sinop": "MT",
+            "várzea grande": "MT", "varzea grande": "MT",
+            "sorriso": "MT",
 
-            # GO
-            "goiânia": "GO", "goiania": "GO", "anápolis": "GO", "anapolis": "GO",
-            "rio verde": "GO", "aparecida de goiânia": "GO", "aparecida de goiania": "GO",
+            # MATO GROSSO DO SUL
+            "campo grande": "MS",
+            "dourados": "MS",
+            "três lagoas": "MS", "tres lagoas": "MS",
+            "corumbá": "MS", "corumba": "MS",
 
-            # MT/MS
-            "cuiabá": "MT", "cuiaba": "MT", "rondonópolis": "MT", "rondonopolis": "MT",
-            "sinop": "MT", "várzea grande": "MT", "varzea grande": "MT",
-            "campo grande": "MS", "dourados": "MS", "três lagoas": "MS", "tres lagoas": "MS",
+            # BAHIA
+            "salvador": "BA",
+            "feira de santana": "BA",
+            "vitória da conquista": "BA", "vitoria da conquista": "BA",
+            "juazeiro": "BA",
+            "ilhéus": "BA", "ilheus": "BA",
+            "itabuna": "BA",
+            "barreiras": "BA",
+            "jequié": "BA", "jequie": "BA",
 
-            # SC/RS
-            "florianópolis": "SC", "florianopolis": "SC", "joinville": "SC",
-            "blumenau": "SC", "chapecó": "SC", "chapeco": "SC", "criciúma": "SC",
-            "criciuma": "SC",
-            "porto alegre": "RS", "caxias do sul": "RS", "pelotas": "RS",
-            "santa maria": "RS", "passo fundo": "RS",
+            # PERNAMBUCO
+            "recife": "PE",
+            "caruaru": "PE",
+            "petrolina": "PE",
+            "jaboatão dos guararapes": "PE", "jaboatao dos guararapes": "PE",
+            "olinda": "PE",
 
-            # Nordeste/Norte
-            "recife": "PE", "caruaru": "PE", "petrolina": "PE",
-            "fortaleza": "CE", "juazeiro do norte": "CE", "sobral": "CE",
-            "belém": "PA", "belem": "PA", "santarém": "PA", "santarem": "PA", "marabá": "PA", "maraba": "PA",
-            "joão pessoa": "PB", "joao pessoa": "PB", "campina grande": "PB",
-            "natal": "RN", "mossoró": "RN", "mossoro": "RN",
-            "maceió": "AL", "maceio": "AL", "arapiraca": "AL",
-            "aracaju": "SE", "teresina": "PI", "são luís": "MA", "sao luis": "MA",
-            "manaus": "AM", "rio branco": "AC", "porto velho": "RO", "boa vista": "RR",
-            "macapá": "AP", "macapa": "AP", "palmas": "TO",
+            # CEARÁ
+            "fortaleza": "CE",
+            "juazeiro do norte": "CE",
+            "sobral": "CE",
+            "crato": "CE",
 
-            # ES/DF
-            "vitória": "ES", "vitoria": "ES", "vila velha": "ES", "serra": "ES", "cariacica": "ES",
+            # RIO DE JANEIRO
+            "rio de janeiro": "RJ",
+            "niterói": "RJ", "niteroi": "RJ",
+            "duque de caxias": "RJ",
+            "nova iguaçu": "RJ", "nova iguacu": "RJ",
+            "campos dos goytacazes": "RJ",
+            "volta redonda": "RJ",
+            "petrópolis": "RJ", "petropolis": "RJ",
+
+            # SANTA CATARINA
+            "florianópolis": "SC", "florianopolis": "SC",
+            "joinville": "SC",
+            "blumenau": "SC",
+            "chapecó": "SC", "chapeco": "SC",
+            "criciúma": "SC", "criciuma": "SC",
+
+            # RIO GRANDE DO SUL
+            "porto alegre": "RS",
+            "caxias do sul": "RS",
+            "pelotas": "RS",
+            "santa maria": "RS",
+            "passo fundo": "RS",
+
+            # PARÁ
+            "belém": "PA", "belem": "PA",
+            "santarém": "PA", "santarem": "PA",
+            "marabá": "PA", "maraba": "PA",
+
+            # PARAÍBA
+            "joão pessoa": "PB", "joao pessoa": "PB",
+            "campina grande": "PB",
+
+            # RIO GRANDE DO NORTE
+            "natal": "RN",
+            "mossoró": "RN", "mossoro": "RN",
+
+            # ALAGOAS
+            "maceió": "AL", "maceio": "AL",
+            "arapiraca": "AL",
+
+            # SERGIPE
+            "aracaju": "SE",
+
+            # ESPÍRITO SANTO
+            "vitória": "ES", "vitoria": "ES",
+            "vila velha": "ES",
+            "serra": "ES",
+            "cariacica": "ES",
+
+            # DISTRITO FEDERAL
             "brasília": "DF", "brasilia": "DF"
         }
-
     def carregar_existentes(self):
         if os.path.exists("noticias.json"):
             try:
