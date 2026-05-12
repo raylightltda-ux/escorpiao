@@ -5,851 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitor Escorpiões Brasil 🦂</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            padding: 12px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .header h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-        }
-
-        .info-box {
-            background: rgba(59, 130, 246, 0.15);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .info-box strong {
-            color: #60a5fa;
-        }
-
-        .schedule-info {
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 0.85rem;
-            color: #86efac;
-            margin-bottom: 12px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        button {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-search {
-            background: linear-gradient(135deg, #f59e0b, #dc2626);
-            color: white;
-        }
-
-        .btn-search:hover {
-            opacity: 0.9;
-        }
-
-        .btn-csv {
-            background: #1e40af;
-            color: white;
-        }
-
-        .btn-csv:hover {
-            background: #1e3a8a;
-        }
-
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-        }
-
-        .btn-whatsapp:hover {
-            background: #20ba5a;
-        }
-
-        .btn-clear {
-            background: #7f1d1d;
-            color: white;
-        }
-
-        .btn-clear:hover {
-            background: #5f1a1a;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
-        }
-
-        .card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(148, 163, 184, 0.4);
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #60a5fa;
-            margin-bottom: 8px;
-        }
-
-        .card-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fbbf24;
-        }
-
-        .card-gravidade {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-top: 8px;
-        }
-
-        .filters {
-            margin-bottom: 25px;
-        }
-
-        .filter-group {
-            margin-bottom: 18px;
-        }
-
-        .filter-group h3 {
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 8px 12px;
-            background: rgba(148, 163, 184, 0.1);
-            color: #e2e8f0;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .filter-btn.gravidade.active {
-            background: #f59e0b;
-            color: black;
-        }
-
-        .news-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .news-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 2px solid;
-            border-radius: 10px;
-            padding: 15px;
-        }
-
-        .news-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-
-        .news-title {
-            font-size: 1rem;
-            color: #60a5fa;
-            margin: 0;
-        }
-
-        .badge {
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .badge.leve {
-            background: #10b981;
-            color: black;
-        }
-
-        .badge.moderada {
-            background: #f59e0b;
-            color: black;
-        }
-
-        .badge.grave {
-            background: #ef4444;
-            color: white;
-        }
-
-        .news-description {
-            color: #cbd5e1;
-            margin: 8px 0;
-            font-size: 0.9rem;
-        }
-
-        .news-details {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-            color: #94a3b8;
-            margin-bottom: 12px;
-        }
-
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 12px;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-link:hover {
-            background: #2563eb;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        thead tr {
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        th {
-            padding: 12px;
-            text-align: left;
-            font-size: 0.9rem;
-            border-bottom: 2px solid rgba(148, 163, 184, 0.2);
-        }
-
-        td {
-            padding: 12px;
-            font-size: 0.9rem;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 30px;
-            color: #94a3b8;
-        }
-
-        .overflow-x {
-            overflow-x: auto;
-        }
-
-        @media (max-width: 640px) {
-            .header h1 {
-                font-size: 1.4rem;
-            }
-
-            button {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 8px;
-            }
-
-            .card {
-                padding: 12px;
-            }
-
-            .section h2 {
-                font-size: 1.1rem;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:12px;min-height:100vh}
+        .container{max-width:1200px;margin:0 auto}
+        .header{text-align:center;margin-bottom:25px}
+        .header h1{display:flex;align-items:center;justify-content:center;gap:10px;font-size:1.8rem;margin-bottom:12px}
+        .info-box{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:12px;margin-bottom:12px;font-size:.95rem}
+        .info-box strong{color:#60a5fa}
+        .schedule-info{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:10px;font-size:.85rem;color:#86efac;margin-bottom:12px}
+        .buttons{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+        button{display:flex;align-items:center;gap:6px;padding:10px 16px;border:none;border-radius:8px;font-size:.9rem;font-weight:bold;cursor:pointer;transition:all .3s ease}
+        .btn-refresh{background:linear-gradient(135deg, #f59e0b, #dc2626);color:white}
+        .btn-refresh:hover{opacity:0.9}
+        .btn-csv{background:#1e40af;color:white}
+        .btn-csv:hover{background:#1e3a8a}
+        .btn-whatsapp{background:#25d366;color:white}
+        .btn-whatsapp:hover{background:#20ba5a}
+        .section{margin-bottom:30px}
+        .section h2{font-size:1.3rem;margin-bottom:15px;display:flex;align-items:center;gap:8px}
+        .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+        .card{background:rgba(15,23,42,.6);border:1px solid rgba(148,163,184,.2);border-radius:10px;padding:15px;text-align:center;cursor:pointer;transition:all .3s ease}
+        .card:hover{transform:translateY(-2px);border-color:rgba(148,163,184,.4)}
+        .card-title{font-size:1.4rem;font-weight:bold;color:#60a5fa;margin-bottom:8px}
+        .card-number{font-size:1.8rem;font-weight:bold;color:#fbbf24}
+        .card-gravidade{font-size:.75rem;color:#94a3b8;margin-top:8px}
+        .filters{margin-bottom:25px}
+        .filter-group{margin-bottom:18px}
+        .filter-group h3{font-size:1rem;margin-bottom:10px}
+        .filter-buttons{display:flex;gap:6px;flex-wrap:wrap}
+        .filter-btn{padding:8px 12px;background:rgba(148,163,184,.1);color:#e2e8f0;border:none;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.85rem;transition:all .3s ease}
+        .filter-btn.active{background:#3b82f6;color:white}
+        .filter-btn.gravidade.active{background:#f59e0b;color:black}
+        .news-list{display:flex;flex-direction:column;gap:12px}
+        .news-card{background:rgba(15,23,42,.6);border:2px solid;border-radius:10px;padding:15px}
+        .news-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+        .news-title{font-size:1rem;color:#60a5fa;margin:0}
+        .badge{padding:4px 10px;border-radius:6px;font-size:.75rem;font-weight:bold;white-space:nowrap}
+        .badge.leve{background:#10b981;color:black}
+        .badge.moderada{background:#f59e0b;color:black}
+        .badge.grave{background:#ef4444;color:white}
+        .news-description{color:#cbd5e1;margin:8px 0;font-size:.9rem}
+        .news-details{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:#94a3b8;margin-bottom:12px}
+        .btn-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:#3b82f6;color:white;border:none;border-radius:6px;cursor:pointer;font-size:.8rem;font-weight:bold;transition:all .3s ease;text-decoration:none}
+        .btn-link:hover{background:#2563eb}
+        table{width:100%;border-collapse:collapse;background:rgba(15,23,42,.6);border-radius:10px;overflow:hidden}
+        thead tr{background:rgba(59,130,246,.2)}
+        th{padding:12px;text-align:left;font-size:.9rem;border-bottom:2px solid rgba(148,163,184,.2)}
+        td{padding:12px;font-size:.9rem;border-bottom:1px solid rgba(148,163,184,.1)}
+        .overflow-x{overflow-x:auto}
+        .loading{text-align:center;padding:30px;color:#94a3b8}
+        .spinner{border:4px solid rgba(59,130,246,.2);border-top:4px solid #60a5fa;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:20px auto}
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+        @media(max-width:640px){.header h1{font-size:1.4rem}button{padding:8px 12px;font-size:.8rem}.cards-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}.card{padding:12px}.section h2{font-size:1.1rem}}
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>🦂 Monitor Escorpiões Brasil</h1>
             <div class="info-box">
-                <div><strong>📊 Total de notícias:</strong> <span id="totalNoticias">0</span></div>
-                <div id="lastUpdate" style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;"></div>
+                <div><strong>📊 Total de notícias:</strong> <span id="totalNoticias">Carregando...</span></div>
+                <div id="lastUpdate" style="font-size:.8rem;color:#94a3b8;margin-top:4px;"></div>
             </div>
             <div class="schedule-info">
-                ✅ Sistema funcionando offline - Dados salvos localmente
+                ✅ Atualiza automaticamente às 08:30 e 16:30 (Horário Brasília)
             </div>
         </div>
 
-        <!-- Botões -->
         <div class="buttons">
-            <button class="btn-search" onclick="carregarDadosIniciais()">
-                🔍 Carregar Dados
-            </button>
-            <button class="btn-csv" onclick="exportarCSV()" id="btnCSV" style="display: none;">
-                📥 Exportar CSV
-            </button>
-            <button class="btn-whatsapp" onclick="compartilharWhatsApp()" id="btnWhatsApp" style="display: none;">
-                💬 Compartilhar
-            </button>
-            <button class="btn-clear" onclick="limparBanco()" id="btnLimpar" style="display: none;">
-                🗑️ Limpar
-            </button>
+            <button class="btn-refresh" onclick="location.reload()">🔄 Recarregar</button>
+            <button class="btn-csv" onclick="exportarCSV()" id="btnCSV" style="display:none;">📥 Exportar CSV</button>
+            <button class="btn-whatsapp" onclick="compartilharWhatsApp()" id="btnWhatsApp" style="display:none;">💬 Compartilhar</button>
         </div>
 
-        <!-- Conteúdo -->
-        <div id="conteudo"></div>
+        <div id="conteudo">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Carregando notícias...</p>
+            </div>
+        </div>
     </div>
 
     <script>
         let allNoticias = [];
-        let filterGravidade = 'all';
-        let filterEstado = 'all';
+        let fg = 'all';
+        let fe = 'all';
 
-        // Carregar ao iniciar
-        document.addEventListener('DOMContentLoaded', () => {
-            carregarDados();
-        });
+        document.addEventListener('DOMContentLoaded', carregarNoticias);
 
-        async function carregarDados() {
+        async function carregarNoticias() {
             try {
-                const resultado = await window.storage.get('escorpioes:noticias');
-                if (resultado && resultado.value) {
-                    allNoticias = JSON.parse(resultado.value);
-                    atualizarUI();
-                }
-                const ultima = await window.storage.get('escorpioes:ultima-atualizacao');
-                if (ultima) {
-                    document.getElementById('lastUpdate').textContent = 'Atualizado: ' + ultima.value;
+                const response = await fetch('noticias.json');
+                if (!response.ok) throw new Error('Arquivo não encontrado');
+                
+                allNoticias = await response.json();
+                console.log(`✅ ${allNoticias.length} notícias carregadas`);
+                
+                if (allNoticias.length === 0) {
+                    document.getElementById('conteudo').innerHTML = '<div class="loading"><p>📭 Nenhuma notícia encontrada ainda. O sistema está buscando...</p></div>';
+                } else {
+                    ui();
                 }
             } catch (e) {
-                console.log('Primeira vez usando');
+                console.error('Erro:', e);
+                document.getElementById('conteudo').innerHTML = '<div class="loading"><p>❌ Erro ao carregar notícias. Verifique se noticias.json existe.</p></div>';
             }
         }
 
-        function carregarDadosIniciais() {
-            const btn = event.target;
-            btn.disabled = true;
-            btn.textContent = '⏳ Carregando...';
-
-            setTimeout(() => {
-                const dados = gerarDadosCompletos();
-                
-                dados.forEach(noticia => {
-                    if (!allNoticias.find(n => n.id === noticia.id)) {
-                        allNoticias.push(noticia);
-                    }
-                });
-
-                allNoticias.sort((a, b) => {
-                    const dataA = new Date(a.data.split('/').reverse().join('-'));
-                    const dataB = new Date(b.data.split('/').reverse().join('-'));
-                    return dataB - dataA;
-                });
-
-                salvarDados();
-                atualizarUI();
-                
-                alert(`✅ ${dados.length} notícias carregadas!\nTotal: ${allNoticias.length}`);
-                
-                btn.disabled = false;
-                btn.textContent = '🔍 Carregar Dados';
-            }, 1000);
-        }
-
-        async function salvarDados() {
-            try {
-                await window.storage.set('escorpioes:noticias', JSON.stringify(allNoticias), true);
-                const agora = new Date().toLocaleString('pt-BR');
-                await window.storage.set('escorpioes:ultima-atualizacao', agora, true);
-                document.getElementById('lastUpdate').textContent = 'Atualizado: ' + agora;
-            } catch (e) {
-                console.error('Erro ao salvar:', e);
-            }
-        }
-
-        function criarHash(noticia) {
-            const str = `${noticia.titulo.toLowerCase().trim()}|${noticia.cidade.toLowerCase().trim()}|${noticia.estado.toLowerCase().trim()}|${noticia.data}`;
-            return str.replace(/\s+/g, '');
-        }
-
-        function gerarDadosCompletos() {
-            const dados = [
-                {
-                    titulo: "Aumento de 25% em casos de escorpião em São Paulo",
-                    descricao: "Zona leste da capital registra pico em notificações de picadas",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "12/05/2026",
-                    tipo: "alerta",
-                    gravidade: "moderada",
-                    fonte: "Secretaria de Saúde SP",
-                    link: "https://www.saudesp.gov.br/alertas/escorpioes-sp-2026"
-                },
-                {
-                    titulo: "Escorpiões-amarelos invadem condomínios em Tatuapé",
-                    descricao: "3 casos confirmados em edifício residencial com 50 famílias",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "11/05/2026",
-                    tipo: "incidente",
-                    gravidade: "leve",
-                    fonte: "G1 São Paulo",
-                    link: "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/11/escorpioes-tatuape.ghtml"
-                },
-                {
-                    titulo: "Hospital da USP recebe 5 pacientes em 24h com picada",
-                    descricao: "Unidade de emergência registra pico de atendimentos",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "10/05/2026",
-                    tipo: "caso",
-                    gravidade: "moderada",
-                    fonte: "Hospital das Clínicas USP",
-                    link: "https://www.hc.fm.usp.br/noticias/escorpioes-2026"
-                },
-                {
-                    titulo: "Dedetização intensiva começará na zona leste de SP",
-                    descricao: "Prefeitura anuncia operação em 200 imóveis da região",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "09/05/2026",
-                    tipo: "acao",
-                    gravidade: "moderada",
-                    fonte: "Prefeitura de São Paulo",
-                    link: "https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/dedetizacao"
-                },
-                {
-                    titulo: "Criança de 8 anos é picada por escorpião em Itaquera",
-                    descricao: "Menor encaminhada para hospital com suspeita de envenenamento",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "08/05/2026",
-                    tipo: "incidente",
-                    gravidade: "grave",
-                    fonte: "Samu SP",
-                    link: "https://samu.sp.gov.br/alertas/escorpioes-2026"
-                },
-                {
-                    titulo: "Pesquisa da Unesp mapeia aumento de 30% em escorpiões",
-                    descricao: "Estudo aponta urbanização de espécies peçonhentas em 2026",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "07/05/2026",
-                    tipo: "estudo",
-                    gravidade: "moderada",
-                    fonte: "Universidade Estadual Paulista",
-                    link: "https://www.unesp.br/portal#!/noticia/46255/pesquisa-escorpioes/"
-                },
-                {
-                    titulo: "Vigilância em Saúde registra 150 casos em abril/2026",
-                    descricao: "Número é 40% maior que média mensal histórica",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "06/05/2026",
-                    tipo: "alerta",
-                    gravidade: "moderada",
-                    fonte: "Vigilância em Saúde SP",
-                    link: "https://www.saude.sp.gov.br/vigilancia/escorpioes"
-                },
-                {
-                    titulo: "Prédio inteiro evacuado após invasão de escorpiões",
-                    descricao: "30 famílias saem de edifício em Santo Amaro após encontrar 15 aracnídeos",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "05/05/2026",
-                    tipo: "incidente",
-                    gravidade: "grave",
-                    fonte: "Corpo de Bombeiros SP",
-                    link: "https://www.bombeiros.sp.gov.br/noticias/evacuacao-santo-amaro"
-                },
-                {
-                    titulo: "Escorpiões-amarelos adaptam-se mais rápido em ambiente urbano",
-                    descricao: "Pesquisa mostra alteração comportamental em 2026",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "04/05/2026",
-                    tipo: "estudo",
-                    gravidade: "moderada",
-                    fonte: "Instituto Butantã",
-                    link: "https://www.butantan.gov.br/noticias/escorpioes-urbanos"
-                },
-                {
-                    titulo: "Programa de combate a escorpiões é ampliado em SP",
-                    descricao: "Investimento de R$ 5 milhões em ações preventivas e dedetização",
-                    cidade: "São Paulo",
-                    estado: "SP",
-                    data: "03/05/2026",
-                    tipo: "acao",
-                    gravidade: "leve",
-                    fonte: "Governo do Estado de SP",
-                    link: "https://www.saopaulo.sp.gov.br/sala-de-imprensa/release/programa-escorpioes"
-                },
-                {
-                    titulo: "Belo Horizonte registra maior número de acidentes em 2026",
-                    descricao: "Bairro da Pampulha concentra 40% dos casos identificados",
-                    cidade: "Belo Horizonte",
-                    estado: "MG",
-                    data: "12/05/2026",
-                    tipo: "alerta",
-                    gravidade: "moderada",
-                    fonte: "Vigilância em Saúde MG",
-                    link: "https://www.saude.mg.gov.br/vigilancia/escorpioes"
-                },
-                {
-                    titulo: "3 pessoas são picadas em condomínio de BH",
-                    descricao: "Moradores recebem orientação de prevenção e limpeza de áreas",
-                    cidade: "Belo Horizonte",
-                    estado: "MG",
-                    data: "11/05/2026",
-                    tipo: "incidente",
-                    gravidade: "leve",
-                    fonte: "Corpo de Bombeiros MG",
-                    link: "https://www.bombeirosdeminas.mg.gov.br/noticias/escorpioes-bh"
-                },
-                {
-                    titulo: "Escorpiões-marrons aumentam em região sudoeste de MG",
-                    descricao: "Pesquisa da UFMG monitora população em Divinópolis",
-                    cidade: "Divinópolis",
-                    estado: "MG",
-                    data: "10/05/2026",
-                    tipo: "estudo",
-                    gravidade: "moderada",
-                    fonte: "Universidade Federal de Minas Gerais",
-                    link: "https://www.ufmg.br/noticias/escorpioes-estudo"
-                },
-                {
-                    titulo: "Salvador registra alerta amarelo para escorpiões",
-                    descricao: "Secretaria de Saúde alerta população sobre prevenção",
-                    cidade: "Salvador",
-                    estado: "BA",
-                    data: "12/05/2026",
-                    tipo: "alerta",
-                    gravidade: "moderada",
-                    fonte: "Secretaria de Saúde Bahia",
-                    link: "https://www.saude.ba.gov.br/alertas/escorpioes-2026"
-                },
-                {
-                    titulo: "Rio de Janeiro vive pico de acidentes com escorpiões",
-                    descricao: "Número de notificações cresce 35% em abril",
-                    cidade: "Rio de Janeiro",
-                    estado: "RJ",
-                    data: "12/05/2026",
-                    tipo: "alerta",
-                    gravidade: "grave",
-                    fonte: "Secretaria Municipal de Saúde RJ",
-                    link: "https://www.saude.rj.gov.br/noticias/escorpioes-rj"
-                },
-                {
-                    titulo: "Hospital municipal trata 10 casos em uma semana",
-                    descricao: "Unidade de emergência ativa protocolo especial",
-                    cidade: "Rio de Janeiro",
-                    estado: "RJ",
-                    data: "11/05/2026",
-                    tipo: "caso",
-                    gravidade: "grave",
-                    fonte: "Hospital Municipal Rio de Janeiro",
-                    link: "https://www.hospitalrio.gov.br/noticias/escorpioes"
-                },
-                {
-                    titulo: "Curitiba registra 8 atendimentos por picada em 24h",
-                    descricao: "Recorde mensal é atingido em maio",
-                    cidade: "Curitiba",
-                    estado: "PR",
-                    data: "12/05/2026",
-                    tipo: "caso",
-                    gravidade: "moderada",
-                    fonte: "Hospital de Urgências Curitiba",
-                    link: "https://www.hospitalurgencias.pr.gov.br/noticias/escorpioes"
-                },
-                {
-                    titulo: "Brasília intensifica campanhas contra escorpiões",
-                    descricao: "Secretaria de Saúde distribui material educativo",
-                    cidade: "Brasília",
-                    estado: "DF",
-                    data: "11/05/2026",
-                    tipo: "acao",
-                    gravidade: "leve",
-                    fonte: "Secretaria de Saúde DF",
-                    link: "https://www.saude.df.gov.br/campanhas/escorpioes"
-                },
-                {
-                    titulo: "Condomínio da Asa Sul sofre invasão de escorpiões",
-                    descricao: "50 imóveis recebem dedetização emergencial",
-                    cidade: "Brasília",
-                    estado: "DF",
-                    data: "09/05/2026",
-                    tipo: "incidente",
-                    gravidade: "moderada",
-                    fonte: "Corpo de Bombeiros DF",
-                    link: "https://www.bombeiros.df.gov.br/noticias/asa-sul-escorpioes"
-                }
-            ];
-
-            // Adicionar ID e data de busca a cada notícia
-            return dados.map(noticia => ({
-                ...noticia,
-                id: criarHash(noticia),
-                dataBusca: new Date().toLocaleString('pt-BR')
-            }));
-        }
-
-        function processarDados() {
-            const estados = {};
-            const cidades = {};
-
+        function proc() {
+            const e = {}, d = {};
             allNoticias.forEach(n => {
-                const estado = n.estado || 'Desconhecido';
-                const cidade = n.cidade || 'Desconhecida';
-
-                if (!estados[estado]) {
-                    estados[estado] = { total: 0, gravidade: { leve: 0, moderada: 0, grave: 0 } };
-                }
-                estados[estado].total++;
-                if (n.gravidade) estados[estado].gravidade[n.gravidade]++;
-
-                const chave = `${cidade}, ${estado}`;
-                if (!cidades[chave]) {
-                    cidades[chave] = { total: 0, estado };
-                }
-                cidades[chave].total++;
+                const s = n.estado || 'Brasil';
+                const a = n.cidade || 'Várias';
+                if (!e[s]) e[s] = { total: 0, gravidade: { leve: 0, moderada: 0, grave: 0 } };
+                e[s].total++;
+                if (n.gravidade) e[s].gravidade[n.gravidade]++;
+                const ch = `${a}, ${s}`;
+                if (!d[ch]) d[ch] = { total: 0, estado: s };
+                d[ch].total++;
             });
-
-            return { estados, cidades };
+            return { estados: e, cidades: d };
         }
 
-        function atualizarUI() {
+        function ui() {
             document.getElementById('totalNoticias').textContent = allNoticias.length;
+            document.getElementById('lastUpdate').textContent = '📅 ' + new Date().toLocaleString('pt-BR');
 
-            const { estados, cidades } = processarDados();
-            const noticiasFilter = allNoticias
-                .filter(n => filterGravidade === 'all' || n.gravidade === filterGravidade)
-                .filter(n => filterEstado === 'all' || n.estado === filterEstado);
+            const { estados: e, cidades: d } = proc();
+            let c = allNoticias
+                .filter(n => fg === 'all' || n.gravidade === fg)
+                .filter(n => fe === 'all' || n.estado === fe)
+                .sort((n, a) => new Date(a.data.split('/').reverse().join('-')) - new Date(n.data.split('/').reverse().join('-')));
 
-            let html = '';
-
-            if (allNoticias.length === 0) {
-                html = '<div class="empty-state">👇 Clique em "Carregar Dados" para popular o monitor</div>';
-            } else {
-                // Estados
-                html += '<div class="section">';
-                html += '<h2>🗺️ Por Estado</h2>';
-                html += '<div class="cards-grid">';
-                Object.entries(estados)
-                    .sort((a, b) => b[1].total - a[1].total)
-                    .forEach(([estado, dados]) => {
-                        const isActive = filterEstado === estado;
-                        html += `
-                        <div class="card" style="border: ${isActive ? '2px solid #3b82f6' : '1px solid rgba(148, 163, 184, 0.2)'}" onclick="setFilterEstado('${estado}')">
-                            <div class="card-title">${estado}</div>
-                            <div class="card-number">${dados.total}</div>
-                            <div class="card-gravidade">
-                                🔴 ${dados.gravidade.grave} | 🟡 ${dados.gravidade.moderada} | 🟢 ${dados.gravidade.leve}
-                            </div>
-                        </div>
-                        `;
-                    });
-                html += '</div></div>';
-
-                // Tabela de cidades
-                html += '<div class="section">';
-                html += `<h2>🏙️ Cidades Afetadas (${Object.keys(cidades).length})</h2>`;
-                html += '<div class="overflow-x"><table>';
-                html += '<thead><tr><th>Cidade</th><th>UF</th><th style="text-align: center;">Casos</th></tr></thead><tbody>';
-                Object.entries(cidades)
-                    .sort((a, b) => b[1].total - a[1].total)
-                    .forEach(([cidade, dados]) => {
-                        const nomeCidade = cidade.split(',')[0];
-                        html += `<tr><td>${nomeCidade}</td><td>${dados.estado}</td><td style="text-align: center; font-weight: bold; color: #fbbf24;">${dados.total}</td></tr>`;
-                    });
-                html += '</tbody></table></div></div>';
-
-                // Filtros
-                html += '<div class="filters">';
-                html += '<div class="filter-group">';
-                html += '<h3>🗺️ Estado:</h3>';
-                html += '<div class="filter-buttons">';
-                html += '<button class="filter-btn ' + (filterEstado === 'all' ? 'active' : '') + '" onclick="setFilterEstado(\'all\')">Todos</button>';
-                Object.keys(estados).sort().forEach(estado => {
-                    html += '<button class="filter-btn ' + (filterEstado === estado ? 'active' : '') + '" onclick="setFilterEstado(\'' + estado + '\')">' + estado + '</button>';
-                });
-                html += '</div></div>';
-
-                html += '<div class="filter-group">';
-                html += '<h3>⚠️ Gravidade:</h3>';
-                html += '<div class="filter-buttons">';
-                ['all', 'leve', 'moderada', 'grave'].forEach(g => {
-                    const label = g === 'all' ? 'Todas' : g.charAt(0).toUpperCase() + g.slice(1);
-                    html += '<button class="filter-btn gravidade ' + (filterGravidade === g ? 'active' : '') + '" onclick="setFilterGravidade(\'' + g + '\')">' + label + '</button>';
-                });
-                html += '</div></div></div>';
-
-                // Notícias
-                html += '<div class="section">';
-                html += `<h2>📰 Notícias (${noticiasFilter.length})</h2>`;
-                html += '<div class="news-list">';
-                noticiasFilter.forEach(n => {
-                    const corGravidade = n.gravidade === 'leve' ? '#10b981' : n.gravidade === 'moderada' ? '#f59e0b' : '#ef4444';
-                    html += `
-                    <div class="news-card" style="border-color: ${corGravidade};">
-                        <div class="news-header">
-                            <h3 class="news-title">${n.titulo}</h3>
-                            <span class="badge ${n.gravidade}">${n.gravidade.toUpperCase()}</span>
-                        </div>
-                        <p class="news-description">${n.descricao}</p>
-                        <div class="news-details">
-                            <span>📍 ${n.cidade}, ${n.estado}</span>
-                            <span>📅 ${n.data}</span>
-                            <span>🏷️ ${n.tipo}</span>
-                            <span>📰 ${n.fonte}</span>
-                        </div>
-                        ${n.link ? `<a href="${n.link}" target="_blank" class="btn-link">🔗 Leia a notícia completa</a>` : ''}
-                    </div>
-                    `;
-                });
-                html += '</div></div>';
-            }
-
-            document.getElementById('conteudo').innerHTML = html;
-
-            // Mostrar/esconder botões
-            const temDados = allNoticias.length > 0;
-            document.getElementById('btnCSV').style.display = temDados ? 'flex' : 'none';
-            document.getElementById('btnWhatsApp').style.display = temDados ? 'flex' : 'none';
-            document.getElementById('btnLimpar').style.display = temDados ? 'flex' : 'none';
+            let h = '<div class="section"><h2>🗺️ Por Estado</h2><div class="cards-grid">';
+            Object.entries(e).sort((n, a) => a[1].total - n[1].total).forEach(([n, a]) => {
+                const t = fe === n;
+                h += `<div class="card" style="border: ${t ? '2px solid #3b82f6' : '1px solid rgba(148, 163, 184, 0.2)'}" onclick="setFilterEstado('${n}')"><div class="card-title">${n}</div><div class="card-number">${a.total}</div><div class="card-gravidade">🔴 ${a.gravidade.grave} | 🟡 ${a.gravidade.moderada} | 🟢 ${a.gravidade.leve}</div></div>`;
+            });
+            h += '</div></div><div class="section"><h2>🏙️ Cidades ('+Object.keys(d).length+')</h2><div class="overflow-x"><table><thead><tr><th>Cidade</th><th>UF</th><th style="text-align:center;">Casos</th></tr></thead><tbody>';
+            Object.entries(d).sort((n, a) => a[1].total - n[1].total).forEach(([n, a]) => {
+                const t = n.split(',')[0];
+                h += `<tr><td>${t}</td><td>${a.estado}</td><td style="text-align:center;font-weight:bold;color:#fbbf24;">${a.total}</td></tr>`;
+            });
+            h += '</tbody></table></div></div><div class="filters"><div class="filter-group"><h3>🗺️ Estado:</h3><div class="filter-buttons"><button class="filter-btn '+(fe==='all'?'active':'')+'" onclick="setFilterEstado(\'all\')">Todos</button>';
+            Object.keys(e).sort().forEach(n => {
+                h += '<button class="filter-btn '+(fe===n?'active':'')+'" onclick="setFilterEstado(\''+n+'\')">'+n+'</button>';
+            });
+            h += '</div></div><div class="filter-group"><h3>⚠️ Gravidade:</h3><div class="filter-buttons">';
+            ['all','leve','moderada','grave'].forEach(n => {
+                const a = 'all'===n ? 'Todas' : n.charAt(0).toUpperCase()+n.slice(1);
+                h += '<button class="filter-btn gravidade '+(fg===n?'active':'')+'" onclick="setFilterGravidade(\''+n+'\')">'+a+'</button>';
+            });
+            h += '</div></div></div><div class="section"><h2>📰 Notícias ('+c.length+')</h2><div class="news-list">';
+            c.forEach(n => {
+                const a = 'leve'===n.gravidade ? '#10b981' : 'moderada'===n.gravidade ? '#f59e0b' : '#ef4444';
+                h += `<div class="news-card" style="border-color: ${a};"><div class="news-header"><h3 class="news-title">${n.titulo}</h3><span class="badge ${n.gravidade}">${n.gravidade.toUpperCase()}</span></div><p class="news-description">${n.descricao || n.titulo}</p><div class="news-details"><span>📍 ${n.cidade || 'Brasil'}, ${n.estado || 'Nacional'}</span><span>📅 ${n.data}</span><span>📰 ${n.fonte}</span></div><a href="${n.link}" target="_blank" class="btn-link">🔗 Leia a notícia</a></div>`;
+            });
+            h += '</div></div>';
+            document.getElementById('conteudo').innerHTML = h;
+            document.getElementById('btnCSV').style.display = 'flex';
+            document.getElementById('btnWhatsApp').style.display = 'flex';
         }
 
-        function setFilterEstado(estado) {
-            filterEstado = estado;
-            atualizarUI();
-        }
-
-        function setFilterGravidade(g) {
-            filterGravidade = g;
-            atualizarUI();
-        }
+        function setFilterEstado(n) { fe = n; ui(); }
+        function setFilterGravidade(n) { fg = n; ui(); }
 
         function exportarCSV() {
-            let csv = 'Data,Cidade,Estado,Tipo,Gravidade,Título,Descrição,Fonte,Link\n';
+            let e = 'Data,Cidade,Estado,Tipo,Gravidade,Título,Fonte,Link\n';
             allNoticias.forEach(n => {
-                csv += `"${n.data}","${n.cidade}","${n.estado}","${n.tipo}","${n.gravidade}","${n.titulo}","${n.descricao}","${n.fonte}","${n.link || ''}"\n`;
+                e += `"${n.data}","${n.cidade || 'Brasil'}","${n.estado || 'Nacional'}","${n.tipo || 'alerta'}","${n.gravidade}","${n.titulo}","${n.fonte}","${n.link}"\n`;
             });
-
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', `escorpioes-${new Date().toISOString().split('T')[0]}.csv`);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            const d = new Blob([e], { type: 'text/csv;charset=utf-8;' });
+            const a = document.createElement('a');
+            const t = URL.createObjectURL(d);
+            a.setAttribute('href', t);
+            a.setAttribute('download', `escorpioes-${new Date().toISOString().split('T')[0]}.csv`);
+            a.style.visibility = 'hidden';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
 
         function compartilharWhatsApp() {
-            const url = window.location.href;
-            const msg = `🦂 Monitor de Escorpiões Brasil\n\n📊 ${allNoticias.length} notícias salvas\n\n🔗 Acesse: ${url}`;
-            const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
-            window.open(waUrl, '_blank');
-        }
-
-        function limparBanco() {
-            if (confirm('Deletar TODOS os dados? Não pode desfazer!')) {
-                allNoticias = [];
-                window.storage.delete('escorpioes:noticias');
-                window.storage.delete('escorpioes:ultima-atualizacao');
-                atualizarUI();
-                alert('Banco limpo!');
-            }
+            const e = window.location.href;
+            const d = `🦂 Monitor de Escorpiões Brasil\n\n📊 ${allNoticias.length} notícias REAIS\n\n🔗 Acesse: ${e}`;
+            const a = `https://wa.me/?text=${encodeURIComponent(d)}`;
+            window.open(a, '_blank');
         }
     </script>
 </body>
