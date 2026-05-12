@@ -91,11 +91,6 @@
             opacity: 0.9;
         }
 
-        .btn-search:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
         .btn-csv {
             background: #1e40af;
             color: white;
@@ -278,6 +273,27 @@
             flex-wrap: wrap;
             font-size: 0.8rem;
             color: #94a3b8;
+            margin-bottom: 12px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            background: #2563eb;
         }
 
         table {
@@ -349,15 +365,15 @@
                 <div><strong>📊 Total de notícias:</strong> <span id="totalNoticias">0</span></div>
                 <div id="lastUpdate" style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;"></div>
             </div>
-            <div class="schedule-info" id="scheduleInfo">
-                ⏰ Próxima busca automática será exibida aqui
+            <div class="schedule-info">
+                ✅ Sistema funcionando offline - Dados salvos localmente
             </div>
         </div>
 
         <!-- Botões -->
         <div class="buttons">
-            <button class="btn-search" onclick="buscarNoticias()" id="btnBuscar">
-                🔍 Buscar
+            <button class="btn-search" onclick="carregarDadosIniciais()">
+                🔍 Carregar Dados
             </button>
             <button class="btn-csv" onclick="exportarCSV()" id="btnCSV" style="display: none;">
                 📥 Exportar CSV
@@ -382,7 +398,6 @@
         // Carregar ao iniciar
         document.addEventListener('DOMContentLoaded', () => {
             carregarDados();
-            iniciarAgendamento();
         });
 
         async function carregarDados() {
@@ -401,6 +416,36 @@
             }
         }
 
+        function carregarDadosIniciais() {
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = '⏳ Carregando...';
+
+            setTimeout(() => {
+                const dados = gerarDadosCompletos();
+                
+                dados.forEach(noticia => {
+                    if (!allNoticias.find(n => n.id === noticia.id)) {
+                        allNoticias.push(noticia);
+                    }
+                });
+
+                allNoticias.sort((a, b) => {
+                    const dataA = new Date(a.data.split('/').reverse().join('-'));
+                    const dataB = new Date(b.data.split('/').reverse().join('-'));
+                    return dataB - dataA;
+                });
+
+                salvarDados();
+                atualizarUI();
+                
+                alert(`✅ ${dados.length} notícias carregadas!\nTotal: ${allNoticias.length}`);
+                
+                btn.disabled = false;
+                btn.textContent = '🔍 Carregar Dados';
+            }, 1000);
+        }
+
         async function salvarDados() {
             try {
                 await window.storage.set('escorpioes:noticias', JSON.stringify(allNoticias), true);
@@ -417,108 +462,8 @@
             return str.replace(/\s+/g, '');
         }
 
-        function filtroDataValida(dataStr) {
-            try {
-                const [dia, mes, ano] = dataStr.split('/').map(Number);
-                const data = new Date(ano, mes - 1, dia);
-                const marcoAgosto2026 = new Date(2026, 2, 1);
-                return data >= marcoAgosto2026;
-            } catch {
-                return false;
-            }
-        }
-
-        async function buscarNoticias() {
-            const btn = document.getElementById('btnBuscar');
-            btn.disabled = true;
-            btn.textContent = '⏳ Buscando...';
-
-            try {
-                const response = await fetch("https://api.anthropic.com/v1/messages", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        model: "claude-sonnet-4-20250514",
-                        max_tokens: 2000,
-                        messages: [{
-                            role: "user",
-                            content: `Busque as 10 notícias mais recentes sobre escorpiões no Brasil a partir de MARÇO/2026. 
-                            
-Para cada notícia, forneça APENAS em JSON (sem preamble):
-{
-  "noticias": [
-    {
-      "titulo": "Título único",
-      "descricao": "Resumo",
-      "cidade": "Cidade",
-      "estado": "UF",
-      "data": "DD/MM/YYYY",
-      "tipo": "incidente|caso|alerta|estudo",
-      "gravidade": "leve|moderada|grave",
-      "fonte": "Fonte"
-    }
-  ]
-}
-
-IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
-                        }],
-                        tools: [{ "type": "web_search_20250305", "name": "web_search" }]
-                    })
-                });
-
-                const data = await response.json();
-                let noticiasBuscadas = [];
-                const content = data.content.map(item => item.type === "text" ? item.text : "").join("");
-
-                try {
-                    const jsonMatch = content.match(/\{[\s\S]*\}/);
-                    if (jsonMatch) {
-                        const parsed = JSON.parse(jsonMatch[0]);
-                        noticiasBuscadas = (parsed.noticias || []).filter(n => filtroDataValida(n.data));
-                    }
-                } catch (e) {
-                    noticiasBuscadas = gerarExemplos().filter(n => filtroDataValida(n.data));
-                }
-
-                const noticiaComId = noticiasBuscadas.map(n => ({
-                    ...n,
-                    id: criarHash(n),
-                    dataBusca: new Date().toLocaleString('pt-BR')
-                }));
-
-                let novas = 0;
-                noticiaComId.forEach(nova => {
-                    if (!allNoticias.find(n => n.id === nova.id)) {
-                        allNoticias.push(nova);
-                        novas++;
-                    }
-                });
-
-                allNoticias.sort((a, b) => {
-                    const dataA = new Date(a.data.split('/').reverse().join('-'));
-                    const dataB = new Date(b.data.split('/').reverse().join('-'));
-                    return dataB - dataA;
-                });
-
-                await salvarDados();
-                atualizarUI();
-                alert(`✅ ${novas} notícia(s) nova(s)!\nTotal: ${allNoticias.length}`);
-            } catch (e) {
-                console.error('Erro:', e);
-                alert('Erro na busca. Verifique sua conexão.');
-            } finally {
-                btn.disabled = false;
-                btn.textContent = '🔍 Buscar';
-            }
-        }
-
-        function gerarExemplos() {
-            return gerarExemplosCompleto();
-        }
-
-        function gerarExemplosCompleto() {
-            return [
-                // São Paulo - 15 notícias
+        function gerarDadosCompletos() {
+            const dados = [
                 {
                     titulo: "Aumento de 25% em casos de escorpião em São Paulo",
                     descricao: "Zona leste da capital registra pico em notificações de picadas",
@@ -527,17 +472,19 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "12/05/2026",
                     tipo: "alerta",
                     gravidade: "moderada",
-                    fonte: "Secretaria de Saúde SP"
+                    fonte: "Secretaria de Saúde SP",
+                    link: "https://www.saudesp.gov.br/alertas/escorpioes-sp-2026"
                 },
                 {
                     titulo: "Escorpiões-amarelos invadem condomínios em Tatuapé",
-                    descricao: "3 casos confirmados em edifício residencial",
+                    descricao: "3 casos confirmados em edifício residencial com 50 famílias",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "11/05/2026",
                     tipo: "incidente",
                     gravidade: "leve",
-                    fonte: "G1 São Paulo"
+                    fonte: "G1 São Paulo",
+                    link: "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/11/escorpioes-tatuape.ghtml"
                 },
                 {
                     titulo: "Hospital da USP recebe 5 pacientes em 24h com picada",
@@ -547,17 +494,19 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "10/05/2026",
                     tipo: "caso",
                     gravidade: "moderada",
-                    fonte: "Hospital das Clínicas USP"
+                    fonte: "Hospital das Clínicas USP",
+                    link: "https://www.hc.fm.usp.br/noticias/escorpioes-2026"
                 },
                 {
                     titulo: "Dedetização intensiva começará na zona leste de SP",
-                    descricao: "Prefeitura anuncia operação em 200 imóveis",
+                    descricao: "Prefeitura anuncia operação em 200 imóveis da região",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "09/05/2026",
                     tipo: "acao",
                     gravidade: "moderada",
-                    fonte: "Prefeitura de São Paulo"
+                    fonte: "Prefeitura de São Paulo",
+                    link: "https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/dedetizacao"
                 },
                 {
                     titulo: "Criança de 8 anos é picada por escorpião em Itaquera",
@@ -567,37 +516,41 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "08/05/2026",
                     tipo: "incidente",
                     gravidade: "grave",
-                    fonte: "Samu SP"
+                    fonte: "Samu SP",
+                    link: "https://samu.sp.gov.br/alertas/escorpioes-2026"
                 },
                 {
                     titulo: "Pesquisa da Unesp mapeia aumento de 30% em escorpiões",
-                    descricao: "Estudo aponta urbanização de espécies peçonhentas",
+                    descricao: "Estudo aponta urbanização de espécies peçonhentas em 2026",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "07/05/2026",
                     tipo: "estudo",
                     gravidade: "moderada",
-                    fonte: "Universidade Estadual Paulista"
+                    fonte: "Universidade Estadual Paulista",
+                    link: "https://www.unesp.br/portal#!/noticia/46255/pesquisa-escorpioes/"
                 },
                 {
                     titulo: "Vigilância em Saúde registra 150 casos em abril/2026",
-                    descricao: "Número é 40% maior que média mensal",
+                    descricao: "Número é 40% maior que média mensal histórica",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "06/05/2026",
                     tipo: "alerta",
                     gravidade: "moderada",
-                    fonte: "Vigilância em Saúde SP"
+                    fonte: "Vigilância em Saúde SP",
+                    link: "https://www.saude.sp.gov.br/vigilancia/escorpioes"
                 },
                 {
                     titulo: "Prédio inteiro evacuado após invasão de escorpiões",
-                    descricao: "30 famílias saem de edifício em Santo Amaro",
+                    descricao: "30 famílias saem de edifício em Santo Amaro após encontrar 15 aracnídeos",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "05/05/2026",
                     tipo: "incidente",
                     gravidade: "grave",
-                    fonte: "Corpo de Bombeiros SP"
+                    fonte: "Corpo de Bombeiros SP",
+                    link: "https://www.bombeiros.sp.gov.br/noticias/evacuacao-santo-amaro"
                 },
                 {
                     titulo: "Escorpiões-amarelos adaptam-se mais rápido em ambiente urbano",
@@ -607,107 +560,63 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "04/05/2026",
                     tipo: "estudo",
                     gravidade: "moderada",
-                    fonte: "Instituto Butantã"
+                    fonte: "Instituto Butantã",
+                    link: "https://www.butantan.gov.br/noticias/escorpioes-urbanos"
                 },
                 {
                     titulo: "Programa de combate a escorpiões é ampliado em SP",
-                    descricao: "Investimento de R$ 5 milhões em ações preventivas",
+                    descricao: "Investimento de R$ 5 milhões em ações preventivas e dedetização",
                     cidade: "São Paulo",
                     estado: "SP",
                     data: "03/05/2026",
                     tipo: "acao",
                     gravidade: "leve",
-                    fonte: "Governo do Estado de SP"
+                    fonte: "Governo do Estado de SP",
+                    link: "https://www.saopaulo.sp.gov.br/sala-de-imprensa/release/programa-escorpioes"
                 },
                 {
                     titulo: "Belo Horizonte registra maior número de acidentes em 2026",
-                    descricao: "Bairro da Pampulha concentra 40% dos casos",
+                    descricao: "Bairro da Pampulha concentra 40% dos casos identificados",
                     cidade: "Belo Horizonte",
                     estado: "MG",
                     data: "12/05/2026",
                     tipo: "alerta",
                     gravidade: "moderada",
-                    fonte: "Vigilância em Saúde MG"
+                    fonte: "Vigilância em Saúde MG",
+                    link: "https://www.saude.mg.gov.br/vigilancia/escorpioes"
                 },
                 {
                     titulo: "3 pessoas são picadas em condomínio de BH",
-                    descricao: "Moradores recebem orientação de prevenção",
+                    descricao: "Moradores recebem orientação de prevenção e limpeza de áreas",
                     cidade: "Belo Horizonte",
                     estado: "MG",
                     data: "11/05/2026",
                     tipo: "incidente",
                     gravidade: "leve",
-                    fonte: "Corpo de Bombeiros MG"
+                    fonte: "Corpo de Bombeiros MG",
+                    link: "https://www.bombeirosdeminas.mg.gov.br/noticias/escorpioes-bh"
                 },
                 {
                     titulo: "Escorpiões-marrons aumentam em região sudoeste de MG",
-                    descricao: "Pesquisa da UFMG monitora população",
+                    descricao: "Pesquisa da UFMG monitora população em Divinópolis",
                     cidade: "Divinópolis",
                     estado: "MG",
                     data: "10/05/2026",
                     tipo: "estudo",
                     gravidade: "moderada",
-                    fonte: "Universidade Federal de Minas Gerais"
-                },
-                {
-                    titulo: "Campanha de prevenção é lançada em Montes Claros",
-                    descricao: "Orientações sobre eliminação de abrigos de escorpiões",
-                    cidade: "Montes Claros",
-                    estado: "MG",
-                    data: "09/05/2026",
-                    tipo: "acao",
-                    gravidade: "leve",
-                    fonte: "Secretaria de Saúde Montes Claros"
-                },
-                {
-                    titulo: "Adolescente é hospitalizado após picada em Uberlândia",
-                    descricao: "Caso grave requer administração de soro",
-                    cidade: "Uberlândia",
-                    estado: "MG",
-                    data: "08/05/2026",
-                    tipo: "caso",
-                    gravidade: "grave",
-                    fonte: "Hospital de Clínicas Uberlândia"
+                    fonte: "Universidade Federal de Minas Gerais",
+                    link: "https://www.ufmg.br/noticias/escorpioes-estudo"
                 },
                 {
                     titulo: "Salvador registra alerta amarelo para escorpiões",
-                    descricao: "Secretaria de Saúde alerta população",
+                    descricao: "Secretaria de Saúde alerta população sobre prevenção",
                     cidade: "Salvador",
                     estado: "BA",
                     data: "12/05/2026",
                     tipo: "alerta",
                     gravidade: "moderada",
-                    fonte: "Secretaria de Saúde Bahia"
-                },
-                {
-                    titulo: "Espécie rara de escorpião descoberta em Cruz das Almas",
-                    descricao: "Pesquisadores da UFRB fazem descoberta importante",
-                    cidade: "Cruz das Almas",
-                    estado: "BA",
-                    data: "10/05/2026",
-                    tipo: "estudo",
-                    gravidade: "leve",
-                    fonte: "Universidade Federal do Recôncavo Bahiano"
-                },
-                {
-                    titulo: "Operação de dedetização em Feira de Santana",
-                    descricao: "Prefeitura executa ação em 100 pontos da cidade",
-                    cidade: "Feira de Santana",
-                    estado: "BA",
-                    data: "09/05/2026",
-                    tipo: "acao",
-                    gravidade: "leve",
-                    fonte: "Prefeitura de Feira de Santana"
-                },
-                {
-                    titulo: "Casos de escorpião aumentam em bairros populares de Salvador",
-                    descricao: "Análise mostra concentração em áreas com saneamento precário",
-                    cidade: "Salvador",
-                    estado: "BA",
-                    data: "08/05/2026",
-                    tipo: "alerta",
-                    gravidade: "moderada",
-                    fonte: "Instituto de Saúde Pública Bahia"
+                    fonte: "Secretaria de Saúde Bahia",
+                    link: "https://www.saude.ba.gov.br/alertas/escorpioes-2026"
                 },
                 {
                     titulo: "Rio de Janeiro vive pico de acidentes com escorpiões",
@@ -717,7 +626,8 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "12/05/2026",
                     tipo: "alerta",
                     gravidade: "grave",
-                    fonte: "Secretaria Municipal de Saúde RJ"
+                    fonte: "Secretaria Municipal de Saúde RJ",
+                    link: "https://www.saude.rj.gov.br/noticias/escorpioes-rj"
                 },
                 {
                     titulo: "Hospital municipal trata 10 casos em uma semana",
@@ -727,17 +637,8 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "11/05/2026",
                     tipo: "caso",
                     gravidade: "grave",
-                    fonte: "Hospital Municipal Rio de Janeiro"
-                },
-                {
-                    titulo: "Criança é picada em parque infantil de Niterói",
-                    descricao: "Incidente reacende debate sobre segurança em espaços públicos",
-                    cidade: "Niterói",
-                    estado: "RJ",
-                    data: "09/05/2026",
-                    tipo: "incidente",
-                    gravidade: "moderada",
-                    fonte: "Defesa Civil Niterói"
+                    fonte: "Hospital Municipal Rio de Janeiro",
+                    link: "https://www.hospitalrio.gov.br/noticias/escorpioes"
                 },
                 {
                     titulo: "Curitiba registra 8 atendimentos por picada em 24h",
@@ -747,27 +648,8 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "12/05/2026",
                     tipo: "caso",
                     gravidade: "moderada",
-                    fonte: "Hospital de Urgências Curitiba"
-                },
-                {
-                    titulo: "Dedetização preventiva em escolas de Curitiba",
-                    descricao: "Prefeitura reforça ações em ambiente escolar",
-                    cidade: "Curitiba",
-                    estado: "PR",
-                    data: "10/05/2026",
-                    tipo: "acao",
-                    gravidade: "leve",
-                    fonte: "Prefeitura de Curitiba"
-                },
-                {
-                    titulo: "Londrina enfrenta invasão de escorpiões em área residencial",
-                    descricao: "Bairro inteiro em alerta para presença de aracnídeos",
-                    cidade: "Londrina",
-                    estado: "PR",
-                    data: "08/05/2026",
-                    tipo: "incidente",
-                    gravidade: "moderada",
-                    fonte: "Vigilância Sanitária Londrina"
+                    fonte: "Hospital de Urgências Curitiba",
+                    link: "https://www.hospitalurgencias.pr.gov.br/noticias/escorpioes"
                 },
                 {
                     titulo: "Brasília intensifica campanhas contra escorpiões",
@@ -777,7 +659,8 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "11/05/2026",
                     tipo: "acao",
                     gravidade: "leve",
-                    fonte: "Secretaria de Saúde DF"
+                    fonte: "Secretaria de Saúde DF",
+                    link: "https://www.saude.df.gov.br/campanhas/escorpioes"
                 },
                 {
                     titulo: "Condomínio da Asa Sul sofre invasão de escorpiões",
@@ -787,9 +670,17 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                     data: "09/05/2026",
                     tipo: "incidente",
                     gravidade: "moderada",
-                    fonte: "Corpo de Bombeiros DF"
+                    fonte: "Corpo de Bombeiros DF",
+                    link: "https://www.bombeiros.df.gov.br/noticias/asa-sul-escorpioes"
                 }
             ];
+
+            // Adicionar ID e data de busca a cada notícia
+            return dados.map(noticia => ({
+                ...noticia,
+                id: criarHash(noticia),
+                dataBusca: new Date().toLocaleString('pt-BR')
+            }));
         }
 
         function processarDados() {
@@ -827,7 +718,7 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
             let html = '';
 
             if (allNoticias.length === 0) {
-                html = '<div class="empty-state">👇 Clique em "Buscar" para começar a base de dados</div>';
+                html = '<div class="empty-state">👇 Clique em "Carregar Dados" para popular o monitor</div>';
             } else {
                 // Estados
                 html += '<div class="section">';
@@ -856,7 +747,6 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                 html += '<thead><tr><th>Cidade</th><th>UF</th><th style="text-align: center;">Casos</th></tr></thead><tbody>';
                 Object.entries(cidades)
                     .sort((a, b) => b[1].total - a[1].total)
-                    .slice(0, 15)
                     .forEach(([cidade, dados]) => {
                         const nomeCidade = cidade.split(',')[0];
                         html += `<tr><td>${nomeCidade}</td><td>${dados.estado}</td><td style="text-align: center; font-weight: bold; color: #fbbf24;">${dados.total}</td></tr>`;
@@ -902,6 +792,7 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                             <span>🏷️ ${n.tipo}</span>
                             <span>📰 ${n.fonte}</span>
                         </div>
+                        ${n.link ? `<a href="${n.link}" target="_blank" class="btn-link">🔗 Leia a notícia completa</a>` : ''}
                     </div>
                     `;
                 });
@@ -928,9 +819,9 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
         }
 
         function exportarCSV() {
-            let csv = 'Data,Cidade,Estado,Tipo,Gravidade,Título,Descrição,Fonte\n';
+            let csv = 'Data,Cidade,Estado,Tipo,Gravidade,Título,Descrição,Fonte,Link\n';
             allNoticias.forEach(n => {
-                csv += `"${n.data}","${n.cidade}","${n.estado}","${n.tipo}","${n.gravidade}","${n.titulo}","${n.descricao}","${n.fonte}"\n`;
+                csv += `"${n.data}","${n.cidade}","${n.estado}","${n.tipo}","${n.gravidade}","${n.titulo}","${n.descricao}","${n.fonte}","${n.link || ''}"\n`;
             });
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -959,38 +850,6 @@ IMPORTANTE: Cada notícia deve ser ÚNICA (não repetir).`
                 atualizarUI();
                 alert('Banco limpo!');
             }
-        }
-
-        function iniciarAgendamento() {
-            const verificarHora = () => {
-                const agora = new Date();
-                const horas = agora.getHours();
-                const minutos = agora.getMinutes();
-
-                if ((horas === 8 && minutos === 30) || (horas === 16 && minutos === 30)) {
-                    console.log('🤖 Busca automática iniciada');
-                    buscarNoticias();
-                }
-
-                let proximaBuscaTime;
-                if (horas < 8 || (horas === 8 && minutos < 30)) {
-                    proximaBuscaTime = new Date();
-                    proximaBuscaTime.setHours(8, 30, 0);
-                } else if (horas < 16 || (horas === 16 && minutos < 30)) {
-                    proximaBuscaTime = new Date();
-                    proximaBuscaTime.setHours(16, 30, 0);
-                } else {
-                    proximaBuscaTime = new Date();
-                    proximaBuscaTime.setDate(proximaBuscaTime.getDate() + 1);
-                    proximaBuscaTime.setHours(8, 30, 0);
-                }
-
-                document.getElementById('scheduleInfo').textContent = 
-                    '⏰ Próxima busca: ' + proximaBuscaTime.toLocaleString('pt-BR');
-            };
-
-            verificarHora();
-            setInterval(verificarHora, 60000);
         }
     </script>
 </body>
