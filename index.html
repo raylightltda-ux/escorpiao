@@ -97,7 +97,7 @@ body{
 
 .filters-grid{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr auto;
+    grid-template-columns:2fr 1fr 1fr 1fr auto;
     gap:10px;
 }
 
@@ -206,7 +206,7 @@ button{
     color:#94a3b8;
 }
 
-@media(max-width:768px){
+@media(max-width:900px){
     .filters-grid{grid-template-columns:1fr}
     .cards-grid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr))}
     .card-gravity{font-size:.68rem;gap:4px}
@@ -236,17 +236,21 @@ button{
 
     <div class="filters">
         <div class="filters-grid">
-            <input id="searchInput" type="text" placeholder="🔎 Buscar cidade, estado, título ou palavra-chave...">
+            <input id="searchInput" type="text" placeholder="🔎 Buscar cidade, estado, título, fonte ou palavra-chave...">
 
             <select id="estadoFilter">
                 <option value="all">🗺️ Todos os estados</option>
             </select>
 
+            <select id="cidadeFilter">
+                <option value="all">🏙️ Todas as cidades</option>
+            </select>
+
             <select id="gravidadeFilter">
                 <option value="all">⚠️ Todas gravidades</option>
-                <option value="leve">Leve</option>
-                <option value="moderada">Moderada</option>
                 <option value="grave">Grave</option>
+                <option value="moderada">Moderada</option>
+                <option value="leve">Leve</option>
             </select>
 
             <button class="btn-clear" onclick="limparFiltros()">Limpar</button>
@@ -282,6 +286,7 @@ async function carregarNoticias(){
 
         renderizarEstados();
         popularEstados();
+        popularCidades();
         renderizarNoticias();
 
     }catch(e){
@@ -350,9 +355,34 @@ function popularEstados(){
     });
 }
 
+function popularCidades(){
+    const select = document.getElementById('cidadeFilter');
+    const estadoAtual = document.getElementById('estadoFilter').value;
+
+    select.innerHTML = '<option value="all">🏙️ Todas as cidades</option>';
+
+    let cidades = noticias
+        .filter(n=>{
+            if(estadoAtual === 'all') return true;
+            return (n.estado || 'Nacional') === estadoAtual;
+        })
+        .map(n=>n.cidade || 'Não identificada')
+        .filter(c=>c && c !== 'Não identificada');
+
+    cidades = [...new Set(cidades)].sort();
+
+    cidades.forEach(cidade=>{
+        const option = document.createElement('option');
+        option.value = cidade;
+        option.textContent = cidade;
+        select.appendChild(option);
+    });
+}
+
 function renderizarNoticias(){
     const busca = document.getElementById('searchInput').value.toLowerCase().trim();
     const estado = document.getElementById('estadoFilter').value;
+    const cidade = document.getElementById('cidadeFilter').value;
     const gravidade = document.getElementById('gravidadeFilter').value;
 
     let filtradas = noticias.filter(n=>{
@@ -362,13 +392,15 @@ function renderizarNoticias(){
             ${n.estado || ''}
             ${n.cidade || ''}
             ${n.fonte || ''}
+            ${n.termo_busca || ''}
         `.toLowerCase();
 
         const matchBusca = busca === '' || texto.includes(busca);
         const matchEstado = estado === 'all' || (n.estado || 'Nacional') === estado;
+        const matchCidade = cidade === 'all' || (n.cidade || 'Não identificada') === cidade;
         const matchGravidade = gravidade === 'all' || (n.gravidade || 'moderada') === gravidade;
 
-        return matchBusca && matchEstado && matchGravidade;
+        return matchBusca && matchEstado && matchCidade && matchGravidade;
     });
 
     filtradas.sort((a,b)=>{
@@ -430,13 +462,18 @@ function converterData(data){
 function limparFiltros(){
     document.getElementById('searchInput').value = '';
     document.getElementById('estadoFilter').value = 'all';
+    document.getElementById('cidadeFilter').value = 'all';
     document.getElementById('gravidadeFilter').value = 'all';
+    popularCidades();
     renderizarNoticias();
 }
 
 function filtrarPorEstado(uf){
     document.getElementById('estadoFilter').value = uf;
+    popularCidades();
+    document.getElementById('cidadeFilter').value = 'all';
     renderizarNoticias();
+
     window.scrollTo({
         top: document.querySelector('.filters').offsetTop - 10,
         behavior: 'smooth'
@@ -444,7 +481,14 @@ function filtrarPorEstado(uf){
 }
 
 document.getElementById('searchInput').addEventListener('input',renderizarNoticias);
-document.getElementById('estadoFilter').addEventListener('change',renderizarNoticias);
+
+document.getElementById('estadoFilter').addEventListener('change',()=>{
+    popularCidades();
+    document.getElementById('cidadeFilter').value = 'all';
+    renderizarNoticias();
+});
+
+document.getElementById('cidadeFilter').addEventListener('change',renderizarNoticias);
 document.getElementById('gravidadeFilter').addEventListener('change',renderizarNoticias);
 
 carregarNoticias();
