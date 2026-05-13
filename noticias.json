@@ -260,6 +260,19 @@
     "termo_busca": "prevenção escorpiões"
   },
   {
+    "id": "casosdeescorpiãodisparamnobrasilelimpezaéaliadaessencialnaprevenção",
+    "titulo": "Casos de escorpião disparam no Brasil e limpeza é aliada essencial na prevenção - Portal Márcia Piovesan",
+    "descricao": "Casos de escorpião disparam no Brasil e limpeza é aliada essencial na prevenção  Portal Márcia Piovesan",
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPS3EwVEpLTEh1M1RLTGRvRGRjR3F5LWFvdTRvNG5mdEdfQnZ0VVlXVlVmbEZGVjJ4TzZ0TVRoeFc1YkFtWFFwRmJmeFFmRzJoNWg3RHFEZjA0MVRfdkVVd1FvajNuTnhVRk9rQWpUbmtaRW11YnI4NElzaXpuSURPeW9KVFVqdm03XzVwbnYzYzM2ODVMUHp0elBlcTJrNHY1Uy0tNGN0dHIxdWNpMmpEQ0xzLW9BVDdkVlFzNVhlWTMya0U?oc=5",
+    "data": "30/04/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "PA",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
+  },
+  {
     "id": "escorpiõescausaram65dosacidentescomanimaispeçonhentosnobrasilem2025",
     "titulo": "Escorpiões causaram 65% dos acidentes com animais peçonhentos no Brasil em 2025 - Metro 1",
     "descricao": "Escorpiões causaram 65% dos acidentes com animais peçonhentos no Brasil em 2025  Metro 1",
@@ -364,6 +377,19 @@
     "termo_busca": "picada de escorpião"
   },
   {
+    "id": "acidentescomescorpiõescrescem163nobrasil",
+    "titulo": "Acidentes com escorpiões crescem 163% no Brasil - Jornal de Beltrão",
+    "descricao": "Acidentes com escorpiões crescem 163% no Brasil  Jornal de Beltrão",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFAydXVocVBoMXFkb1l2VW5LdGNBa0RfQmFVSmF1Z0l4NEZoMnJ3cEtMMkkta2dTdW5FYUpxS2ZLZ3BZY0hJbk1GQ1BKSzRNSXRDOVZINXNoWjRoWEFPUnRKUE5MZ1RYNG43R2c?oc=5",
+    "data": "24/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Beltrão Acidentes",
+    "termo_busca": "escorpiões Brasil"
+  },
+  {
     "id": "notícia",
     "titulo": "Notícia - CIDADE EM ALERTA: SAÚDE INTENSIFICA COMBATE A ESCORPIÕES - Prefeitura Municipal de Bandeirantes",
     "descricao": "Notícia - CIDADE EM ALERTA: SAÚDE INTENSIFICA COMBATE A ESCORPIÕES  Prefeitura Municipal de Bandeirantes",
@@ -374,6 +400,19 @@
     "fonte": "Google News",
     "estado": "PR",
     "cidade": "Bandeirantes",
+    "termo_busca": "alerta escorpiões"
+  },
+  {
+    "id": "casosdeescorpiõesacendemalertacomoalimpezadacasaajudaareduzirriscos",
+    "titulo": "Casos de escorpiões acendem alerta: como a limpeza da casa ajuda a reduzir riscos - LeiaJá",
+    "descricao": "Casos de escorpiões acendem alerta: como a limpeza da casa ajuda a reduzir riscos  LeiaJá",
+    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPZENZcTJmQnlyUnJQVFpGSlNjVWlzTUpNd3l6cE00WVZ3V2RUTmpublVCcHBBcjlUQWhUeFNkVEdWRDBWUllaT2k4Ym1mTnBXT1ZPV2RHN2R2TWs4bGx5TjBINVo0b1oxNXp2Tk54XzljU2FRdDRPZE94elp2MVVQMnA1STFwbThaLUJ2dVh6cjZkTGpRM2hhV1FHNzZBTjVid0ozWlU0eUprNnZwWlhKRHZxVlRBQmQ5RU1DOWdCYlFUdw?oc=5",
+    "data": "23/04/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
     "termo_busca": "alerta escorpiões"
   },
   {
@@ -427,6 +466,32 @@
     "estado": "Nacional",
     "cidade": "Não identificada",
     "termo_busca": "animais peçonhentos escorpião"
+  },
+  {
+    "id": "crescimentoalarmantedeacidentescomescorpiõesnobrasilexigecuidadosdelimpezaparaprotegerfamíliasemcasa",
+    "titulo": "Crescimento alarmante de acidentes com escorpiões no Brasil exige cuidados de limpeza para proteger famílias em casa. - Repórter Maceió",
+    "descricao": "Crescimento alarmante de acidentes com escorpiões no Brasil exige cuidados de limpeza para proteger famílias em casa.  Repórter Maceió",
+    "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPdkxFWnhWYmF1MlZ6Y19xaFlGREk4elU3UFloeWVyOXJwT2h6TEtsZXlYNnA4cXlzTlFVZF80OGd1ME4zSE1FNlFodnN5bzI4QXZLeG1yYXNUaElONl9PX0M1bjdVN3k4X0VOUU5jZ2RnTTVTZnQxUHdJb2NDNWJjcEUwN01EM2Fxb1BaV0NVOVN0TG1NZHV1bEJ3RkR4LTRTSGZPSGx1SVczV2hJZW5jS0FXeGIweURTeUFYdTFwNUR4Tlk2Sm4zWFNaWjhYYmVERnlsY3JYcjlLZW83RWU4Yw?oc=5",
+    "data": "22/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "AL",
+    "cidade": "Maceió",
+    "termo_busca": "escorpiões Brasil"
+  },
+  {
+    "id": "aumentodeescorpiõesdeixacidadesemalerta",
+    "titulo": "Aumento de escorpiões deixa cidades em alerta - Portal | TN Sul",
+    "descricao": "Aumento de escorpiões deixa cidades em alerta  Portal | TN Sul",
+    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOb3RSd3hwT3NXZktLSkEySG5WX2R3WW82eWY4c1VvS3pQbVJHZnQtbm9YYkxFUE1TeWw0cldwOUdNVUlabXZYWkJ3TnZwZndDeUNYVkxBNW5ldkhqQmNEOHVPbjdYdmdTRmxwZU0yaFMyQkZQQ0d1RjgtdWpUTk1NRg?oc=5",
+    "data": "22/04/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
+    "termo_busca": "alerta escorpiões"
   },
   {
     "id": "infestaçãodeescorpiãomortalpodetercomeçadohá3anosemcondomíniodesc",
@@ -598,6 +663,19 @@
     "termo_busca": "vigilância sanitária escorpião"
   },
   {
+    "id": "maisde100escorpiõescapturadosemcondomíniodebiguaçuscmoradorrelataproblemasnolocal",
+    "titulo": "Mais de 100 escorpiões capturados em condomínio de Biguaçu, SC: Morador relata problemas no local - diariodoestadogo.com.br",
+    "descricao": "Mais de 100 escorpiões capturados em condomínio de Biguaçu, SC: Morador relata problemas no local  diariodoestadogo.com.br",
+    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaGZrRm80WW4yS0JGVlRiSEhhR3hKUXZNVF96Y09xUVQ1NUk5NjFQM2FCV3ExMjVIWmljUTM0Vm90WERiUWZCZWktanZGckxWSlBETEF0ZXJVYVp5TUFaRktFbnN2TjhmMzlfNVoyR25DR01vd1F2cFM5ZUhvOWZSdDliNXEwWDk1a1NDYmJUSHpRWVJkNU9vSEZCcWZDcGZDTk9PMHFjbDJ2T080UlNIRE00NlJ0NUV1MTZ0Q3oyTC1hSG5GNVNv?oc=5",
+    "data": "15/04/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Biguaçu",
+    "termo_busca": "vigilância escorpião"
+  },
+  {
     "id": "saúdedemafrafazvistoriasparacapturadeescorpiõesnapraçamiguelbielecki",
     "titulo": "Saúde de Mafra faz vistorias para captura de escorpiões na Praça Miguel Bielecki - Click Riomafra",
     "descricao": "Saúde de Mafra faz vistorias para captura de escorpiões na Praça Miguel Bielecki  Click Riomafra",
@@ -622,6 +700,19 @@
     "estado": "Nacional",
     "cidade": "Controle",
     "termo_busca": "escorpionismo"
+  },
+  {
+    "id": "escorpiõescausaram65dosacidentescomanimaispeçonhentosem2025nobrasil",
+    "titulo": "Escorpiões causaram 65% dos acidentes com animais peçonhentos em 2025 no Brasil - Tribuna de Jundiaí",
+    "descricao": "Escorpiões causaram 65% dos acidentes com animais peçonhentos em 2025 no Brasil  Tribuna de Jundiaí",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNajFRYTBrSTg5dHIzQlRMNmh5aEpQbVFfdmlKU2xVdkh6ZVprRWZpVHIxaFVlMVB3WVR3VXBVM1F5aDdLQmRVS0lXUVhpaUU5cFlPaHVQRTJWWm9PZnB2UGQ2bDRReVVPRWRlQmRsLUhhUjZBdGFic0FTY1hPaXktQUNZYjJQbzY4WjlENXhUTDQ0Umd2cXBHNG5OdmhocUNJZm0xRHVOTXQycTRy?oc=5",
+    "data": "13/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Jundiaí",
+    "termo_busca": "escorpiões Brasil"
   },
   {
     "id": "escorpiõescausaram65dosacidentescomanimaispeçonhentosem2025vejaperfildasvítimaselocaisdosacidentes",
@@ -817,6 +908,19 @@
     "estado": "SP",
     "cidade": "Sorocaba",
     "termo_busca": "morte escorpião"
+  },
+  {
+    "id": "primeiramortedoanoporpicadadeescorpiãochamaaatençãoparacasos",
+    "titulo": "Primeira morte do ano por picada de escorpião chama a atenção para casos - CidadeVerde.com",
+    "descricao": "Primeira morte do ano por picada de escorpião chama a atenção para casos  CidadeVerde.com",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQTFxblk1WjdKQkFTYThFVW9uTFVGcW9mZ3hScmlPb2hZVnRkN3kzNEVmVkR2RDN0UWVkQ3l0eFVXQ0NnOGdUTXpocDJZVFhhTHpRbzM3WTl3aHVCdWUtM1h2VzRfVTQxT3hPaFE2Yy1zdFl0MGRvX3ZzMEJrdlRRZE1jVFhobXJJc2pRNW5MSFl3cjYwQlRVU2ZLQnVDenQzb2dFdHp5cDFqTFkzZlhHM25R?oc=5",
+    "data": "08/04/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "PA",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
   },
   {
     "id": "picadadeescorpiãocobraouaranhaprocureatendimentonasantacasa",
@@ -1092,6 +1196,19 @@
     "termo_busca": "criança escorpião"
   },
   {
+    "id": "ovaleinfestaçãodeescorpiõesassustamoradoresdebairroemcaçapava",
+    "titulo": "OVALE: Infestação de escorpiões assusta moradores de bairro em Caçapava - sampi.net.br",
+    "descricao": "OVALE: Infestação de escorpiões assusta moradores de bairro em Caçapava  sampi.net.br",
+    "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPbFRXQ1h6ajJqdDRSV25wLU9kbVItRmRnMzlVVzAwNFV6c2dtTEFiVmdOMDl4NGF6SHoyZ1dwaUNuS1R2T2JJdnhpQmh4UzcxajNadDZENnhTRUlrSW1aWnN5MkZxNHd2dUZIcXNEODJnb3l2cWpZSTFxRUFWN2V4QnppZG1NQm96dE5aSl9pb2ZyUjhmQnRNWk5zcVJSbVZMLUZkcnpWVGJLUWwybWVwcDVfb2FYUy14LVpHbWlseXpkSVZkSmc?oc=5",
+    "data": "26/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Caçapava",
+    "termo_busca": "infestação de escorpiões"
+  },
+  {
     "id": "criançade2anoséinternadanautiapóspicadadeescorpião",
     "titulo": "Criança de 2 anos é internada na UTI após picada de escorpião - SCC10",
     "descricao": "Criança de 2 anos é internada na UTI após picada de escorpião  SCC10",
@@ -1183,6 +1300,19 @@
     "termo_busca": "captura de escorpiões"
   },
   {
+    "id": "porquepicadasdeescorpiãoestãocadavezmaiscomunsnascidadesbrasileirasobutantanexplica",
+    "titulo": "Por que picadas de escorpião estão cada vez mais comuns nas cidades brasileiras; o Butantan explica - Meteored Brasil",
+    "descricao": "Por que picadas de escorpião estão cada vez mais comuns nas cidades brasileiras; o Butantan explica  Meteored Brasil",
+    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZHlETG9HbmZJUERxa3Q2a1pGQmlWQzZxYV9UeU5FRVBUcWJ3S010R3ZaNHpjeVA2RkZFTDhvb1lvcmxEdnp3cU9YV29NMk5BQjBXX2VLbmZjMnM1a190b0tBTE1GczQwbmdEa243VlVCUUV4dlRXT1RRLXNYMDdvTmw0cmNXeUFtdjdXN3VCMVRJUl9fRGhvd3VJdlBFSXNHQ2FNa2ZYTFhMNWFtNnA1V1ZXWmtLejlvSzE0N3NqVHQ4aUwxZ3hERUEzNEhDZlNQc1RWNFpWWmE1eG1BNUJZ?oc=5",
+    "data": "20/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
+  },
+  {
     "id": "prefeiturarealizaaplicaçãodeinseticidacontraescorpiãoamarelonestasextafeira",
     "titulo": "Prefeitura realiza aplicação de inseticida contra escorpião-amarelo nesta sexta-feira - Prefeitura Municipal de Esteio(RS)",
     "descricao": "Prefeitura realiza aplicação de inseticida contra escorpião-amarelo nesta sexta-feira  Prefeitura Municipal de Esteio(RS)",
@@ -1235,6 +1365,32 @@
     "termo_busca": "captura de escorpiões"
   },
   {
+    "id": "capitalalagoanaregistra710casosdepicadasdeescorpiãonesteano",
+    "titulo": "Capital alagoana registra 710 casos de picadas de escorpião neste ano - Tribuna Hoje",
+    "descricao": "Capital alagoana registra 710 casos de picadas de escorpião neste ano  Tribuna Hoje",
+    "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNYlFXVnllZkExVkRkbmY1TURxOFExemFQa1pfUThVeGtHTTZUaXdIdlh0NnFXTXRudWQ2UXoyd0NlZWQtOHc2SF9sMkpWQ1d3c19mM2dONWpobGNpb01WUlgtckNVR29uanZ3ZjhueXBmWmQ4Z3NSWTBVX3VTWV9zUHZ1eXJuaUJ5NmRpT0VKVGlnZklmRk5Dc0YyLTVaZmZ6cER4VE0wWVVPcWZqZk1hQ2JoZG9fTmktbUtpT0FKc096VTJG?oc=5",
+    "data": "15/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
+    "termo_busca": "vigilância escorpião"
+  },
+  {
+    "id": "maceióregistra710casosdepicadasdeescorpiãonesteano",
+    "titulo": "Maceió registra 710 casos de picadas de escorpião neste ano - TNH1",
+    "descricao": "Maceió registra 710 casos de picadas de escorpião neste ano  TNH1",
+    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTjV6bkZnSjdsenJsVzdGb3loaV9TZjhSQXpuNUMzdllsZGF4QUgtV1E5dDlhZmlaS1VwRG1NUVROQjZvYUlnMEZSNm1pQ1FNLWFadnEzd0s3MG83N1lnaWd0Z0pDdnE1dlBwQk5TOFAzUldEYWZrZHlZa3Z0dkg1WTFwZlVaVE8tTmdxdW5SRG5HVVJqc1JfWGtVdUPSAZcBQVVfeXFMTXpWSXNhcHAxdHBNT1VmQXJUS0piVFVYNlFlbEZzTGkyWk5ZVFRSeWVZUzdQS19yaEhsWHRTdDR4MU1SYUVyeGdfVURjYnlJLUVXSGNGWF80Q1B6dy10cTAxYkp1X18weU9BaGdwT0xrYUpFcm9DZjZtU0V3SHR1YkRGaVFFTGNmM3FWUjBtakUzQjNBT1ZPWQ?oc=5",
+    "data": "15/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "AL",
+    "cidade": "Maceió",
+    "termo_busca": "vigilância sanitária escorpião"
+  },
+  {
     "id": "escorpiõeslideramacidentescomanimaispeçonhentosnomaem2025saibaoquefazeremcasodepicada",
     "titulo": "Escorpiões lideram acidentes com animais peçonhentos no MA em 2025; saiba o que fazer em caso de picada - G1",
     "descricao": "Escorpiões lideram acidentes com animais peçonhentos no MA em 2025; saiba o que fazer em caso de picada  G1",
@@ -1259,6 +1415,19 @@
     "estado": "MG",
     "cidade": "Divinópolis",
     "termo_busca": "picada escorpião"
+  },
+  {
+    "id": "acidentescomescorpiõesaumentam230biólogaexplicaomotivo",
+    "titulo": "Acidentes com escorpiões aumentam 230%; bióloga explica o motivo - Metrópoles",
+    "descricao": "Acidentes com escorpiões aumentam 230%; bióloga explica o motivo  Metrópoles",
+    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNY0RqRS1adUpJQk4ydmNrVWVaU2hVM2VQbDAydHFUZ2p3WUlTbXU3TUhJQUNRV0FHbWVwbDZLU3F1cWUxRWpiOFYzR2w4Z0lERWFqbTBBUHdRN1pfTEhESzdyTm5zSngwODBaQ19RSUhCSEVkUDljd0N2anJQV3g4bUtPVWszU1pxZWZXN29YZGN1SWJvMjhmdW9WWWlkbHlGN0FSdVQ3SUw2N00?oc=5",
+    "data": "12/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpiões Brasil"
   },
   {
     "id": "infestaçãodeescorpiõescrescenobrasilem2025vejaosestadoscommaiscasos",
@@ -1441,6 +1610,19 @@
     "estado": "AM",
     "cidade": "Tijucas",
     "termo_busca": "vigilância escorpião"
+  },
+  {
+    "id": "prefeiturarealizablitzeducativacontraescorpiõesnapraçarameztebetnestaquinta",
+    "titulo": "Prefeitura realiza blitz educativa contra escorpiões na Praça Ramez Tebet nesta quinta - Notícias de Três Lagoas - Rádio Caçula",
+    "descricao": "Prefeitura realiza blitz educativa contra escorpiões na Praça Ramez Tebet nesta quinta  Notícias de Três Lagoas - Rádio Caçula",
+    "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPT0U1eWs4VW8yd1J0QnVtY3JtRmlVT3M2ZVpMY1RoRDJjY2ZweWcteUZJcU9mMkdQNDBzSzZjZnplRVdMcl9qNXFIaUdOV1M0QjI5WmxoamFoN25YUHp0LWV3QWdWTTExeTlla2JPOGhFeXJmblROdEFCUWp5SVlNbXFTdFVuR056cjVSVHVDa1o3eGEtS09ZOXNXZWFGaGlzc2I0andrQXZyaUx3NnA3UmNQaTY3ZUMyeFE?oc=5",
+    "data": "24/02/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "MS",
+    "cidade": "Três Lagoas",
+    "termo_busca": "escorpionismo"
   },
   {
     "id": "moradordeumuaramacapturaváriosescorpiõesemcasaetemepelasegurançadofilhovídeo",
@@ -1664,6 +1846,19 @@
     "termo_busca": "vigilância escorpião"
   },
   {
+    "id": "picadasdeescorpiãoaumentamnobrasilsaibacomoseprevenireoquefazeremcasodeacidente",
+    "titulo": "Picadas de escorpião aumentam no Brasil: saiba como se prevenir e o que fazer em caso de acidente - Terra",
+    "descricao": "Picadas de escorpião aumentam no Brasil: saiba como se prevenir e o que fazer em caso de acidente  Terra",
+    "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNMENnUHVkOExWS05TbTNEOXhEU05QRXctcVg5cFg4VFFCNC1EaEFFa1NOQlpBeFdpZmpqZ0JEdFQ4MWxfNDBfWENOLUc3Yk84dm52UU95XzZIcGRpQmtsenl5Rk5PQTlXdVVFQlpMa0dDb21yU3kxRElTVGFIM2M5Y2FEMGl2WDkyaEp6T2FLLUlxdkhCMEg2NGh4c1p0XzBLNzdQT0ktTFI0LUp4MkVKa0xwR0htYU11VE5hamdocHE3cm1ld2M4U0UyZ1Z0Q1hGbVNrMTI3SE0wME8xeHFRYmI2TGJCeXEwaGpVNFI0UHJvc0JDMWJlNnJlR1pjUEJKajVSZ25Fak5uNnRS?oc=5",
+    "data": "28/01/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SE",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
+  },
+  {
     "id": "prefeituramantémvigilânciacontraescorpiãoamareloembraçodonorte",
     "titulo": "Prefeitura mantém vigilância contra escorpião amarelo em Braço do Norte - Ligado no Sul",
     "descricao": "Prefeitura mantém vigilância contra escorpião amarelo em Braço do Norte  Ligado no Sul",
@@ -1690,6 +1885,19 @@
     "termo_busca": "prefeitura escorpião"
   },
   {
+    "id": "escorpiõesemcasasaibacomopreveniroaparecimento",
+    "titulo": "Escorpiões em casa? Saiba como prevenir o aparecimento - Correio Braziliense",
+    "descricao": "Escorpiões em casa? Saiba como prevenir o aparecimento  Correio Braziliense",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQT1FUdmF0aThNQmplWk5rSVd4Z0hJTk9QLTF6MUFxQWViNTRVc1BhU1ota2l0dk9lTXI3STlsaGRQWENzYW1yVnJlSmNxTUVvNU9aZW9famx4OWloSFNLaWVrME1rdVJUT3E0MV9XNUJ6d205SkpBdEVwaHFRam1SUTVrdFh5eTUxREhfVjd2dkJoWlFGamM5VkNMT0ppV1ZXd0ZDU0dESXYtSjJW?oc=5",
+    "data": "19/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Não identificada",
+    "termo_busca": "controle de escorpiões"
+  },
+  {
     "id": "regiãoregistraaltanonúmerodeacidentescomescorpiõesconfiraondehásoroantiescorpiônico",
     "titulo": "Região registra alta no número de acidentes com escorpiões; confira onde há soro antiescorpiônico - G1",
     "descricao": "Região registra alta no número de acidentes com escorpiões; confira onde há soro antiescorpiônico  G1",
@@ -1714,6 +1922,19 @@
     "estado": "Nacional",
     "cidade": "Braço",
     "termo_busca": "controle de escorpiões"
+  },
+  {
+    "id": "escorpiãoamarelomobilizavigilânciaemgravatalebraçodonorte",
+    "titulo": "Escorpião-amarelo mobiliza vigilância em Gravatal e Braço do Norte - sctododia",
+    "descricao": "Escorpião-amarelo mobiliza vigilância em Gravatal e Braço do Norte  sctododia",
+    "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMi1YSmJpTnM4RmE5S3JteWRwZ1VVblUxYlpOQWFjNlNaRHJlU2RIM3lPbFBoeEV6NUt2cXhhOXFTOG0zVVg0cF9ZaDQ1dEMtb3liVV9meTg0dUI4OVlyekdOMmc3UXlRUVgtU19RNmlGX3UydEJRWWxRbklCY1VjdDFCTF9kU3Rtd1J6N05ZdldxYm44cjlYQ0JLOUhmdzNnaVVZ?oc=5",
+    "data": "16/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "AM",
+    "cidade": "Gravatal",
+    "termo_busca": "vigilância escorpião"
   },
   {
     "id": "ijfregistraaumentode20nosatendimentosapacientesvítimasdepicadasdeescorpiãosaibacomoprevenir",
@@ -1846,6 +2067,19 @@
     "termo_busca": "captura de escorpiões"
   },
   {
+    "id": "prefeituradeitapemarepudiainformaçõesdistorcidasemcomunicadoquenegainfestaçãodeescorpião",
+    "titulo": "Prefeitura de Itapema “repudia informações distorcidas” em comunicado que nega infestação de escorpião - radiocidadesc.com.br",
+    "descricao": "Prefeitura de Itapema “repudia informações distorcidas” em comunicado que nega infestação de escorpião  radiocidadesc.com.br",
+    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOWUJSLThVYV8zLTdrTi1Tc0VabXpFcWE3bFllRUdLcV9vTmdsanc2dUZzUGFXNnUtdVBOYVZHNnAtdFlNZ2FCT2NHa1dnSVJOWFRvaFFtZnFNYVhCYlVTNi1jd3hsUElTNFV0VWRqb1paZGxHWFQ2MXllRnRIZjVmTHNYOWhxblVnTGZfVFh2WUdDaGxaOGZ2YUxwZVNMdzBlbW1KRzJhVkx2UkxHMUNzYUJlUi1ocGpUMF9DZF9IREM2N20yR0Ixek9XUm1FWC1hd05yTjZ4N2tmN0c3?oc=5",
+    "data": "12/01/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Itapema",
+    "termo_busca": "prefeitura escorpião"
+  },
+  {
     "id": "butantanesclarece5mitosdocombateaescorpiõesquepodemaumentarriscodepicada",
     "titulo": "Butantan esclarece 5 mitos do combate a escorpiões que podem aumentar risco de picada - Agência SP",
     "descricao": "Butantan esclarece 5 mitos do combate a escorpiões que podem aumentar risco de picada  Agência SP",
@@ -1859,6 +2093,19 @@
     "termo_busca": "controle de escorpiões"
   },
   {
+    "id": "vigilânciaemsaúdedebrusquemonitoracasodeescorpiãonobairroprimeirodemaio",
+    "titulo": "Vigilância em Saúde de Brusque monitora caso de escorpião no bairro Primeiro de Maio - O Município",
+    "descricao": "Vigilância em Saúde de Brusque monitora caso de escorpião no bairro Primeiro de Maio  O Município",
+    "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSlBsRDBBX0hPeUpIeVBTc3diOUhjSHZMNmJnSEVieGF2Vk1paVkwd2plSzRxTXFURkN5cFNJeGZtOXhwZGM0YjJaWm5sQWFPNG9IYzRzZTlQTDliYmlqT0IxYVhORWZoWk9QY1FaWlo4Z3hfZENfOFVlRC0xMnlZTUR1cHEtTEUwM3gxaG13Z284eFAyZng5V3lYMTBtaEpVbl83QjJrM1p5NzRHSC1JVmNQVGNrX0Na?oc=5",
+    "data": "10/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Nacional",
+    "cidade": "Brusque",
+    "termo_busca": "vigilância escorpião"
+  },
+  {
     "id": "saúdeemitealertaapósaumentodeescorpiõesemitapema",
     "titulo": "Saúde emite alerta após aumento de escorpiões em Itapema - Galera Mix",
     "descricao": "Saúde emite alerta após aumento de escorpiões em Itapema  Galera Mix",
@@ -1870,6 +2117,19 @@
     "estado": "Nacional",
     "cidade": "Itapema",
     "termo_busca": "captura de escorpiões"
+  },
+  {
+    "id": "prefeituradeitabunarealizaaçãocombateeprevençãoaosescorpiõesnocondomíniogabrielajubiabá",
+    "titulo": "Prefeitura de Itabuna realiza ação combate e prevenção aos escorpiões no Condomínio Gabriela/Jubiabá - Prefeitura de Itabuna",
+    "descricao": "Prefeitura de Itabuna realiza ação combate e prevenção aos escorpiões no Condomínio Gabriela/Jubiabá  Prefeitura de Itabuna",
+    "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQa1RoYkZ2REcxSzJBX2dDRGdDQU96a2FZNEZnbm4zbUd6XzRQdi14OUM1TThhUmdEaFZxS2hVbXRUclhYNGYxek9BUnV4cWxSZ3RMLXZxWDR3cHB4SHY5YU5TZTRuRlZYa0ZuNmNQMTRKMUY3OUt3S2V4blZLRTdaSXludllQRGItVUpaWHJIQkp1Z1hfODZlWUZLVk8tTnZpVnU5cy1TX21pYXB3NWJxR1MxcEZTYjJUVTVIQTZfSVR0NExmNjdWcU0wSlU4anFMdy1jMQ?oc=5",
+    "data": "09/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "BA",
+    "cidade": "Itabuna",
+    "termo_busca": "prevenção escorpiões"
   },
   {
     "id": "secretariadesaúdealertaparariscosdeacidentescomescorpiõesemsãomanuel",
@@ -1909,5 +2169,18 @@
     "estado": "MS",
     "cidade": "Campo Grande",
     "termo_busca": "infestação escorpiões"
+  },
+  {
+    "id": "jp1mortesporescorpiãodisparamnobrasilvejacomoevitar",
+    "titulo": "JP1: Mortes por escorpião disparam no Brasil; VEJA como evitar - sampi.net.br",
+    "descricao": "JP1: Mortes por escorpião disparam no Brasil; VEJA como evitar  sampi.net.br",
+    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOWktNlB1RHc4RUhpRlhidm5KYU9DTmVYRFhfalBFTVFwLU44VXNBTl9YdVZYdmhpXzNWamN4NHk2ajQ5RXhMemRGcnhNLUVWQXpOdmxDUDlkYzVUdUdLbTFxUi03SUxOX0U5V2wwcFNkOXRhbzFELTZNckJkR2kxQnZBeWVnN2htQU1nVFk1ZlVTaGdSXzJXdGlMQWJveHVVTHJNWEFKeTdJLUpGR00yTU5KaHZQd0ZKZEc1Nw?oc=5",
+    "data": "05/01/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "PA",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
   }
 ]
