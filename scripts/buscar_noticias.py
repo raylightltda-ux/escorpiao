@@ -422,7 +422,7 @@ class BuscadorNoticias:
             if portal in t:
                 return uf
 
-        return "Nacional"
+        return "Não identificado"
 
     def detectar_cidade(self, titulo, descricao, estado):
         texto = self.normalizar(f"{titulo} {descricao}")
