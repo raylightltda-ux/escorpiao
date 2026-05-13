@@ -323,18 +323,103 @@ class BuscadorNoticias:
         return "leve"
 
     def detectar_estado(self, texto):
-        t = f" {self.normalizar(texto)} "
+        t = self.normalizar(texto)
 
+        # 1. Detectar cidades primeiro
         for cidade, uf in self.cidade_estado.items():
-            if f" {cidade} " in t or cidade in t:
+            if cidade in t:
                 return uf
 
-        for uf, nome in self.estados.items():
-            nome_lower = nome.lower()
-            if nome_lower in t:
+        # 2. Detectar estados por nome
+        estados_extenso = {
+            "acre": "AC",
+            "alagoas": "AL",
+            "amapá": "AP",
+            "amapa": "AP",
+            "amazonas": "AM",
+            "bahia": "BA",
+            "ceará": "CE",
+            "ceara": "CE",
+            "distrito federal": "DF",
+            "espírito santo": "ES",
+            "espirito santo": "ES",
+            "goiás": "GO",
+            "goias": "GO",
+            "maranhão": "MA",
+            "maranhao": "MA",
+            "mato grosso": "MT",
+            "mato grosso do sul": "MS",
+            "minas gerais": "MG",
+            "pará": "PA",
+            "para": "PA",
+            "paraíba": "PB",
+            "paraiba": "PB",
+            "paraná": "PR",
+            "parana": "PR",
+            "pernambuco": "PE",
+            "piauí": "PI",
+            "piaui": "PI",
+            "rio de janeiro": "RJ",
+            "rio grande do norte": "RN",
+            "rio grande do sul": "RS",
+            "rondônia": "RO",
+            "rondonia": "RO",
+            "roraima": "RR",
+            "santa catarina": "SC",
+            "são paulo": "SP",
+            "sao paulo": "SP",
+            "sergipe": "SE",
+            "tocantins": "TO"
+        }
+
+        for nome, uf in estados_extenso.items():
+            if nome in t:
                 return uf
 
-            if f" {uf.lower()} " in t or f"-{uf.lower()}" in t or f"/{uf.lower()}" in t:
+        # 3. Detectar UF solta
+        for uf in self.estados.keys():
+            uf_lower = uf.lower()
+
+            padroes = [
+                f" {uf_lower} ",
+                f"/{uf_lower}",
+                f"-{uf_lower}",
+                f"({uf_lower})",
+                f",{uf_lower}"
+            ]
+
+            for p in padroes:
+                if p in t:
+                    return uf
+
+        # 4. Detectar portais regionais
+        fontes_regionais = {
+            "folha de londrina": "PR",
+            "cbn londrina": "PR",
+            "tarobá": "PR",
+            "taroba": "PR",
+            "gmc online": "PR",
+
+            "thmais": "SP",
+            "acidade on": "SP",
+            "sampi": "SP",
+
+            "estado de minas": "MG",
+            "o tempo": "MG",
+
+            "bahia noticias": "BA",
+            "correio da bahia": "BA",
+
+            "diario do nordeste": "CE",
+
+            "midiamax": "MS",
+            "campo grande news": "MS",
+
+            "folha vitoria": "ES"
+        }
+
+        for portal, uf in fontes_regionais.items():
+            if portal in t:
                 return uf
 
         return "Nacional"
