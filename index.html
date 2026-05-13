@@ -301,7 +301,7 @@ function renderizarEstados(){
     const estados = {};
 
     noticias.forEach(n=>{
-        const uf = n.estado || 'Nacional';
+        const uf = n.estado || 'Não identificado';
         const gravidade = n.gravidade || 'moderada';
 
         if(!estados[uf]){
@@ -345,7 +345,7 @@ function popularEstados(){
     const select = document.getElementById('estadoFilter');
     select.innerHTML = '<option value="all">🗺️ Todos os estados</option>';
 
-    const estados = [...new Set(noticias.map(n=>n.estado || 'Nacional'))].sort();
+    const estados = [...new Set(noticias.map(n=>n.estado || 'Não identificado'))].sort();
 
     estados.forEach(uf=>{
         const option = document.createElement('option');
@@ -364,7 +364,7 @@ function popularCidades(){
     let cidades = noticias
         .filter(n=>{
             if(estadoAtual === 'all') return true;
-            return (n.estado || 'Nacional') === estadoAtual;
+            return (n.estado || 'Não identificado') === estadoAtual;
         })
         .map(n=>n.cidade || 'Não identificada')
         .filter(c=>c && c !== 'Não identificada');
@@ -396,7 +396,7 @@ function renderizarNoticias(){
         `.toLowerCase();
 
         const matchBusca = busca === '' || texto.includes(busca);
-        const matchEstado = estado === 'all' || (n.estado || 'Nacional') === estado;
+        const matchEstado = estado === 'all' || (n.estado || 'Não identificado') === estado;
         const matchCidade = cidade === 'all' || (n.cidade || 'Não identificada') === cidade;
         const matchGravidade = gravidade === 'all' || (n.gravidade || 'moderada') === gravidade;
 
@@ -434,7 +434,7 @@ function renderizarNoticias(){
                 </div>
 
                 <div class="news-details">
-                    <span>📍 ${n.cidade || 'Não identificada'} - ${n.estado || 'Nacional'}</span>
+                    <span>📍 ${n.cidade || 'Não identificada'} - ${n.estado || 'Não identificado'}</span>
                     <span>📅 ${n.data || 'Sem data'}</span>
                     <span>📰 ${n.fonte || 'Fonte não identificada'}</span>
                 </div>
