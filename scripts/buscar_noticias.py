@@ -187,7 +187,22 @@ class BuscadorNoticias:
             "aumento", "prefeitura", "vigilancia", "saude",
             "alerta", "prevencao", "controle", "captura",
             "mutirao", "orienta", "orientacao",
-            "animais peconhentos", "animal peconhento", "peconhentos"
+            "animais peconhentos", "animal peconhento", "peconhentos",
+            "residencia", "residencias",
+            "casa", "casas",
+            "morador", "moradores",
+            "condominio", "condominios",
+            "terreno", "lote",
+            "bairro", "bairros",
+            "verao", "chuvas", "calor",
+            "limpeza", "entulho", "lixo",
+            "dedetizacao", "dedetizadora",
+            "controle de pragas",
+            "risco", "perigo",
+            "registro", "registra",
+            "casos", "ocorrencias",
+            "escorpiao amarelo",
+            "escorpioes amarelos"
         ]
 
         return any(c in texto for c in contexto_valido)
