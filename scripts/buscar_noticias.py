@@ -6,6 +6,7 @@ import json
 import os
 import re
 import xml.etree.ElementTree as ET
+import unicodedata
 from datetime import datetime
 from email.utils import parsedate_to_datetime
 from urllib.parse import quote
@@ -51,188 +52,72 @@ class BuscadorNoticias:
             "TO": "Tocantins"
         }
 
-        self.cidade_estado = {
-            # SÃO PAULO
-            "são paulo": "SP", "sao paulo": "SP",
-            "campinas": "SP",
-            "ribeirão preto": "SP", "ribeirao preto": "SP",
-            "sorocaba": "SP",
-            "bauru": "SP",
-            "marília": "SP", "marilia": "SP",
-            "presidente prudente": "SP",
-            "araçatuba": "SP", "aracatuba": "SP",
-            "são josé do rio preto": "SP", "sao jose do rio preto": "SP",
-            "piracicaba": "SP",
-            "limeira": "SP",
-            "jundiaí": "SP", "jundiai": "SP",
-            "franca": "SP",
-            "araraquara": "SP",
-            "barretos": "SP",
-            "botucatu": "SP",
-            "assis": "SP",
-            "ourinhos": "SP",
-            "itapetininga": "SP",
-            "americana": "SP",
-            "sumaré": "SP", "sumare": "SP",
-            "hortolândia": "SP", "hortolandia": "SP",
-            "mogi das cruzes": "SP",
-            "osasco": "SP",
-            "santos": "SP",
-            "guarulhos": "SP",
-            "são bernardo do campo": "SP", "sao bernardo do campo": "SP",
-            "santo andré": "SP", "santo andre": "SP",
-            "diadema": "SP",
-            "taubaté": "SP", "taubate": "SP",
-            "jacareí": "SP", "jacarei": "SP",
-            "caraguatatuba": "SP",
-            "ubatuba": "SP",
-            "itanhaém": "SP", "itanhaem": "SP",
+        self.cidade_estado = self.carregar_cidades_ibge()
 
-            # PARANÁ
-            "curitiba": "PR",
-            "londrina": "PR",
-            "maringá": "PR", "maringa": "PR",
-            "cascavel": "PR",
-            "foz do iguaçu": "PR", "foz do iguacu": "PR",
-            "ponta grossa": "PR",
-            "toledo": "PR",
-            "assis chateaubriand": "PR",
-            "umuarama": "PR",
-            "guarapuava": "PR",
-            "paranavaí": "PR", "paranavai": "PR",
-            "campo mourão": "PR", "campo mourao": "PR",
-            "ibiporã": "PR", "ibipora": "PR",
-            "cambé": "PR", "cambe": "PR",
-            "arapongas": "PR",
-            "rolândia": "PR", "rolandia": "PR",
-            "apucarana": "PR",
-            "cornélio procópio": "PR", "cornelio procopio": "PR",
-            "jacarezinho": "PR",
-            "bandeirantes": "PR",
-            "ivaiporã": "PR", "ivaipora": "PR",
-            "medianeira": "PR",
-            "marechal cândido rondon": "PR", "marechal candido rondon": "PR",
-            "palotina": "PR",
-            "guaíra": "PR", "guaira": "PR",
-            "francisco beltrão": "PR", "francisco beltrao": "PR",
-            "pato branco": "PR",
-            "cianorte": "PR",
-            "paranaguá": "PR", "paranagua": "PR",
-
-            # MINAS GERAIS
-            "belo horizonte": "MG",
-            "uberlândia": "MG", "uberlandia": "MG",
-            "uberaba": "MG",
-            "montes claros": "MG",
-            "juiz de fora": "MG",
-            "divinópolis": "MG", "divinopolis": "MG",
-            "governador valadares": "MG",
-            "pouso alegre": "MG",
-            "patos de minas": "MG",
-            "teófilo otoni": "MG", "teofilo otoni": "MG",
-            "contagem": "MG",
-            "betim": "MG",
-            "ipatinga": "MG",
-            "sete lagoas": "MG",
-            "varginha": "MG",
-            "poços de caldas": "MG", "pocos de caldas": "MG",
-
-            # GOIÁS
-            "goiânia": "GO", "goiania": "GO",
-            "anápolis": "GO", "anapolis": "GO",
-            "rio verde": "GO",
-            "aparecida de goiânia": "GO", "aparecida de goiania": "GO",
-            "luziânia": "GO", "luziania": "GO",
-            "jataí": "GO", "jatai": "GO",
-
-            # MATO GROSSO
-            "cuiabá": "MT", "cuiaba": "MT",
-            "rondonópolis": "MT", "rondonopolis": "MT",
-            "sinop": "MT",
-            "várzea grande": "MT", "varzea grande": "MT",
-            "sorriso": "MT",
-
-            # MATO GROSSO DO SUL
-            "campo grande": "MS",
-            "dourados": "MS",
-            "três lagoas": "MS", "tres lagoas": "MS",
-            "corumbá": "MS", "corumba": "MS",
-
-            # BAHIA
-            "salvador": "BA",
-            "feira de santana": "BA",
-            "vitória da conquista": "BA", "vitoria da conquista": "BA",
-            "juazeiro": "BA",
-            "ilhéus": "BA", "ilheus": "BA",
-            "itabuna": "BA",
-            "barreiras": "BA",
-            "jequié": "BA", "jequie": "BA",
-
-            # PERNAMBUCO
-            "recife": "PE",
-            "caruaru": "PE",
-            "petrolina": "PE",
-            "jaboatão dos guararapes": "PE", "jaboatao dos guararapes": "PE",
-            "olinda": "PE",
-
-            # CEARÁ
-            "fortaleza": "CE",
-            "juazeiro do norte": "CE",
-            "sobral": "CE",
-            "crato": "CE",
-
-            # RIO DE JANEIRO
-            "rio de janeiro": "RJ",
-            "niterói": "RJ", "niteroi": "RJ",
-            "duque de caxias": "RJ",
-            "nova iguaçu": "RJ", "nova iguacu": "RJ",
-            "campos dos goytacazes": "RJ",
-            "volta redonda": "RJ",
-            "petrópolis": "RJ", "petropolis": "RJ",
-
-            # SANTA CATARINA
-            "florianópolis": "SC", "florianopolis": "SC",
-            "joinville": "SC",
-            "blumenau": "SC",
-            "chapecó": "SC", "chapeco": "SC",
-            "criciúma": "SC", "criciuma": "SC",
-
-            # RIO GRANDE DO SUL
-            "porto alegre": "RS",
-            "caxias do sul": "RS",
-            "pelotas": "RS",
-            "santa maria": "RS",
-            "passo fundo": "RS",
-
-            # PARÁ
-            "belém": "PA", "belem": "PA",
-            "santarém": "PA", "santarem": "PA",
-            "marabá": "PA", "maraba": "PA",
-
-            # PARAÍBA
-            "joão pessoa": "PB", "joao pessoa": "PB",
-            "campina grande": "PB",
-
-            # RIO GRANDE DO NORTE
-            "natal": "RN",
-            "mossoró": "RN", "mossoro": "RN",
-
-            # ALAGOAS
-            "maceió": "AL", "maceio": "AL",
-            "arapiraca": "AL",
-
-            # SERGIPE
-            "aracaju": "SE",
-
-            # ESPÍRITO SANTO
-            "vitória": "ES", "vitoria": "ES",
-            "vila velha": "ES",
-            "serra": "ES",
-            "cariacica": "ES",
-
-            # DISTRITO FEDERAL
-            "brasília": "DF", "brasilia": "DF"
+        self.correcoes_manuais = {
+            "sao manuel": "SP",
+            "jaguariuna": "SP",
+            "mococa": "SP",
+            "votuporanga": "SP",
+            "birigui": "SP",
+            "conchal": "SP",
+            "cacapava": "SP",
+            "sao carlos": "SP",
+            "votorantim": "SP",
+            "tijucas": "SC",
+            "gravatal": "SC",
+            "xanxere": "SC",
+            "itajai": "SC",
+            "biguacu": "SC",
+            "braco do norte": "SC",
+            "mafra": "SC",
+            "esteio": "RS",
+            "sapucaia do sul": "RS",
+            "sao leopoldo": "RS",
+            "presidente kennedy": "ES",
+            "laranja da terra": "ES",
+            "rio largo": "AL",
+            "buzios": "RJ",
+            "ibipora": "PR"
         }
+
+        self.cidade_estado.update(self.correcoes_manuais)
+
+    def sem_acento(self, texto):
+        texto = unicodedata.normalize("NFD", texto)
+        texto = texto.encode("ascii", "ignore").decode("utf-8")
+        return texto.lower().strip()
+
+    def normalizar(self, texto):
+        texto = self.sem_acento(texto)
+        texto = re.sub(r"\s+", " ", texto)
+        return texto.strip()
+
+    def carregar_cidades_ibge(self):
+        cidades = {}
+
+        try:
+            url = "https://servicodados.ibge.gov.br/api/v1/localidades/municipios"
+            response = requests.get(url, timeout=20)
+            response.raise_for_status()
+
+            dados = response.json()
+
+            for item in dados:
+                nome = item.get("nome", "")
+                uf = item.get("microrregiao", {}).get("mesorregiao", {}).get("UF", {}).get("sigla", "")
+
+                if nome and uf:
+                    chave = self.normalizar(nome)
+                    cidades[chave] = uf
+
+            print(f"✅ {len(cidades)} municípios carregados do IBGE")
+
+        except Exception as e:
+            print(f"⚠️ Não foi possível carregar municípios do IBGE: {e}")
+
+        return cidades
+
     def carregar_existentes(self):
         if os.path.exists("noticias.json"):
             try:
@@ -250,11 +135,6 @@ class BuscadorNoticias:
         texto = texto.replace("&#39;", "'").replace("&quot;", '"')
         return texto.strip()
 
-    def normalizar(self, texto):
-        texto = texto.lower()
-        texto = re.sub(r"\s+", " ", texto)
-        return texto.strip()
-
     def normalizar_titulo(self, titulo):
         titulo = self.normalizar(titulo)
         titulo = re.sub(r" - .*?$", "", titulo)
@@ -263,14 +143,16 @@ class BuscadorNoticias:
 
     def gerar_id(self, titulo, link):
         base = self.normalizar_titulo(titulo)
-        base = re.sub(r"[^a-z0-9áéíóúãõâêôç]", "", base)
+        base = re.sub(r"[^a-z0-9]", "", base)
         return base[:150]
 
     def converter_data(self, pub_date):
         try:
             dt = parsedate_to_datetime(pub_date)
+
             if dt.year < 2026:
                 return None
+
             return dt.strftime("%d/%m/%Y")
         except:
             return None
@@ -279,34 +161,33 @@ class BuscadorNoticias:
         texto = self.normalizar(f"{titulo} {descricao}")
 
         bloqueios = [
-            "horóscopo", "horoscopo", "signo", "zodíaco", "zodiaco", "astrologia",
-            "tarô", "taro", "previsão do dia", "previsao do dia",
-            "escorpião do signo", "signo de escorpião",
-            "cinema", "filme", "série", "serie", "streaming", "netflix", "marvel",
-            "dc comics", "personagem", "trailer", "bilheteria", "ator", "atriz",
-            "música", "musica", "show", "celebridade", "famosos", "bbb"
+            "horoscopo", "signo", "zodiaco", "astrologia",
+            "taro", "previsao do dia", "escorpiao do signo",
+            "signo de escorpiao", "cinema", "filme", "serie",
+            "streaming", "netflix", "marvel", "dc comics",
+            "personagem", "trailer", "bilheteria", "ator", "atriz",
+            "musica", "show", "celebridade", "famosos", "bbb"
         ]
 
         if any(b in texto for b in bloqueios):
             return False
 
         tem_escorpiao = any(t in texto for t in [
-            "escorpião", "escorpiões", "escorpiao", "escorpioes",
-            "escorpionismo", "escorpiônico", "escorpionico"
+            "escorpiao", "escorpioes", "escorpionismo",
+            "escorpionico", "escorpionica"
         ])
 
         if not tem_escorpiao:
             return False
 
         contexto_valido = [
-            "picada", "acidente", "morte", "morreu", "óbito", "obito",
-            "soro", "antiescorpiônico", "antiescorpionico",
-            "hospital", "atendimento", "criança", "crianca", "bebê", "bebe",
-            "infestação", "infestacao", "aparecimento", "aumento",
-            "prefeitura", "vigilância", "vigilancia", "saúde", "saude",
-            "alerta", "prevenção", "prevencao", "controle", "captura",
-            "mutirão", "mutirao", "orienta", "orientação", "orientacao",
-            "animais peçonhentos", "animal peçonhento", "peçonhentos", "peconhentos"
+            "picada", "acidente", "morte", "morreu", "obito",
+            "soro", "antiescorpionico", "hospital", "atendimento",
+            "crianca", "bebe", "infestacao", "aparecimento",
+            "aumento", "prefeitura", "vigilancia", "saude",
+            "alerta", "prevencao", "controle", "captura",
+            "mutirao", "orienta", "orientacao",
+            "animais peconhentos", "animal peconhento", "peconhentos"
         ]
 
         return any(c in texto for c in contexto_valido)
@@ -314,59 +195,52 @@ class BuscadorNoticias:
     def detectar_gravidade(self, texto):
         t = self.normalizar(texto)
 
-        if any(p in t for p in ["morte", "morre", "morreu", "óbito", "obito", "uti", "estado grave", "fatal"]):
+        if any(p in t for p in ["morte", "morre", "morreu", "obito", "uti", "estado grave", "fatal"]):
             return "grave"
 
-        if any(p in t for p in ["picada", "acidente", "soro", "hospital", "atendimento", "infestação", "infestacao"]):
+        if any(p in t for p in ["picada", "acidente", "soro", "hospital", "atendimento", "infestacao"]):
             return "moderada"
 
         return "leve"
 
     def detectar_estado(self, texto):
-        t = self.normalizar(texto)
+        t = f" {self.normalizar(texto)} "
 
-        # 1. Detectar cidades primeiro
-        for cidade, uf in self.cidade_estado.items():
-            if cidade in t:
-                return uf
+        cidades_ordenadas = sorted(self.cidade_estado.keys(), key=len, reverse=True)
 
-        # 2. Detectar estados por nome
+        for cidade in cidades_ordenadas:
+            if len(cidade) < 4:
+                continue
+
+            padrao = r"\b" + re.escape(cidade) + r"\b"
+
+            if re.search(padrao, t):
+                return self.cidade_estado[cidade]
+
         estados_extenso = {
             "acre": "AC",
             "alagoas": "AL",
-            "amapá": "AP",
             "amapa": "AP",
             "amazonas": "AM",
             "bahia": "BA",
-            "ceará": "CE",
             "ceara": "CE",
             "distrito federal": "DF",
-            "espírito santo": "ES",
             "espirito santo": "ES",
-            "goiás": "GO",
             "goias": "GO",
-            "maranhão": "MA",
             "maranhao": "MA",
-            "mato grosso": "MT",
             "mato grosso do sul": "MS",
+            "mato grosso": "MT",
             "minas gerais": "MG",
-            "pará": "PA",
-            "para": "PA",
-            "paraíba": "PB",
             "paraiba": "PB",
-            "paraná": "PR",
             "parana": "PR",
             "pernambuco": "PE",
-            "piauí": "PI",
             "piaui": "PI",
             "rio de janeiro": "RJ",
             "rio grande do norte": "RN",
             "rio grande do sul": "RS",
-            "rondônia": "RO",
             "rondonia": "RO",
             "roraima": "RR",
             "santa catarina": "SC",
-            "são paulo": "SP",
             "sao paulo": "SP",
             "sergipe": "SE",
             "tocantins": "TO"
@@ -376,86 +250,31 @@ class BuscadorNoticias:
             if nome in t:
                 return uf
 
-        # 3. Detectar UF solta
-        for uf in self.estados.keys():
-            uf_lower = uf.lower()
-
-            padroes = [
-                f" {uf_lower} ",
-                f"/{uf_lower}",
-                f"-{uf_lower}",
-                f"({uf_lower})",
-                f",{uf_lower}"
-            ]
-
-            for p in padroes:
-                if p in t:
-                    return uf
-
-        # 4. Detectar portais regionais
-        fontes_regionais = {
-            "folha de londrina": "PR",
-            "cbn londrina": "PR",
-            "tarobá": "PR",
-            "taroba": "PR",
-            "gmc online": "PR",
-
-            "thmais": "SP",
-            "acidade on": "SP",
-            "sampi": "SP",
-
-            "estado de minas": "MG",
-            "o tempo": "MG",
-
-            "bahia noticias": "BA",
-            "correio da bahia": "BA",
-
-            "diario do nordeste": "CE",
-
-            "midiamax": "MS",
-            "campo grande news": "MS",
-
-            "folha vitoria": "ES"
-        }
-
-        for portal, uf in fontes_regionais.items():
-            if portal in t:
-                return uf
+        # Pará é perigoso porque "para" aparece como preposição.
+        # Só classifica PA se houver contexto claro.
+        if "estado do para" in t or "governo do para" in t or "belem" in t:
+            return "PA"
 
         return "Não identificado"
 
     def detectar_cidade(self, titulo, descricao, estado):
-        texto = self.normalizar(f"{titulo} {descricao}")
+        texto = f" {self.normalizar(titulo + ' ' + descricao)} "
 
-        for cidade, uf in self.cidade_estado.items():
-            if estado != "Nacional" and uf != estado:
+        cidades_ordenadas = sorted(self.cidade_estado.keys(), key=len, reverse=True)
+
+        for cidade in cidades_ordenadas:
+            if len(cidade) < 4:
                 continue
 
-            if f" {cidade} " in f" {texto} " or cidade in texto:
+            uf = self.cidade_estado[cidade]
+
+            if estado != "Não identificado" and uf != estado:
+                continue
+
+            padrao = r"\b" + re.escape(cidade) + r"\b"
+
+            if re.search(padrao, texto):
                 return self.formatar_cidade(cidade)
-
-        padroes = [
-            r"em ([A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+(?: [A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+){0,3})",
-            r"de ([A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+(?: [A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+){0,3})",
-            r"no município de ([A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+(?: [A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+){0,3})",
-            r"na cidade de ([A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+(?: [A-ZÁÉÍÓÚÃÕÂÊÔÇ][a-záéíóúãõâêôç]+){0,3})"
-        ]
-
-        bruto = f"{titulo} {descricao}"
-
-        bloqueios = [
-            "Brasil", "Google", "News", "Escorpião", "Escorpiões",
-            "Hospital", "Prefeitura", "Secretaria", "Estado",
-            "Ministério", "Vigilância", "Saúde", "Criança",
-            "Animal", "Animais", "Homem", "Mulher"
-        ]
-
-        for padrao in padroes:
-            m = re.search(padrao, bruto)
-            if m:
-                cidade = m.group(1).strip()
-                if cidade not in bloqueios and len(cidade) > 2:
-                    return cidade
 
         return "Não identificada"
 
@@ -464,35 +283,25 @@ class BuscadorNoticias:
             "sao paulo": "São Paulo",
             "sao jose do rio preto": "São José do Rio Preto",
             "ribeirao preto": "Ribeirão Preto",
-            "marilia": "Marília",
-            "aracatuba": "Araçatuba",
+            "jau": "Jaú",
+            "bauru": "Bauru",
+            "ibipora": "Ibiporã",
             "maringa": "Maringá",
-            "foz do iguacu": "Foz do Iguaçu",
-            "paranavai": "Paranavaí",
-            "campo mourao": "Campo Mourão",
-            "uberlandia": "Uberlândia",
-            "divinopolis": "Divinópolis",
-            "niteroi": "Niterói",
-            "nova iguacu": "Nova Iguaçu",
-            "vitoria da conquista": "Vitória da Conquista",
-            "goiania": "Goiânia",
-            "anapolis": "Anápolis",
-            "cuiaba": "Cuiabá",
-            "rondonopolis": "Rondonópolis",
-            "varzea grande": "Várzea Grande",
-            "tres lagoas": "Três Lagoas",
-            "florianopolis": "Florianópolis",
-            "chapeco": "Chapecó",
-            "criciuma": "Criciúma",
-            "belem": "Belém",
-            "maraba": "Marabá",
-            "joao pessoa": "João Pessoa",
-            "mossoro": "Mossoró",
-            "maceio": "Maceió",
-            "sao luis": "São Luís",
-            "macapa": "Macapá",
-            "brasilia": "Brasília",
-            "vitoria": "Vitória"
+            "londrina": "Londrina",
+            "curitiba": "Curitiba",
+            "tijucas": "Tijucas",
+            "xanxere": "Xanxerê",
+            "itajai": "Itajaí",
+            "biguacu": "Biguaçu",
+            "braco do norte": "Braço do Norte",
+            "sao leopoldo": "São Leopoldo",
+            "sapucaia do sul": "Sapucaia do Sul",
+            "vitoria": "Vitória",
+            "presidente kennedy": "Presidente Kennedy",
+            "laranja da terra": "Laranja da Terra",
+            "buzios": "Búzios",
+            "rio largo": "Rio Largo",
+            "brasilia": "Brasília"
         }
 
         if cidade in excecoes:
@@ -501,7 +310,7 @@ class BuscadorNoticias:
         return " ".join(p.capitalize() for p in cidade.split())
 
     def buscar_google_rss(self):
-        print("🔍 Buscando Google News RSS - modelo intermediário...")
+        print("🔍 Buscando Google News RSS...")
 
         for termo in self.termos:
             try:
@@ -533,6 +342,7 @@ class BuscadorNoticias:
                         continue
 
                     texto = f"{titulo} {descricao}"
+
                     estado = self.detectar_estado(texto)
                     cidade = self.detectar_cidade(titulo, descricao, estado)
 
@@ -589,7 +399,7 @@ class BuscadorNoticias:
 
     def executar(self):
         print("=" * 70)
-        print("🦂 MONITOR DE ESCORPIÕES - BUSCA INTERMEDIÁRIA")
+        print("🦂 MONITOR DE ESCORPIÕES - BUSCA COM MUNICÍPIOS IBGE")
         print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         print("=" * 70)
 
