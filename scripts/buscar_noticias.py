@@ -36,7 +36,21 @@ class BuscadorNoticias:
             "captura de escorpiões",
             "prevenção escorpiões",
             "criança escorpião",
-            "morte escorpião"
+            "morte escorpião",
+            "escorpiões em casa",
+            "escorpião em casa",
+            "escorpião em condomínio",
+            "escorpiões em condomínio",
+            "escorpião em bairro",
+            "escorpiões em bairro",
+            "escorpião em residência",
+            "escorpiões em residências",
+            "escorpião no quintal",
+            "escorpiões no quintal",
+            "escorpião prefeitura municipal",
+            "escorpiões prefeitura municipal",
+            "escorpião vigilância ambiental",
+            "escorpiões vigilância ambiental"
         ]
 
         self.estados = {
@@ -339,7 +353,7 @@ class BuscadorNoticias:
 
                 root = ET.fromstring(response.content)
 
-                for item in root.findall(".//item")[:25]:
+                for item in root.findall(".//item")[:50]:
                     titulo = item.findtext("title", "").strip()
                     link = item.findtext("link", "").strip()
                     pub_date = item.findtext("pubDate", "").strip()
