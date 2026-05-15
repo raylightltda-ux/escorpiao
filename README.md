@@ -49,10 +49,11 @@ https://raylighttda-ux.github.io/escorpioes/
 
 ### ⏰ Agendamento Automático
 
-O agente busca automaticamente **2x por dia**:
-- 🕐 **08:30** - Primeira busca (manhã)
-- 🕔 **16:30** - Segunda busca (tarde)
-
+O agente busca automaticamente **3x por dia**:
+- 🕐 **07:00** - Primeira busca (manhã)
+- 🕔 **13:00** - Segunda busca (tarde)
+- 🕔 **19:00** - Segunda busca (tarde)
+  
 *Deixe a página aberta nesses horários para funcionar!*
 
 ### 🗺️ Filtros
