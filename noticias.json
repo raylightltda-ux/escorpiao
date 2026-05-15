@@ -1,5 +1,44 @@
 [
   {
+    "id": "ibiporaemestadodealertacomaspicadasdeescorpiao",
+    "titulo": "Ibiporã em estado de alerta com as picadas de escorpião - Um Jornal Regional",
+    "descricao": "Ibiporã em estado de alerta com as picadas de escorpião  Um Jornal Regional",
+    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUTdCTGlQZkNYcWtyVFE0a2tQYy1MRkY0aVpzSm9QQ2tPdlI1OXctekV4UnhnTlNVNWdHOVQyNDd4Q2xMbG5qQVVJcUpESnEzczYxZTNxVTNNT2UycFdycXZiaHVHVUZKakt3Q1hmUmFCMjZfa05iNk1JNkRQSnJXMUhIaFpXeTAzQmZBaWZINE1BUEwzaS1vNG1yQ0ktY2dfNmhjRVNFOEI?oc=5",
+    "data": "14/05/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "PR",
+    "cidade": "Ibiporã",
+    "termo_busca": "picada de escorpião"
+  },
+  {
+    "id": "moradoresdenunciaminvasaodecobraseescorpioesemcondominioemvespasianonagrandebh",
+    "titulo": "Moradores denunciam invasão de cobras e escorpiões em condomínio em Vespasiano, na Grande BH - R7",
+    "descricao": "Moradores denunciam invasão de cobras e escorpiões em condomínio em Vespasiano, na Grande BH  R7",
+    "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPUEQ4M2tnSUNHMmJPZ2U1V2RDNnBGZzlxSUZSWkRTWXBIZ2pmaW1WVVBhczdZc1pwUzAtLUtGckR4RnM3Rkc1VExZUmRFS0dHNS1ENnItWFpLVzhVVTN0aVJ4SDUwWk9FYXRYZmZPY05Gd25idEhwQnhMR1lzY3MxUzNXNWw4M2twQ0dISk5leThiTVliQUF0UVFMOWZ1T2VIZW9DSUplVDl1ZmJQdmJnTDlWRDA4UVVwb2RhRURFVXgzVVpxNHlwOVR2QUlWUC1fVUxBVllFR3ZWWVIzT1ZSMG9YU1dtYUZO?oc=5",
+    "data": "14/05/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "MG",
+    "cidade": "Vespasiano",
+    "termo_busca": "infestação escorpiões"
+  },
+  {
+    "id": "escorpiaomaisvenenosodaamericadosuleencontradodentrodecasanointeriordesp",
+    "titulo": "Escorpião mais venenoso da América do Sul é encontrado dentro de casa no interior de SP - Diário do Litoral",
+    "descricao": "Escorpião mais venenoso da América do Sul é encontrado dentro de casa no interior de SP  Diário do Litoral",
+    "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNdEEzd0hOMC1fZ0wtbmNfR216Z2lYUDZXQmtDRmRnZUc3TUJyMm8xb05rd3Iya3BqMUpfNUFNdU4yZl9IdWk0VkZ5VmJhM3dxOEdpV3h2V1cxdWluZkhHZTlpR1RLTVJTck9lM3BIZDBHTUJQSjJKY3VsRnVpSl9FRUs2aUtGRlYyX0dncENKT3Vpal9RNEl4ZmpZWVdOVnE5TElobzY2X1V6NzduQURCaU1saUpwY2p6TC1iZXNLZGF4VHpscTlteVJRMmZHUQ?oc=5",
+    "data": "14/05/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião amarelo"
+  },
+  {
     "id": "especialistaalertaparaaumentodeescorpioesemresidenciasaposchuvasecalorintenso",
     "titulo": "Especialista alerta para aumento de escorpiões em residências após chuvas e calor intenso - Terra",
     "descricao": "Especialista alerta para aumento de escorpiões em residências após chuvas e calor intenso  Terra",
@@ -297,6 +336,19 @@
     "estado": "SC",
     "cidade": "Tijucas",
     "termo_busca": "vigilância escorpião"
+  },
+  {
+    "id": "ceatendimentosporpicadasdeescorpiaotemaltade31em2026",
+    "titulo": "CE: atendimentos por picadas de escorpião têm alta de 31% em 2026 - O POVO",
+    "descricao": "CE: atendimentos por picadas de escorpião têm alta de 31% em 2026  O POVO",
+    "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTWhZb1RhcWdrQWJnc3p6Mmsya1FxS2ZYTDNlaEFWTkJlZnpJVGcyYU8yTjNZdmlGNVdCaXVremwtaGdBTEZRbEFtanBMS1R4Zlp6d2tzWHdNdl84ZG9ZdGlINkJGN1BNcEcyM3JtcHY4eHVmM2RQOFQ2MXdyUHNYVE9kUVBjLUxtR3dfWGM3eWJSOGt5dzBGTEktQk53MU02Wm9udXhzeV81U2YtYXFOREFvNWpLQUJZczFnbQ?oc=5",
+    "data": "01/05/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "soro antiescorpiônico"
   },
   {
     "id": "casosdeescorpiaodisparamnobrasilelimpezaealiadaessencialnaprevencao",
@@ -648,6 +700,19 @@
     "estado": "SP",
     "cidade": "Ribeirão Preto",
     "termo_busca": "alerta escorpiões"
+  },
+  {
+    "id": "picadadeescorpiaooucobrasiteindicahospitaiscomsoroemguarulhoseregiao",
+    "titulo": "Picada de escorpião ou cobra? Site indica hospitais com soro em Guarulhos e região - GuarulhosWeb",
+    "descricao": "Picada de escorpião ou cobra? Site indica hospitais com soro em Guarulhos e região  GuarulhosWeb",
+    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQVlqWnR3V0hxamQ0TzF5cFdXTlBQWXJiOXlxbEMzbDY5ZnhVcnlCYkZKU005Tk9FdWdZVk84NUI4QVhIQXVnNWJRZFNTV3JleDdTaXk3VmQwWkVhb0xNT0VHaUo4dlB4c3FfcUFwcG9BaHlndmlxT2Q3RlZ1NXhxTFhTNnR3bVpYOFpxdjRsbXdOTDY0X2VFSUVlRWwteWg5a19CUE80T2tKU2E3R1NR?oc=5",
+    "data": "22/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Guarulhos",
+    "termo_busca": "animais peçonhentos escorpião"
   },
   {
     "id": "infestacaodeescorpiaomortalpodetercomecadoha3anosemcondominiodesc",
@@ -1157,6 +1222,19 @@
     "termo_busca": "morte escorpião"
   },
   {
+    "id": "criancaepicadaporescorpiaoemparquinhodecrechemunicipalembirigui",
+    "titulo": "Criança é picada por escorpião em parquinho de creche municipal em Birigui - Região Noroeste",
+    "descricao": "Criança é picada por escorpião em parquinho de creche municipal em Birigui  Região Noroeste",
+    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORmktaGJvZG51emptMW9HRlRDZDk0MXFvY0ZoS1J2Y2VGR3l4UE4wWGd3LUI3QXhPLU9CeU05MUE4eUlfRHR5am9xTHpZNEZveElieng1ZFZfamJCT3FoQXl5bW9UU0NNYjRyUmJ2RVlfR2N0R0laVHFIZjNNYlpUMi0tR001UldRc3VkRGQ1Rm1LZW42LURSWUk1ZHpoLWY1MzZaNA?oc=5",
+    "data": "10/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Birigui",
+    "termo_busca": "criança escorpião"
+  },
+  {
     "id": "picadasdeescorpiaosaltam163em10anosnobrasilsaibaoquefazer",
     "titulo": "Picadas de escorpião saltam 163% em 10 anos no Brasil; saiba o que fazer - O GLOBO",
     "descricao": "Picadas de escorpião saltam 163% em 10 anos no Brasil; saiba o que fazer  O GLOBO",
@@ -1311,6 +1389,19 @@
     "estado": "RS",
     "cidade": "Herval",
     "termo_busca": "escorpiões vigilância ambiental"
+  },
+  {
+    "id": "primeiramortedoanoporpicadadeescorpiaochamaaatencaoparacasos",
+    "titulo": "Primeira morte do ano por picada de escorpião chama a atenção para casos - CidadeVerde.com",
+    "descricao": "Primeira morte do ano por picada de escorpião chama a atenção para casos  CidadeVerde.com",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQTFxblk1WjdKQkFTYThFVW9uTFVGcW9mZ3hScmlPb2hZVnRkN3kzNEVmVkR2RDN0UWVkQ3l0eFVXQ0NnOGdUTXpocDJZVFhhTHpRbzM3WTl3aHVCdWUtM1h2VzRfVTQxT3hPaFE2Yy1zdFl0MGRvX3ZzMEJrdlRRZE1jVFhobXJJc2pRNW5MSFl3cjYwQlRVU2ZLQnVDenQzb2dFdHp5cDFqTFkzZlhHM25R?oc=5",
+    "data": "08/04/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
   },
   {
     "id": "picadadeescorpiaocobraouaranhaprocureatendimentonasantacasa",
@@ -1651,6 +1742,19 @@
     "termo_busca": "picada escorpião"
   },
   {
+    "id": "paivenegligenciaefalhaematendimentoaofilhode3anosmortoapospicadadeescorpiaogritavadedor",
+    "titulo": "Pai vê negligência e falha em atendimento ao filho de 3 anos morto após picada de escorpião: 'Gritava de dor' - Terra",
+    "descricao": "Pai vê negligência e falha em atendimento ao filho de 3 anos morto após picada de escorpião: 'Gritava de dor'  Terra",
+    "link": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxNSVNCMHhxRlhkRDJUc0N3ZnZ3TE9LTU1qMU1MTjhRb2M4ZEtaczZOT1kwd0k0YmZqZkxMaFhpZEYzbVU4T2hGTk95Y1ZaLUl6T29IUUx6ZWJxaUlFbHlfajI0dWtrSHhJTzJNYzhJSmp3TEpveno3S2Z6ejMySjNaN2VXd0tNd1pjV1RiQWM5REFFMWlZLTFFNVNlYTRGVy1OLUxuZ2d0Wjl2QzVYQXVBQVpYV1c3UjBzVUpPLU1waHVYYldpV2s4Vk94cGFkN3pYaFJRYXllOW81MzhiUks3YUdtc0ZPS0dGX01yTjJ2MjVob0paeDY2X3JwX2E0VllseHN0akNWUGZVVGMwS3JXLTZZemRaT29rU1I1MzlhaXpGWUJzdkFXUA?oc=5",
+    "data": "02/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "criança escorpião"
+  },
+  {
     "id": "criancade3anosmorreaposserpicadaporescorpiaoemconchal",
     "titulo": "Criança de 3 anos morre após ser picada por escorpião em Conchal - G1",
     "descricao": "Criança de 3 anos morre após ser picada por escorpião em Conchal  G1",
@@ -1714,6 +1818,45 @@
     "estado": "SP",
     "cidade": "Registro",
     "termo_busca": "escorpiões vigilância ambiental"
+  },
+  {
+    "id": "criancamorreaposserpicadaporescorpiao",
+    "titulo": "Criança morre após ser picada por escorpião - São Carlos Agora",
+    "descricao": "Criança morre após ser picada por escorpião  São Carlos Agora",
+    "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPVWlJYW1KTVFvRXcxNURhSnhMRm9tX1VvUEtNOUREMzF3Qm54c1BUa0pqY0xTbmFLbXRsMGxPRC00YWZwYy0zVEs4RGh5bEsxZjYxN0NYM1VMNV8tRFZfeURUTThzZ3otUE5yYnFzNi1uUGpWcmJNMjJobkhnZjdpSktTMW1hd3NvdUt6RHEwZnRDVTkzRG840gGeAUFVX3lxTE5XeUI0WmpUOEE4RHNmejZ4MGttNHR0X2cxQVFTZmxBWGgtbko1amlCMDlsMk5idDBvR1JLdjhWcHYtMVNZZHNDMTI4ZmVncXZfc1lQZ1dhNGd4eG1neXVjWkh3M0g3cTlFUzN1dEpQSFJTMFYwdnJSenA0NHppQjB4LVctMHZJVUZKd2VoZmk1R0hGWEtyU0c3Wl9OaldB?oc=5",
+    "data": "01/04/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Sao Carlos",
+    "termo_busca": "criança escorpião"
+  },
+  {
+    "id": "criancaeresgatadadehelicopteroaposserpicadaporescorpiaonoes",
+    "titulo": "Criança é resgatada de helicóptero após ser picada por escorpião no ES - Sim Notícias",
+    "descricao": "Criança é resgatada de helicóptero após ser picada por escorpião no ES  Sim Notícias",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQQmhpM0VZX01TOE9zdXZkejFMQmRjZFhtMmdsVktjTGxRbGFfUzJ3Q2lES3U0Y2lRRmdVaFg2RVg4VkVyVTBJX2JhN091d1cyVWhCMmdxbGdXeHNyQmRvWG01a0NMdnhMbThSZFpOOHY2Z1dkaTltd0Iyb1NDYkhwSXJmakw2WTYzeTVKUXpLckJsVXE4Zm96RWpodXR5eGdmMTNfWldjcDRZU3hz?oc=5",
+    "data": "01/04/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "criança escorpião"
+  },
+  {
+    "id": "bebede1anoepicadaporescorpiaonoesvejavideodoresgate",
+    "titulo": "Bebê de 1 ano é picada por escorpião no ES; veja vídeo do resgate - Folha Vitória",
+    "descricao": "Bebê de 1 ano é picada por escorpião no ES; veja vídeo do resgate  Folha Vitória",
+    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWUc2bUJaRmFSdURySzFXWHA5M2R4QzJXY2N5eHhaQ2RHYlJBYWJiMjI1WW1mLTJ6LWZFWThhR240c193aE1nRGhlU0tkSS05dloxTmYxbEJGREtIZ1c4VV81REhwUlU4Y0hDelpnS24tMDctWkJVZ3kzVExQc0lsdHZJb2FUYUxWdmtaVXo3M2Y1TUZLYXlydDBselVOR0VCblM5clE3aHdGZWp3N0hUUU5QWVdsdllRRjZzbGxlMmQzZw?oc=5",
+    "data": "31/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "ES",
+    "cidade": "Vitória",
+    "termo_busca": "criança escorpião"
   },
   {
     "id": "meninode2anosquefoipicadoporescorpiaodentrodecasatemaltadohospital",
@@ -1846,6 +1989,19 @@
     "termo_busca": "escorpião amarelo"
   },
   {
+    "id": "criancadedoisanosehospitalizadaapospicadadeescorpiaoemriopreto",
+    "titulo": "Criança de dois anos é hospitalizada após picada de escorpião em Rio Preto - Região Noroeste",
+    "descricao": "Criança de dois anos é hospitalizada após picada de escorpião em Rio Preto  Região Noroeste",
+    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON1h0MVlteTlTVnBUeGJHdzhwQ3FhVkMybFBxQUtiREtZaEszNFFReGM4LWprUmxZbEhpRzlJRXpZSUpTVU0wTjc2TjhVdkVWTjRBd0kyeS1xdFIzNVZ5TUp3aTA1S1Y4Y3pnanUxd2IxZDk0bUFpZlpRS2NmOElHcjhjSkQwdUJLNThraWswaEtENjJaMG9uU2xkYVF3ejNpMU85Yw?oc=5",
+    "data": "23/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "MG",
+    "cidade": "Rio Preto",
+    "termo_busca": "criança escorpião"
+  },
+  {
     "id": "escorpioesmarataizesorientapopulacaoaposaumentoderegistros",
     "titulo": "Escorpiões: Marataízes orienta população após aumento de registros - folha do es",
     "descricao": "Escorpiões: Marataízes orienta população após aumento de registros  folha do es",
@@ -1948,6 +2104,32 @@
     "estado": "SP",
     "cidade": "Araraquara",
     "termo_busca": "captura de escorpiões"
+  },
+  {
+    "id": "dadosmostramumcrescimentononumerodecasosdeacidentescomescorpioesnobrasilenoprespecialistaalertaparaocuidados",
+    "titulo": "Dados mostram um crescimento no número de casos de acidentes com escorpiões no Brasil e no PR; especialista alerta para o cuidados - Tribuna do Vale",
+    "descricao": "Dados mostram um crescimento no número de casos de acidentes com escorpiões no Brasil e no PR; especialista alerta para o cuidados  Tribuna do Vale",
+    "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPY24yZm5qbVNWc2dlVnNuZE9XTURscU5IaWxyLThVZkhDREdyclFpV20zRmZEY1FMZmI4ckNPMHBXeWFCT1BlYlN4N2NFcmtkMUJMLUZNVVMyUlRyWG9hZWFwTXdCOU8teEY2OFVzUkw5Slk5b2JVOFVsd2Z6bkpoa1FjLXA5aVYzeEgyRDdTVmFDanFPczJuTldINWZOcTlSSVBwdmJENjlKejdUV1ZQNGVkNzlIb2piM2tNQ2pjYVRtV1R1dnhtWVZyNURTQmZFVlhOWW5ra0I1VGpybnQ4VGVGSjI5Sy1ReWlmbk5hcEttaG5yNEtYSG5vOG5GQU0?oc=5",
+    "data": "16/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpiões Brasil"
+  },
+  {
+    "id": "8sinaisdealertaqueescorpioespodemestarescondidosnasuacasa",
+    "titulo": "8 sinais de alerta que escorpiões podem estar escondidos na sua casa - UOL Notícias",
+    "descricao": "8 sinais de alerta que escorpiões podem estar escondidos na sua casa  UOL Notícias",
+    "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOOVlqUFJ0VE4wSDl1N3VJbk9XWEJuSjlEVmRfRmFTLWxpSXR2NkFDVUhzRTl1Um1rcGtBMWJqMFBJOElHV2Z2eHFnRG1VVTM0UXJGdkRnNEU5NUFaek4yLUJ2U2VfeTFxQjRqdEUzeWhFUkdBQ3hZdVNyYTlLbHZOR3FxUGtiTkg0WEhhNnFDV3kxdU9GVTVTb3VQV0g4V2lad3FnYXY4Yzh6QlZRYnpadWFGLVV2a2hreFFVdWh4LW12MUZJY1c5NlREZnRVRE1RS1JBd3ljRnlhYUE?oc=5",
+    "data": "16/03/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "infestação escorpiões"
   },
   {
     "id": "maceioregistra710casosdepicadasdeescorpiaonesteano",
@@ -2158,6 +2340,19 @@
     "termo_busca": "escorpião amarelo"
   },
   {
+    "id": "soroantiescorpionicojaestadisponivelempocoseregiaoconfiraascidades",
+    "titulo": "Soro antiescorpiônico já está disponível em Poços e região; confira as cidades - onda poços",
+    "descricao": "Soro antiescorpiônico já está disponível em Poços e região; confira as cidades  onda poços",
+    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPVXlqLXUyMHB4V1loYnVuM0lMTHktM2szVzhYamRYZEM5N2ozTWVuVTJCZWxxN3VyS2tBZUwxTWdCRjVZekwxRmp0bzZuQ0hfdDVha2s1Z2ZUeUYta2FTSmttTVRyc3FEZDBqXzBjTHAxYWdOWTljb0ZSaWd0X2FCQ0dMUlpCWnFLOVVkNVRNWVhoSWVPXzJ3TFpEU01KclhSZnNaYmhB?oc=5",
+    "data": "02/03/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "soro antiescorpiônico"
+  },
+  {
     "id": "soroantiescorpionicoestadisponivelem35municipiosdosuldeminassaibaquais",
     "titulo": "Soro antiescorpiônico está disponível em 35 municípios do Sul de Minas; saiba quais - G1",
     "descricao": "Soro antiescorpiônico está disponível em 35 municípios do Sul de Minas; saiba quais  G1",
@@ -2195,6 +2390,19 @@
     "estado": "MS",
     "cidade": "Tres Lagoas",
     "termo_busca": "escorpião amarelo"
+  },
+  {
+    "id": "escorpiaomaisletaldobrasilsurgedentroderesidenciaeautoridadesemitemalertaurgente",
+    "titulo": "Escorpião mais letal do Brasil surge dentro de residência e autoridades emitem alerta urgente - Diário do Litoral",
+    "descricao": "Escorpião mais letal do Brasil surge dentro de residência e autoridades emitem alerta urgente  Diário do Litoral",
+    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQbkFaOExuZHJ2ZFpla0FLcHZ3RDZxczV0NS1IbnlmQXJ5UEJEVWQyeElacWZOYjlMSzIwR2JZRUVPdGNjVDR6WGxxWjhvM2g2MGt5Z3lOVVdNQlR0QVlQRURwWmNEZTdjM0NiajU1S0x1OHR4SFFDQ2V4VzZLWmlDSTZ2R29NcUJXbk05c0FNLXpBbTFfQkplMXNmMUQ5cFgwNTJYLXRuVE8?oc=5",
+    "data": "26/02/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpião Brasil"
   },
   {
     "id": "escorpiaoamareloecapturadoemtijucasevigilanciareforcaacoespreventivas",
@@ -2273,6 +2481,19 @@
     "estado": "PR",
     "cidade": "Umuarama",
     "termo_busca": "captura de escorpiões"
+  },
+  {
+    "id": "picadasdeescorpiaoemcriancaspreocupamereforcamalertanoverao",
+    "titulo": "Picadas de escorpião em crianças preocupam e reforçam alerta no verão - O Regional",
+    "descricao": "Picadas de escorpião em crianças preocupam e reforçam alerta no verão  O Regional",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNVEtsS0pxcU5SbjRlSVBYS1Z4R1NyTnNSZlRaU1hlUjV3SWt5SnhZcVlLbzVTelVzMW1kNEkyRE5aQUVaaXp2RXFLYnQ4MUZTNWhfck5kZ01zTl9GVHVJbmFUVE94M25WQm1RZnVNa3NqRTJYa1ViODdWWDBPdmR5V0Q1ZTVPZnBBR0NRY25HN3lSX0FtVDU2M1poYlVYRXAyVzNYajFwcVNwYVpwTHZDVy1R?oc=5",
+    "data": "23/02/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "criança escorpião"
   },
   {
     "id": "lacenintensificamonitoramentodeescorpioeseregistraaumentodeamostrasenviadasparaanaliseemsergipe",
@@ -2587,6 +2808,32 @@
     "termo_busca": "controle de escorpiões"
   },
   {
+    "id": "criancade3anosdeidadeepicadaporescorpiaoemvotuporanga",
+    "titulo": "Criança de 3 anos de idade é picada por escorpião em Votuporanga - Jornal A Cidade de Votuporanga",
+    "descricao": "Criança de 3 anos de idade é picada por escorpião em Votuporanga  Jornal A Cidade de Votuporanga",
+    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZ05PQVBwcy1aandfZE0tWHJhMWFOaHNxZ0p3SXYwVGloZUlyMzlKbGhxb3VublR0bDhxcjNBT0ZQa3hTU3IyRkwxTXBRWXBvSXVGNERfeVRRR01NWGdPZmtaNk5kLWJ1TlVLazhWOGxSM2hueXJxTHhsNmdrVEdyNHJ4Z2VHbmpKemNWc2pQMWZGSTZHaUJlRFVNM1pKd0Rvd2t5R29idGxBMDhmNmg1cVgtbExueWgtVkxrU0s0ak5Gdw?oc=5",
+    "data": "04/02/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Votuporanga",
+    "termo_busca": "criança escorpião"
+  },
+  {
+    "id": "prefeituraalertasobreacidentescomescorpioeseserpentesempindamonhangaba",
+    "titulo": "Prefeitura alerta sobre acidentes com escorpiões e serpentes em Pindamonhangaba - AgoraVale",
+    "descricao": "Prefeitura alerta sobre acidentes com escorpiões e serpentes em Pindamonhangaba  AgoraVale",
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQMjVXRGowWEZrU05NazNiRFpWTW1rMFI1dlRfanlKZ20wU21IU3pNZHZ3UFpxdTI1d3dPa1N2QWZ3VkRZeHdkRk96ZlFuSUNPXy1IU1RlSEw5NXBzUllhWkFmTjUtU2FyVEg0V2dYSGZLZDFTVTA1LV9hbDctbmkyTEROa25xSWlFWV9odURHUVNuSTBISUNaaTNYTFltMXAxVDRqSHpFT2pKSndIUG5HeFg4WEVrbDZhQTJaZGYyRXYtSEE?oc=5",
+    "data": "04/02/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "Pindamonhangaba",
+    "termo_busca": "escorpiões prefeitura municipal"
+  },
+  {
     "id": "enfermeiradohospitalprofessoribgattofalcaoalertaparaprevencaodeacidentescomescorpioes",
     "titulo": "Enfermeira do Hospital Professor Ib Gatto Falcão alerta para prevenção de acidentes com escorpiões - Secretaria de Estado da Saúde de Alagoas",
     "descricao": "Enfermeira do Hospital Professor Ib Gatto Falcão alerta para prevenção de acidentes com escorpiões  Secretaria de Estado da Saúde de Alagoas",
@@ -2650,6 +2897,19 @@
     "estado": "MS",
     "cidade": "Campo Grande",
     "termo_busca": "animais peçonhentos escorpião"
+  },
+  {
+    "id": "moradoresdenunciaminfestacaodeescorpioesnobairrobelavistaemcruzeirodooeste",
+    "titulo": "Moradores denunciam infestação de escorpiões no bairro Bela Vista, em Cruzeiro do Oeste - OBemdito",
+    "descricao": "Moradores denunciam infestação de escorpiões no bairro Bela Vista, em Cruzeiro do Oeste  OBemdito",
+    "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ1Z0VnBlUTV2c2Z1VGxQX1hFeFBLeE5mRnM0UDJJTExNOWc3OGMzZ29jTk55R1pmMk91c2ZmTjcwd01NcGJyUWF6eXRVZmFsQXNLYl9lVWNQaURUNFZCX0pUd1gwM2pVU1Z4TG9YTG9LT2lGR2tXTlM1M1hoeENud3JjUTNVdGxTekQyRVF2ZWlNWV94LWF0ZUpfV2pSSThYZ0RFeWZudlc0cFgycFhGakUxMFNqYWZNVUp2YnpwY0dMR03SAcgBQVVfeXFMT0x2OEJCMHFNM21tOWk5cTlNZjhMMi14Mk5nX2JDdVEwOENtb0d5OWdyUGtLNURJTzB4SGdVNndMSmtCUTQ3Nkc2QWNSbFZKZEZiUGpkYXhudkhrczcyVGRCNFZjQXM2alNJNU9Ud1hDdGp3ZWo4T3FEOTY0YU5mMy1za2JTS2tUZ1RuQWR0dEZIdWZfMjhuby1STFJldWNWa0s1YzVEMFJLZ3VMVWdZc3k3Z1BkWkRQSkxydVdNeHVVeEhHOTNSUGs?oc=5",
+    "data": "30/01/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "PR",
+    "cidade": "Cruzeiro Do Oeste",
+    "termo_busca": "infestação de escorpiões"
   },
   {
     "id": "ministeriodasaudepromovewebinariosobrediretrizesparaacidentesporserpenteseescorpioes",
@@ -2767,6 +3027,19 @@
     "estado": "Não identificado",
     "cidade": "Não identificada",
     "termo_busca": "prevenção escorpiões"
+  },
+  {
+    "id": "casosdeescorpioescrescem40emsaopauloeacendemalertanoverao",
+    "titulo": "Casos de escorpiões crescem 40% em São Paulo e acendem alerta no verão - Novabrasil",
+    "descricao": "Casos de escorpiões crescem 40% em São Paulo e acendem alerta no verão  Novabrasil",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbVZxRjZuZDFlLXMtbzYzdVdVWjJ4MU1sSXhjY01IQnJNd1E2TndDRVBralotLXhNRmNuWlRhZkpfRDJwM2ozemZZNkgxYWhJSDFTeC1xSkgzS0wtdWRzNFJZWXROTWJ2N1E5X0pqcV9OOFpHMmR2VE5iM1dxOVFWVmZ6T2M4WWJvWmZSa0ExY3BpendLQms4bXZxVHdEWEE0Y0thR2VFZVJ0VWd2?oc=5",
+    "data": "21/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "SP",
+    "cidade": "São Paulo",
+    "termo_busca": "escorpiões Brasil"
   },
   {
     "id": "5mitossobreocombateaescorpioesquepodemaumentaroriscodepicadas",
@@ -3170,6 +3443,19 @@
     "estado": "MS",
     "cidade": "Jardim",
     "termo_busca": "infestação de escorpiões"
+  },
+  {
+    "id": "qualoescorpiaomaisperigososaibacomodiferenciarespecies",
+    "titulo": "Qual o escorpião mais perigoso? Saiba como diferenciar espécies - Primeira Página",
+    "descricao": "Qual o escorpião mais perigoso? Saiba como diferenciar espécies  Primeira Página",
+    "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZkxFOWs4dW9YV2pEYTRoVE53b0dkLUN4bHpwc2Z4azJualJqXzNoVmgzU2FXTDVhb1I1T3BQdVdIbUQxWWVDTG1JNFoweGtVOEJBLTdBYk9nZlFaNDM1T1FnZGZDZUl4YVNiT0pHTkVLbENQSnBYUzFSNXBYc0d4Ym54cFp6MmhoTXRVQWJoU3RoWVAyaC1TUVJFN28ydFJsWDlhMm9zZzA4N24yU2tlVFBTWDVNdw?oc=5",
+    "data": "08/01/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "escorpiões Brasil"
   },
   {
     "id": "secretariadesaudealertaparariscosdeacidentescomescorpioesemsaomanuel",
