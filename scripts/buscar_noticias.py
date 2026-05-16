@@ -173,7 +173,7 @@ class BuscadorNoticias:
             "musica", "show", "celebridade", "famosos", "bbb", "plantas para espantar",
             "planta para espantar", "espantar escorpiao", "espantar escorpioes", "repelente natural",
             "remedio caseiro", "remédio caseiro", "dicas caseiras", "simpatia", "feng shui", "jardinagem",
-            "plantas repelentes", "lavanda", "hortela", "hortelã","alecrim", "plantas"
+            "plantas repelentes", "lavanda", "hortela", "hortelã","alecrim", "plantas", "tv", "televisao"
         ]
 
         if any(b in texto for b in bloqueios):
