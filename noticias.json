@@ -13,6 +13,58 @@
     "termo_busca": "prevenção escorpiões"
   },
   {
+    "id": "5sinaisdealertaquepodemterescorpioesescondidosdentrodasuacasa",
+    "titulo": "5 sinais de alerta que podem ter escorpiões escondidos dentro da sua casa - UOL Notícias",
+    "descricao": "5 sinais de alerta que podem ter escorpiões escondidos dentro da sua casa  UOL Notícias",
+    "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNcXNZdk54aHdYRGtEYVlkdVlsczBlem1tbi1FQk5OdWtmdEU1THc5ZDYtd080SWx1MVc5OW5VOV9EMVVUQV8zWUhfbVlNTDhrMXdqRUJEdjl1V0R6TzlwdGRkVHRfSEZzZnJOMk1tbzd6djVGdGxsSUhMb1FSRkcyb1hjX2tEdXhrQzhkWDZUSjhwbldXQ29UVHlGTWQycGh4aGxKdU80R2hKY2VBbHNhWG1sQ19XQkgtNDBval84V3VtREMzWXRIcTkxNHJrdWM4SldfS0pmSkZoZW4xQVk5dTRNSHZmUkwzRzNaWGE3eHNQTmJnc2JLcXNR?oc=5",
+    "data": "15/05/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "alerta escorpiões"
+  },
+  {
+    "id": "secretariadesaudedeiomeredivulgaorientacoesparaprevencaodeacidentescomescorpioes",
+    "titulo": "Secretaria de Saúde de Iomerê divulga orientações para prevenção de acidentes com escorpiões - Rádio Tropical FM 99.1",
+    "descricao": "Secretaria de Saúde de Iomerê divulga orientações para prevenção de acidentes com escorpiões  Rádio Tropical FM 99.1",
+    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQNXoyLXdvX1FCUWVDMllTaEF0RkhwWXhsVm1zVk9BM3pwTWRDNEhBUVFualpSTWpGd0QzbjlRejk5a1BqT1c3LXdpYUlHRDBBeU1yV2Q1SjhaR3FxLTJDZi1XdFVyN0E1R29GcGlBSkV4bnM0MmxyYzBuU2FoaDV1OHNMSmZYbksxZW5hTjlSb1VhalFFRENnV0hCX3NEVzk1OUhWRFlIMVNCMWFRWXc4b2s5NlFja1drTTBKd3l3R29xQnF0d0gw?oc=5",
+    "data": "15/05/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SC",
+    "cidade": "Iomere",
+    "termo_busca": "prevenção escorpiões"
+  },
+  {
+    "id": "comoprotegeracasadeescorpioescomcuidadosquemuitagentedeixaparadepois",
+    "titulo": "Como proteger a casa de escorpiões com cuidados que muita gente deixa para depois - O Antagonista",
+    "descricao": "Como proteger a casa de escorpiões com cuidados que muita gente deixa para depois  O Antagonista",
+    "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPaUg2Y2hJcDZjcVlrTXN1SldWemhZeE45Y3BmVlc2LU9ESFQ0NFJIblJ2VDk2NUlMV2NHMWpvTHBZMEs2SnM2UlpqckVnOXc4LTN0X3pjajJmcW9lbDB4YXRNamlQa05CMDVqdldpSlpMdVJGTzlvNnlmVWJuNHlTeUd6WEl2c21HdDJLV1RuVlI4QlhiTDhlSG1KLTRMQlBienVBanltQVUzYTJXWHk3cGNrbk9YOEViV3RnX09LMDVhUmdaM2ZSX1pKYXA?oc=5",
+    "data": "15/05/2026",
+    "tipo": "alerta",
+    "gravidade": "leve",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "prevenção escorpiões"
+  },
+  {
+    "id": "escorpiao",
+    "titulo": "Escorpião - XIII A Morte - tvguia.pt",
+    "descricao": "Escorpião - XIII A Morte  tvguia.pt",
+    "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNMEwwSGh5dkhWc2ZXeENsZ1NpWkdsVy1qX203ZElNNUZMblQ1RHp1YjZmZWpETXRndFJaaG5WM0lOYktsTXdHSWRyZmpWWHVpVmY5a094WXF4S2pzc1RSdDJpUXluY1RSbDFyUThtSTM2TTdoeVdmR0hXMEtqVG1WSXFMSEIzZWVyMG12UzR3?oc=5",
+    "data": "15/05/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "morte escorpião"
+  },
+  {
     "id": "ibiporaemestadodealertacomaspicadasdeescorpiao",
     "titulo": "Ibiporã em estado de alerta com as picadas de escorpião - Um Jornal Regional",
     "descricao": "Ibiporã em estado de alerta com as picadas de escorpião  Um Jornal Regional",
@@ -114,6 +166,19 @@
     "fonte": "Google News",
     "estado": "ES",
     "cidade": "Presidente Kennedy",
+    "termo_busca": "alerta escorpiões"
+  },
+  {
+    "id": "periodochuvosoaumentacasosdeacidentescomescorpioesemalagoasalertaespecialista",
+    "titulo": "Período chuvoso aumenta casos de acidentes com escorpiões em Alagoas, alerta especialista - 082noticias.com",
+    "descricao": "Período chuvoso aumenta casos de acidentes com escorpiões em Alagoas, alerta especialista  082noticias.com",
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNNGd2WTExR0hBX0hhRTlZUTdndEhrSXhEc3BBZExJVlF6ejBNb1JlaWt3Zm96MDdkMkV3eW1UbnZhNk52dXhmV0tvS05nSVA3WmxmZTkxdlhWSHZGSVozTVQ5VmdOdkJWbTdKSXJYQkYxdXE0QUs1ZVowVFBoS1BQbFRTZE5nbElUMVM0dTBRS3pwM3lEMTUzUHNQa0xKaXdYWDVtamlmOXlDZVBMbXdZUUNyNUxVbk1jNUxKbWoydw?oc=5",
+    "data": "12/05/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "AL",
+    "cidade": "Não identificada",
     "termo_busca": "alerta escorpiões"
   },
   {
@@ -1690,6 +1755,19 @@
     "termo_busca": "morte escorpião"
   },
   {
+    "id": "top3dog1mortedemeninopicadoporescorpiaoeumamaislidasnaregiao",
+    "titulo": "Top 3 do g1: morte de menino picado por escorpião é uma mais lidas na região - G1",
+    "descricao": "Top 3 do g1: morte de menino picado por escorpião é uma mais lidas na região  G1",
+    "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNZ1V0S0otNU9weklWejZ1T29fUjd6MXRZTE5iLS1TdG95YUxGZ0FQN2R2eEt6STNxNm5aNVFqeEhSV2xrU0tmSVlsMEVFYWEtYVZrYkpxSzA0bVFoMXdLUUpjeUE4RnF6TXpyODRBVjNkN1JDU1FscV9GQzg0d0FxM0VVOHV6LWtMT1IyeVJQNkVpYnB6YWlWOElaZF81Q01UNkl2MGlxR3VRZU10WkpWSGhON090WkdJWWpvWG9jUlowNl9WaTRWS3Vabl9qeDRlV2oySS0xYVRzZV9zSHZSTVJpUXVlQng1SmlSU2EtZU43cGhuMWx0VGJaT2lJd9IBjAJBVV95cUxQTnlhUzdvOWcwSjFIdWZQLWtzcnhaSk01YXM4VXpGeG5WcW1zVkhaQmNTREdWV2NfNnFEUVVDMUllTkxZdGtXcFZENm1lWThvTlJOMW4yR3doazBocERmNGg5d1BTZDBkSGVyMlNUeFExMmZWODVWT05tX2djSWJRZlpVOVNwZ3NwczZqSS1qMEJrQ3ZtUEZDeGpMYldWY2pZdTloUnpTaWNHQTAyaE5wckxoMDdndFZON3RxLXNQUjk3Q2Nnamt3a0VNa29SbTZUQ3dpdXo5a2plOEJHS1p3YndvLXZGNUxiY09HQ25pS0VnMWZTOXd5ekY1eFVPYXk1Znc5SDVWYjhvTy0w?oc=5",
+    "data": "04/04/2026",
+    "tipo": "alerta",
+    "gravidade": "grave",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "morte escorpião"
+  },
+  {
     "id": "meninomortoporpicadadeescorpiaorecebeusoroantivenenomaisde4horasaposacidentepoliciainvestiganegligencia",
     "titulo": "Menino morto por picada de escorpião recebeu soro antiveneno mais de 4 horas após acidente; polícia investiga negligência - G1",
     "descricao": "Menino morto por picada de escorpião recebeu soro antiveneno mais de 4 horas após acidente; polícia investiga negligência  G1",
@@ -2769,6 +2847,19 @@
     "termo_busca": "escorpião amarelo"
   },
   {
+    "id": "estadoreforcaalertaemantemvigilanciacontraacidentescomescorpioes",
+    "titulo": "Estado reforça alerta e mantém vigilância contra acidentes com escorpiões - Bonde | O seu portal de notícias",
+    "descricao": "Estado reforça alerta e mantém vigilância contra acidentes com escorpiões  Bonde | O seu portal de notícias",
+    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQT1NyVTZQQmg0cHhYTWlTNEZJU29VRjdEX1FiSjBJa3ZNcUNxSTdqU09STk1sSVV1RFNfOVEwWS12T3JxN0JXZ2NsdXFiYVc4d1gzVkg4NW4wTzlnLWlDRW14eGZiTF9qRDQwalk0R2NnZ3h5NklYdEVScjYzS0NGclhjcG5vN0gzMzFFR1R3RGp6d0d4OVl4OWdSVUtVQjJTYmViYTNYYXMwU2M2Uk5IbzNrMHY?oc=5",
+    "data": "14/02/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "Não identificado",
+    "cidade": "Não identificada",
+    "termo_busca": "vigilância sanitária escorpião"
+  },
+  {
     "id": "ondetomarsoroparapicadadeescorpiaoemuberlandiavejalocaleantivenenosdisponiveis",
     "titulo": "Onde tomar soro para picada de escorpião em Uberlândia: veja local e antivenenos disponíveis - G1",
     "descricao": "Onde tomar soro para picada de escorpião em Uberlândia: veja local e antivenenos disponíveis  G1",
@@ -3053,6 +3144,19 @@
     "estado": "Não identificado",
     "cidade": "Não identificada",
     "termo_busca": "captura de escorpiões"
+  },
+  {
+    "id": "vereadoralertaparaainfestacaodeescorpioesemchapadaodosulassuntodesaudepublicavoltaapauta",
+    "titulo": "VEREADOR alerta para a infestação de escorpiões em Chapadão do Sul. Assunto de saúde pública volta á pauta - Chapadense News",
+    "descricao": "VEREADOR alerta para a infestação de escorpiões em Chapadão do Sul. Assunto de saúde pública volta á pauta  Chapadense News",
+    "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdkdYZEliTUpQYjdUYVlseDJvV1VMajZIa2p2OE1LZnVjSmhla05ERXlEYURFSmNleHltanFEMWVqb1ViRmZST0FfaF9ENFhsTkdielEzekRTdEY4REtma3VabEpYd2tCc1huTWZwVWxFeHFpYWQ4LTRNcG5WQ04tRmN1ZVBzTS0wU1ZkQXVMTDNWeV9rNk8xY1ZEejNtZWNsUEVhejlQbE9ocDRUUjFKbjNfcWtabW5BWTM5dkhRdmVrQ2JPU1BlUndxQjY2d3NaVFFCbUQ5a0gxV0o4UUE?oc=5",
+    "data": "29/01/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "MS",
+    "cidade": "Chapadao Do Sul",
+    "termo_busca": "infestação de escorpiões"
   },
   {
     "id": "picadasdeescorpiaoaumentamnobrasilsaibacomoseprevenireoquefazeremcasodeacidente",
@@ -3637,6 +3741,19 @@
     "fonte": "Google News",
     "estado": "MS",
     "cidade": "Campo Grande",
+    "termo_busca": "infestação escorpiões"
+  },
+  {
+    "id": "saudedejoinvillealertaparainfestacaodeescorpioesamarelos",
+    "titulo": "Saúde de Joinville alerta para infestação de escorpiões-amarelos - Jornal do Iririú",
+    "descricao": "Saúde de Joinville alerta para infestação de escorpiões-amarelos  Jornal do Iririú",
+    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPX01qUGE0dkxaQ1FaZDYxM0VHd0JGZzRqNUE4UVpZLW5BN2s4UFd5WnNpeU4zdHNndzBhbEZIWjgzR3hmMnhROUdITlozMkNVaGFJWFZxUG1UdzEyRTZ6VjBBd21Lei1jRmJPd1BSMU9FU2ExSEV0a21ESUttbnNsSVJWUmcxNm9rM21KckRKWVdOS29CeTZWQTU1akJhYjRzNGp1S2ExZjRad0F0eEE?oc=5",
+    "data": "04/01/2026",
+    "tipo": "alerta",
+    "gravidade": "moderada",
+    "fonte": "Google News",
+    "estado": "SC",
+    "cidade": "Joinville",
     "termo_busca": "infestação escorpiões"
   }
 ]
