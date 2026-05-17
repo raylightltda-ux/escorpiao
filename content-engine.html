@@ -211,9 +211,17 @@
                 if (!response.ok) throw new Error('Arquivo não encontrado');
                 
                 let allNoticias = await response.json();
+                console.log('Total de notícias carregadas:', allNoticias.length);
                 
                 // Filtrar grave E moderada
                 noticias = allNoticias.filter(n => n.gravidade === 'grave' || n.gravidade === 'moderada');
+                console.log('Notícias filtradas (grave/moderada):', noticias.length);
+                
+                if (noticias.length === 0) {
+                    mostrarMensagem('⚠️ Nenhuma notícia grave ou moderada encontrada', 'error');
+                    document.getElementById('listaNoticiasContainer').innerHTML = '<p style="color:#94a3b8;text-align:center">Nenhuma notícia grave ou moderada</p>';
+                    return;
+                }
                 
                 // Ordenar por data
                 noticias.sort((a, b) => {
@@ -224,9 +232,11 @@
 
                 paginaAtual = 1;
                 renderizarPagina();
+                mostrarMensagem('✅ Notícias carregadas com sucesso!', 'success');
             } catch (e) {
-                console.error('Erro:', e);
+                console.error('Erro ao carregar:', e);
                 mostrarMensagem('❌ Erro ao carregar noticias.json. Verifique se está na mesma pasta.', 'error');
+                document.getElementById('listaNoticiasContainer').innerHTML = '<p style="color:#ef4444;text-align:center">❌ Erro ao carregar. Verifique noticias.json</p>';
             }
         }
 
@@ -273,21 +283,28 @@
         }
 
         function selecionarNoticia(idx) {
+            console.log('Selecionando notícia:', idx);
             noticiaAtualId = idx;
             const noticia = noticias[idx];
+            
+            console.log('Notícia encontrada:', noticia);
             
             const artigoExistente = artigosGerados.find(a => a.noticiaId === idx);
             
             if (artigoExistente) {
                 artigoAtual = artigoExistente;
+                console.log('Artigo já gerado, usando existente');
             } else {
+                console.log('Gerando novo artigo...');
                 artigoAtual = gerarArtigo(noticia, idx);
                 artigosGerados.push(artigoAtual);
+                console.log('Artigo gerado:', artigoAtual);
             }
             
             renderizarPagina();
             renderizarPreview();
             preencherEditor();
+            mostrarMensagem('✅ Artigo gerado! Verifique o preview', 'success');
         }
 
         function gerarArtigo(noticia, idx) {
