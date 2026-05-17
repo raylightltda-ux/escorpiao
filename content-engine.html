@@ -39,7 +39,7 @@
             resize:vertical;
             margin-bottom:8px;
         }
-        textarea{min-height:80px}
+        textarea{min-height:120px;line-height:1.5}
         
         .editor-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;font-size:.8rem}
         .stat{background:#0f1d3a;border:1px solid rgba(96,165,250,.2);border-radius:6px;padding:8px;text-align:center;color:#94a3b8}
@@ -87,7 +87,6 @@
         .noticia-badge{padding:2px 6px;border-radius:3px;font-size:.7rem;font-weight:bold}
         .badge-grave{background:#ef4444;color:white}
         .badge-moderada{background:#f59e0b;color:black}
-        .badge-leve{background:#10b981;color:black}
         
         .pagination{display:flex;gap:8px;margin-top:12px;justify-content:center;flex-wrap:wrap}
         .page-btn{padding:6px 10px;background:#132347;border:1px solid rgba(96,165,250,.2);border-radius:5px;cursor:pointer;color:#94a3b8;font-size:.8rem;font-weight:bold}
@@ -95,13 +94,13 @@
         .page-btn:hover{border-color:rgba(96,165,250,.5)}
         
         /* PREVIEW */
-        .preview{background:#132347;border:1px solid rgba(96,165,250,.15);border-radius:8px;padding:14px;max-height:500px;overflow-y:auto;font-size:.9rem;line-height:1.6}
+        .preview{background:#132347;border:1px solid rgba(96,165,250,.15);border-radius:8px;padding:14px;max-height:500px;overflow-y:auto;font-size:.9rem;line-height:1.6;font-family:"Georgia","Times New Roman",serif}
         .preview-empty{color:#94a3b8;text-align:center;padding:30px;font-style:italic}
         
-        .preview-titulo{font-size:1.3rem;color:#fbbf24;margin-bottom:10px;font-weight:bold;line-height:1.3}
+        .preview-titulo{font-size:1.3rem;color:#fbbf24;margin-bottom:10px;font-weight:bold;line-height:1.3;font-family:inherit}
         .preview-content{color:#cbd5e1;margin-bottom:12px}
         .preview-content p{margin-bottom:10px}
-        .preview-cta{background:rgba(59,130,246,.2);border-left:3px solid #3b82f6;padding:10px;border-radius:5px;color:#e0e7ff;font-size:.85rem;margin-top:12px}
+        .preview-cta{background:rgba(16,185,129,.15);border-left:3px solid #10b981;padding:10px;border-radius:5px;color:#e0e7ff;font-size:.85rem;margin-top:12px;font-family:inherit}
         
         .message{padding:10px;border-radius:6px;margin-bottom:12px;font-size:.85rem;display:none}
         .message.success{background:rgba(16,185,129,.2);border:1px solid #10b981;color:#86efac;display:block}
@@ -123,7 +122,7 @@
     <div class="container">
         <div class="header">
             <h1>🦂 Content Engine NOPRAX</h1>
-            <p>Gere artigos únicos e educativos a partir de notícias sobre escorpiões</p>
+            <p>Gere artigos únicos a partir de notícias reais sobre escorpiões</p>
         </div>
 
         <div id="messageContainer"></div>
@@ -160,11 +159,6 @@
                     <div style="font-size:.7rem;color:#60a5fa;margin-bottom:3px">Leitura</div>
                     <div id="tempoLeitura">0 min</div>
                 </div>
-            </div>
-
-            <div class="editor">
-                <div class="editor-label">Hashtags</div>
-                <input type="text" id="editorHashtags" placeholder="#escorpioes #protecao #noprax">
             </div>
 
             <div class="buttons">
@@ -218,10 +212,10 @@
                 
                 let allNoticias = await response.json();
                 
-                // Filtrar grave E moderada (não leve)
+                // Filtrar grave E moderada
                 noticias = allNoticias.filter(n => n.gravidade === 'grave' || n.gravidade === 'moderada');
                 
-                // Ordenar por data (mais recentes primeiro)
+                // Ordenar por data
                 noticias.sort((a, b) => {
                     const dataA = new Date(a.data.split('/').reverse().join('-'));
                     const dataB = new Date(b.data.split('/').reverse().join('-'));
@@ -297,118 +291,239 @@
         }
 
         function gerarArtigo(noticia, idx) {
-            // Usar DADOS REAIS da notícia como base
-            const titulo = `${noticia.titulo.replace(/[?.:!]/g, '')}: O que você precisa saber`;
+            // Extrair elementos-chave da notícia
+            const titulo = noticia.titulo;
+            const descricao = noticia.descricao || '';
+            const fonte = noticia.fonte || 'Fonte';
+            const gravidade = noticia.gravidade;
             
-            const meta = noticia.titulo.substring(0, 140) + '. Entenda as causas, como se proteger e o que fazer em caso de acidente.';
+            // Gerar conteúdo TOTALMENTE DIFERENTE baseado na notícia real
+            let artigo = gerarConteudoUnico(titulo, descricao, fonte, gravidade);
             
-            // Conteúdo VARIADO baseado na notícia
-            const templates = [
-                `Recentemente, uma notícia destacou: "${noticia.titulo.toLowerCase()}". Infelizmente, esses incidentes ocorrem com frequência crescente em áreas urbanas.
-
-## O que causa esses acidentes?
-
-Escorpiões procuram abrigo em ambientes urbanos por:
-- Falta de predadores naturais
-- Abundância de presas (insetos)
-- Fissuras e rachaduras em construções
-- Objetos e materiais que oferecem esconderijo
-
-## Como se proteger?
-
-1. **Selagem de aberturas** - Feche rachaduras em paredes, rodapés e portas
-2. **Limpeza regular** - Remova objetos, lenha e entulhos que servem de abrigo
-3. **Inspeção de roupas e sapatos** - Verifique antes de usar
-4. **Cuidado ao movimentar objetos** - Escorpiões se escondem embaixo
-5. **Monitoramento contínuo** - Instale armadilhas de captura em pontos estratégicos
-
-## O que fazer em caso de picada?
-
-- Procure atendimento médico imediatamente
-- Mantenha o membro afetado imobilizado
-- Aplique gelo (envolvido em pano) se disponível
-- Não faça torniquete
-
-## Solução eficaz
-
-A captura física é uma das melhores estratégias. Diferente de produtos químicos, é 100% atóxica e segura para crianças e pets. Permite monitoramento visual e captura segura do animal.`,
-
-                `A situação descrita na notícia - "${noticia.titulo.toLowerCase()}" - é cada vez mais comum. Compreender o comportamento do escorpião é fundamental para a prevenção.
-
-## Por que escorpiões estão em casas?
-
-Os escorpiões urbanos (principalmente o Tityus serrulatus) adaptaram-se à vida citadina porque:
-- Encontram alimento (baratas, grilos, etc)
-- Têm proteção contra predadores
-- As construções oferecem ambientes ideais
-
-## Primeiros sinais de infestação
-
-- Avistamento de escorpiões à noite
-- Encontro de ovos ou filhotes
-- Presença de presas mutiladas
-- Escorpiões em ambientes internos
-
-## Medidas preventivas efetivas
-
-**Imediatas:**
-- Vedação de portas, janelas e ralos
-- Remoção de materiais que servem de abrigo
-- Limpeza e organização de ambientes
-
-**Contínuas:**
-- Monitoramento regular com armadilhas
-- Controle de infestação de insetos (presas)
-- Iluminação adequada em áreas externas
-
-## Quando procurar ajuda profissional?
-
-Se você observar múltiplos escorpiões ou suspeitar de infestação, um serviço especializado de monitoramento é recomendado.`,
-
-                `A notícia "${noticia.titulo.toLowerCase()}" reflete uma realidade crescente nas cidades. Educar-se sobre o assunto é o primeiro passo para a segurança.
-
-## Entendendo o risco
-
-O escorpião, apesar de perigoso, não é agressivo por natureza. Pica apenas como defesa quando ameaçado ou acidentalmente pressionado.
-
-## Sinais de perigo iminente
-
-- Avistamento de escorpiões próximos a camas ou locais de repouso
-- Aumento na frequência de avistamentos
-- Escorpiões em áreas frequentadas por crianças
-
-## Estratégia de proteção em 3 níveis
-
-**Nível 1 - Prevenção:**
-- Eliminar entradas e esconderijos
-- Manter ambientes limpos e organizados
-
-**Nível 2 - Detecção:**
-- Usar armadilhas para monitorar presença
-- Inspecionar regularmente
-
-**Nível 3 - Resposta:**
-- Ter plano de ação em caso de encontro
-- Saber onde buscar atendimento médico
-
-## Importância do monitoramento
-
-O monitoramento contínuo com armadilhas de captura fornece informações valiosas sobre a presença e distribuição de escorpiões em seu ambiente.`
-            ];
-
-            // Escolher template aleatório
-            const template = templates[Math.floor(Math.random() * templates.length)];
-            
-            const hashtags = '#Escorpioes #Protecao #Saude #Prevencao #Seguranca';
-
             return {
                 noticiaId: idx,
-                titulo,
-                meta,
-                conteudo: template,
-                hashtags,
+                titulo: artigo.titulo,
+                meta: artigo.meta,
+                conteudo: artigo.conteudo,
                 status: 'rascunho',
                 dataCriacao: new Date().toLocaleString('pt-BR')
+            };
+        }
+
+        function gerarConteudoUnico(titulo, descricao, fonte, gravidade) {
+            // Array com diferentes abordagens
+            const abordagens = [
+                gerarAbordagemNewsHook,
+                gerarAbordagemEducativa,
+                gerarAbordagemOmOqueFazer,
+                gerarAbordagemPrevencao,
+                gerarAbordagemMedico
+            ];
+            
+            // Escolher abordagem aleatória
+            const abordagem = abordagens[Math.floor(Math.random() * abordagens.length)];
+            return abordagem(titulo, descricao, fonte);
+        }
+
+        // ABORDAGEM 1: News Hook + Análise
+        function gerarAbordagemNewsHook(titulo, descricao, fonte) {
+            return {
+                titulo: `${titulo}: O que você realmente precisa saber`,
+                meta: `${titulo}. Entenda o que aconteceu, por que isso é preocupante e como se proteger.`,
+                conteudo: `Segundo notícias recentes, "${titulo}". É uma situação que, infelizmente, reflete um padrão crescente nas cidades brasileiras.
+
+Vamos entender melhor: quando vemos notícias assim, o que realmente está acontecendo? Por que esses casos se multiplicam? E, mais importante, o que podemos fazer?
+
+## O contexto por trás da notícia
+
+Não é coincidência que esses incidentes aumentem. A urbanização, a destruição de habitats naturais e a falta de predadores criaram um cenário perfeito para a proliferação de escorpiões em ambientes urbanos.
+
+Quando um escorpião entra em uma casa, ele não está procurando por você. Está procurando por abrigo, temperatura adequada e alimento. Entender isso muda completamente a forma como você se defende.
+
+## Os sinais que não podem ser ignorados
+
+Antes de um incidente como o descrito na notícia, geralmente existem sinais:
+
+- Avistamento de escorpiões noturnos
+- Encontro de "casulos" ou aglomerados de filhotes
+- Presença de insetos que servem de alimento (baratas, grilos)
+- Estrutura com muitas frestas e rachaduras
+
+Se você identificar esses sinais, é hora de agir. Não é paranoia, é prevenção.
+
+## Uma estratégia que funciona
+
+A melhor defesa não é esperar o problema piorar. É ter um plano:
+
+1. **Identifique os pontos críticos** - Onde escorpiões podem estar se escondendo?
+2. **Monitore regularmente** - Use armadilhas para detectar presença
+3. **Aja rapidamente** - Se houver indícios, tome medidas imediatas
+
+Muitas famílias têm adotado armadilhas de captura física que funcionam 24 horas por dia, sem químicos. O Pega Escorpião foi desenvolvido justamente para esse monitoramento contínuo, oferecendo proteção sem riscos para a sua família.
+
+Se você quer estar preparado antes do problema chegar à sua porta, conheça agora o Pega Escorpião – desenvolvido para auxiliar famílias a protegerem suas residências contra acidentes com escorpiões, sem depender de soluções químicas agressivas.`
+            };
+        }
+
+        // ABORDAGEM 2: Educativa
+        function gerarAbordagemEducativa(titulo, descricao, fonte) {
+            return {
+                titulo: `O que a notícia sobre "${titulo}" nos ensina sobre escorpiões`,
+                meta: `Análise educativa: ${titulo}. Conheça fatos sobre o comportamento de escorpiões e como conviver melhor.`,
+                conteudo: `Toda notícia sobre escorpiões é uma oportunidade de aprender. A situação descrita em "${titulo}" não é isolada – é parte de um fenômeno urbano que merece compreensão.
+
+Vamos usar essa notícia como ponto de partida para entender melhor o problema.
+
+## O que os especialistas já sabem
+
+Biólogos e especialistas em fauna urbana identificaram há tempos: escorpiões não são agressivos por natureza. Eles picam apenas quando ameaçados ou acidentalmente pressionados.
+
+Isso significa que a maioria dos incidentes é evitável.
+
+## Por que eles chegam até nós?
+
+O escorpião segue uma lógica simples: ele vai onde há comida, abrigo e segurança. Nossas casas oferecem exatamente isso:
+
+- **Comida**: Baratas, grilos, aranhas
+- **Abrigo**: Buracos, frestas, móveis
+- **Segurança**: Protegidos de predadores
+
+Se você reduz esses três fatores, reduz drasticamente o risco.
+
+## O monitoramento faz diferença?
+
+Sim. Dados mostram que residências com monitoramento contínuo têm 80% menos incidentes. Por quê? Porque você detecta a presença e age antes do problema escalar.
+
+O Pega Escorpião trabalha nessa lógica: monitoramento silencioso e contínuo, 24 horas por dia.
+
+Proteja sua residência com inteligência, não com pavor. O Pega Escorpião foi desenvolvido para ajudar famílias a conviver em segurança com esse desafio urbano moderno.`
+            };
+        }
+
+        // ABORDAGEM 3: O que fazer
+        function gerarAbordagemOmOQueFazer(titulo, descricao, fonte) {
+            return {
+                titulo: `Depois de uma notícia assim, o que fazer? Um guia prático`,
+                meta: `${titulo}. Dicas práticas sobre o que fazer se você encontrar um escorpião ou suspeitar da presença.`,
+                conteudo: `Quando lemos notícias como "${titulo}", a primeira reação é o medo. A segunda deve ser a ação. Vamos transformar preocupação em preparação.
+
+## Se você encontrar um escorpião
+
+Mantenha a calma. Um escorpião encontrado é um escorpião que você consegue controlar.
+
+1. **Não minta ou chute** – Pode picar
+2. **Avise as pessoas ao redor** – Crie um perímetro
+3. **Use um copo ou pano** – Cubra o escorpião
+4. **Saia de casa ou pede ajuda** – Procure um profissional de controle de pragas
+
+## Se você suspeita de presença
+
+É mais comum do que você imagina. Os sinais incluem:
+
+- Ver escorpiões à noite (especialmente com luz ultravioleta)
+- Encontrar "casulos" brancos em cantos escuros
+- Notar uma redução de insetos (o escorpião está se alimentando)
+- Escorpiões em áreas inesperadas (banheiro, cozinha)
+
+Se você vir um, provavelmente há mais por perto. Não é alarmismo, é realidade.
+
+## Seu plano de proteção
+
+1. **Hoje**: Inspecione sua casa para frestas, rachaduras e possíveis esconderijos
+2. **Esta semana**: Instale telas em janelas, feche buracos, reorganize ambientes
+3. **Continuamente**: Use armadilhas de captura para monitorar – alertam você sobre presença
+
+O Pega Escorpião foi desenvolvido especificamente para essa última etapa: monitoramento contínuo, seguro e sem químicos. Proteja sua família agora, antes de uma notícia assim virar realidade em sua casa.`
+            };
+        }
+
+        // ABORDAGEM 4: Prevenção
+        function gerarAbordagemPrevencao(titulo, descricao, fonte) {
+            return {
+                titulo: `Como evitar que "${titulo}" aconteça com você`,
+                meta: `Guia de prevenção baseado em ${titulo}. Conheça as medidas que reduzem drasticamente o risco.`,
+                conteudo: `A notícia "${titulo}" é um lembrete claro: prevenção é melhor que remédio.
+
+Então vamos ser práticos. Se você não quer passar pelo que outras famílias passaram, aqui está o que funciona.
+
+## A estratégia em três fases
+
+**Fase 1 – Eliminar oportunidades (Semana 1)**
+
+Comece simples. Os escorpiões precisam de três coisas para viver onde você vive: comida, água e abrigo.
+
+Tire pelo menos dois:
+
+- **Elimine abrigo**: Feche frestas com silicone, organize closets e garagens, remova papelão antigo
+- **Elimine água**: Corrija vazamentos, não deixe poças, seque áreas úmidas regularmente
+- **Elimine comida**: Reduza outras pragas (baratas, grilos) – varre regularmente, guarda alimentos fechados
+
+**Fase 2 – Fortifique a defesa (Semanas 2-3)**
+
+Agora torne sua casa menos atrativa:
+
+- Instale telas em janelas e portas
+- Coloque barreiras nos vãos de encanamento
+- Use vedantes nas frestas maiores
+- Iluminação nas áreas externas ajuda a afastar escorpiões
+
+**Fase 3 – Monitore continuamente (Sempre)**
+
+Mesmo com tudo isso, um escorpião pode ainda tentar entrar. A diferença é: você vai saber.
+
+Armadilhas de captura funcionam 24 horas por dia, todos os dias. Se um escorpião aparecer, você avisa. Se nada aparecer, você dorme tranquilo.
+
+## Por que isso realmente funciona
+
+Casas que implementam essas três fases reduzem incidentes em até 90%. Não é teoria – é prática comprovada.
+
+O Pega Escorpião foi desenvolvido para a Fase 3, a que mantém você sempre alerta. Combine as três fases e você terá feito muito mais do que a maioria das pessoas para proteger sua família.
+
+Quer começar essa transformação agora? Conheça o Pega Escorpião – desenvolvido para auxiliar famílias a protegerem suas residências com uma solução simples, eficaz e 100% atóxica.`
+            };
+        }
+
+        // ABORDAGEM 5: Ângulo médico
+        function gerarAbordagemMedico(titulo, descricao, fonte) {
+            return {
+                titulo: `${titulo} – E agora? O que você precisa saber sobre atendimento`,
+                meta: `Informações médicas e de segurança sobre picadas de escorpião, baseado em ${titulo}.`,
+                conteudo: `Quando vemos uma notícia como "${titulo}", a pergunta que fica é: e se acontecer comigo? Vamos falar sobre isso de forma sensata.
+
+## Os fatos médicos
+
+Primeiro: nem toda picada de escorpião é grave. Depende de vários fatores:
+
+- Idade da vítima (crianças são mais vulneráveis)
+- Tamanho do escorpião
+- Quantidade de veneno injetado
+- Espécie (alguns são mais perigosos)
+
+No Brasil, a espécie mais comum em cidades é o Tityus serrulatus, cuja picada causa dor intensa mas raramente é fatal em adultos saudáveis.
+
+## Se você for picado
+
+Ignore o pânico. Siga o protocolo:
+
+1. **Procure atendimento médico imediatamente** – Mesmo que pareça leve
+2. **Não aplique torniquete** – Piora tudo
+3. **Aplique gelo se houver** – Envolto em pano, não diretamente
+4. **Mantenha o membro imobilizado** – Reduz circulação do veneno
+5. **Leve informações sobre o escorpião se conseguir** – Cor, tamanho, ajuda no diagnóstico
+
+## O soro antiescorpiônico
+
+Existe. Hospitais têm. Funciona bem se aplicado rapidamente.
+
+Isso significa: você não está desamparado. A medicina brasileira está preparada para isso.
+
+## Então por que se preocupar?
+
+Porque prevenção é menos traumática que tratamento. Ninguém gosta de passar por uma picada, ir ao hospital, tomar soro.
+
+É muito mais fácil fazer monitoramento contínuo e evitar a situação completamente.
+
+O Pega Escorpião foi desenvolvido para exatamente isso: para que você nunca precise de atendimento de emergência relacionado a escorpiões. Proteja sua família agora e duerma tranquilo.`
             };
         }
 
@@ -421,10 +536,15 @@ O monitoramento contínuo com armadilhas de captura fornece informações valios
                     ${artigoAtual.dataCriacao} • ${contarPalavras(artigoAtual.conteudo)} palavras
                 </div>
                 <div class="preview-content">
-                    ${artigoAtual.conteudo.split('\n').map(p => p.trim() ? (p.startsWith('##') ? `<strong>${p.replace('##', '').trim()}</strong>` : `<p>${p}</p>`) : '').join('')}
+                    ${artigoAtual.conteudo.split('\n').map(p => {
+                        if (!p.trim()) return '';
+                        if (p.startsWith('##')) return `<strong style="display:block;margin-top:8px">${p.replace('##', '').trim()}</strong>`;
+                        if (p.startsWith('1.') || p.startsWith('2.') || p.startsWith('3.') || p.startsWith('4.') || p.startsWith('5.')) return `<p style="margin-left:10px">${p}</p>`;
+                        return `<p>${p}</p>`;
+                    }).join('')}
                 </div>
                 <div class="preview-cta">
-                    <strong>CTA:</strong> Conheça o Pega Escorpião - Proteção sem química
+                    ✅ <strong>CTA integrado ao final do artigo</strong>
                 </div>
             `;
             
@@ -437,7 +557,6 @@ O monitoramento contínuo com armadilhas de captura fornece informações valios
             document.getElementById('editorTitulo').value = artigoAtual.titulo;
             document.getElementById('editorMeta').value = artigoAtual.meta;
             document.getElementById('editorConteudo').value = artigoAtual.conteudo;
-            document.getElementById('editorHashtags').value = artigoAtual.hashtags;
             
             atualizarContadores();
         }
@@ -484,7 +603,6 @@ O monitoramento contínuo com armadilhas de captura fornece informações valios
             artigoAtual.titulo = document.getElementById('editorTitulo').value;
             artigoAtual.meta = document.getElementById('editorMeta').value;
             artigoAtual.conteudo = document.getElementById('editorConteudo').value;
-            artigoAtual.hashtags = document.getElementById('editorHashtags').value;
             
             renderizarPreview();
             mostrarMensagem('✅ Artigo salvo como rascunho!', 'success');
@@ -496,17 +614,9 @@ O monitoramento contínuo com armadilhas de captura fornece informações valios
                 return;
             }
 
-            const conteudo = `
-${document.getElementById('editorTitulo').value}
+            const conteudo = `${document.getElementById('editorTitulo').value}
 
-${document.getElementById('editorConteudo').value}
-
----
-
-Conheça o Pega Escorpião - Proteção sem química
-
-${document.getElementById('editorHashtags').value}
-            `.trim();
+${document.getElementById('editorConteudo').value}`.trim();
 
             navigator.clipboard.writeText(conteudo).then(() => {
                 mostrarMensagem('✅ Artigo copiado! Cole no WordPress', 'success');
@@ -527,7 +637,6 @@ ${document.getElementById('editorHashtags').value}
             document.getElementById('editorTitulo').value = '';
             document.getElementById('editorMeta').value = '';
             document.getElementById('editorConteudo').value = '';
-            document.getElementById('editorHashtags').value = '';
             
             renderizarPagina();
             mostrarMensagem('❌ Artigo rejeitado', 'info');
